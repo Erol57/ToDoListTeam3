@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;700;900&display=swap');
+
+body {
+    background: url(img/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.column {
+    display: grid;
+    width: auto;
+    padding: 0 10px;
+
+}
+
+.item {
+    width: auto;
+    height: 45px;
+    min-height: 45px;
+    min-width: 100px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin: 2px;
+    border-radius: 10px;
+    
+}
+
+.sitem {
+    width: 80%;
+    height: 40px;
+    min-height: 40px;
+    min-width: 100px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: 0;
+
+}
+
+
+.scard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin: 2px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.item i.co {
+    position: absolute;
+    font-size: 20px;
+    padding-left: 5px;
+    left: 15px;
+    top: 10px;
+    vertical-align: middle;
+}
+
+.sitem i.co {
+    position: absolute;
+    font-size: 20px;
+    padding-left: 5px;
+    left: 15px;
+    top: 10px;
+    vertical-align: middle;
+}
+
+.item i.co:hover {
+    cursor: pointer;
+}
+
+.sitem i.co:hover {
+    cursor: pointer;
+}
+
+.fa-check-circle {
+    color: #22AE26;
+}
+
+.item p.text {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    left: 50px;
+    top: 10px;
+    max-width: 285px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.sitem p.text {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    left: 50px;
+    top: 10px;
+    max-width: 285px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.item i.ham {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    vertical-align: middle;
+}
+
+.sitem i.ham {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    vertical-align: middle;
+}
+
+.item i.ham:hover {
+    color: #af0000;
+    cursor: pointer;
+}
+
+.sitem i.ham:hover {
+    color: #af0000;
+    cursor: pointer;
+}
+
+.item i.co:hover {
+    color: #22AE26;
+    cursor: pointer;
+}
+
+.sitem i.co:hover {
+    color: #22AE26;
+    cursor: pointer;
+}
