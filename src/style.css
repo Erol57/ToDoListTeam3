@@ -1,28 +1,38 @@
 .gridContainer {
     display: grid;
+    align-content: center;
     overflow: hidden;
 }
-#mainGrid {
+/* .mainGrid {
     grid-template-columns: 1fr;
     grid-template-rows: 50px 1fr 50px;
     height: 99vh;
     background-color: red;
 }
-#bodyGrid {
+.bodyGrid {
     grid-template-columns: 50px 1fr 50px;
     background-color: aqua;
     overflow-y: scroll;
-}
-#cardGrid {
-    background-color: coral;
-}
-#checkBoxGrid {
-    grid-template-columns: 7px 31px 7px; 
-    grid-template-rows: 7px 31px 7px; 
-    border: 1px solid blue;
+} */
+.mainCardGrid {
+    grid-template-columns: auto 1fr;
     border-radius: 15px;
+}
+.mainCheckBox {
+    grid-template-columns:  10px 25px 10px; 
+    grid-template-rows:     10px 25px 10px; 
+    /* border: 3px solid rgb(20, 209, 14); */
+    /* border-radius: 15px; */
+    background-color: rgb(233, 233, 233);
 }
 input {
     grid-column-start: 2;
     grid-row-start: 2;
+    display: inline-flex;
+    cursor: pointer;
+}
+.taskZone {
+    height: 45px;
+    background-color: rgb(233, 233, 233);
+    /* border-radius: 15px; */
 }
