@@ -21,7 +21,7 @@
     grid-column-end: 3;
 }
 .mainCardGrid {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     border-radius: 15px;
     background-color: rgb(233, 233, 233);
 }
@@ -37,7 +37,9 @@ input {
 }
 .taskZone {
     height: 50px;
+    grid-column-start: 2;
 }
 .hamburgerMenu {
-    grid-template-columns: 10px 30px 10px ;
+    grid-template-columns: 10px 30px 10px;
+    grid-template-rows: 25px 5px 5px 5px 5px 5px 25px;    
 }
