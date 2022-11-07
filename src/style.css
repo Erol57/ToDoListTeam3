@@ -14,7 +14,11 @@
     overflow-y: scroll;
 }
 #cardGrid {
-    grid-template-columns: ;
+    grid-template-columns: 45px;
     grid-template-rows: 45px;
+    /* height: 45px; */
+    /* width: 45px; */
     background-color: coral;
+    border: 1px solid blue;
+    border-radius: 15px;
 }
