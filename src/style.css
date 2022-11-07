@@ -41,5 +41,5 @@ input {
 }
 .hamburgerMenu {
     grid-template-columns: 10px 30px 10px;
-    grid-template-rows: 25px 5px 5px 5px 5px 5px 25px;    
+    grid-template-rows: 12px 5px 5px 6px 5px 5px 12px;
 }
