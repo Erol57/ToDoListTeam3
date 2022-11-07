@@ -13,12 +13,8 @@
     background-color: aqua;
     overflow-y: scroll;
 }
-.bodyText {
-    display: flex;
-    grid-column-start: 2;
-    width: 100%;
-    background-color: violet;
-}
 #cardGrid {
-    
+    grid-template-columns: ;
+    grid-template-rows: ;
+    background-color: coral;
 }
