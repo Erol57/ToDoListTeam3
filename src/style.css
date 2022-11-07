@@ -10,7 +10,12 @@
     background-color: red;
 }
 #bodyGrid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px;
+    grid-template-columns: 50px 1fr 50px;
     background-color: aqua;
+}
+.bodyText {
+    display: flex;
+    grid-column-start: 2;
+    width: 100%;
+    background-color: violet;
 }
