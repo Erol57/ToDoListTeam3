@@ -15,6 +15,6 @@
 }
 #cardGrid {
     grid-template-columns: ;
-    grid-template-rows: ;
+    grid-template-rows: 45px;
     background-color: coral;
 }
