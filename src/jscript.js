@@ -4,6 +4,6 @@ function setHamCol(color) {
     document.getElementById('hamStripe3').style.backgroundColor = color;
 }
 
-function hamClick () {
+function hamClick() {
     console.log('click');
 }
