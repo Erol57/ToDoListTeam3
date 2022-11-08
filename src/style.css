@@ -45,7 +45,6 @@ input {
 }
 .hamburgerStripe {
     display: flex;
-    background-color: blueviolet;
     border-radius: 2px;
 }
 #hamStripe1.hamburgerStripe {
