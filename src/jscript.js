@@ -10,3 +10,9 @@ setHamCol('blue'); //set hamburger color
 function hamClick() {
     console.log('click');
 }
+
+// for (let i = 0; i < buttons.length; i++) {
+//     buttons[i].addEventListener("click", function() {
+//       alertMessage();
+//     });
+//   }

@@ -10,7 +10,7 @@
     background-color: red;
 }
 .bodyGrid {
-    grid-template-columns: 50px 1fr 50px;
+    grid-template-columns: 50px 50px 1fr 50px;
     background-color: aqua;
     overflow-y: scroll;
 }
@@ -20,12 +20,21 @@
     grid-column-start: 2;
     grid-column-end: 3;
 }
-.mainCardGrid {
+.cardGrid {
     grid-template-columns: auto 1fr auto;
     border-radius: 15px;
+    border: 1px solid grey;
     background-color: rgb(233, 233, 233);
 }
-.mainCheckBox {
+#taskParent.cardGrid {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+#taskChild.cardGrid {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+.checkBox {
     grid-template-columns:  14px 22px 14px; 
     grid-template-rows:     14px 22px 14px; 
 }
@@ -59,8 +68,4 @@ input {
 #hamStripe3.hamburgerStripe {
     grid-column-start: 2;
     grid-row-start: 6;
-}
-ul {
-    background-color: rgb(31, 128, 255);
-    background-color: rgb(224, 68, 255);
 }
