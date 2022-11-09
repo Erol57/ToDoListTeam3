@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<div id="collapser">
 <div class="gridContainer cardGrid" id="taskParent">
     <div class="gridContainer checkBox">
         <input type="checkbox" name="taskCheckBox" id="">
@@ -115,8 +116,40 @@
             </div>
         </div> <br>
     </div>
-    <footer>footer</footer>
+        <footer>footer</footer>
 </div>
+</div>
+
+<!-- <script>
+    const hamBurgerMenu = document.querySelectorAll(".hamburgerMenu");
+        function alertMessage(){
+        alert('Share our recipe!')
+    }
+
+    for (let i = 0; i < hamBurgerMenu.length; i++) {
+        hamBurgerMenu[i].addEventListener("click", function() {
+        alertMessage();
+    });
+    }
+</script> -->
+
+<!-- <button id='btn' value='some button'>some button</button> -->
+<div id='placeholder'></div> 
+<script>
+    (function() {
+        const menuInteraction = document.querySelectorAll(".hamburgerMenu");
+        console.log(menuInteraction);
+        // menuInteraction.addEventListener("click",doSomething,false);
+        // menuInteraction.addEventListener("mouseover",doSomething,false);
+    })();
+    function doSomething(e) {
+        var p=document.getElementById("placeholder");
+        p.innerHTML=e.type;
+    }
+</script>
+
+
+
 
 <!-- Examples -->
 
