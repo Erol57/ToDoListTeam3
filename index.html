@@ -1,126 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todo list - Group 3</title>
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/style.css" />
     <script async src="src/jscript.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="collapser">
+      <div class="gridContainer cardGrid" id="taskParent">
+        <div class="gridContainer checkBox">
+          <input type="checkbox" name="taskCheckBox" id="" />
+        </div>
+        <div class="gridContainer taskZone">
+          <h3>Parent task card</h3>
+        </div>
+        <div
+          class="gridContainer hamburgerMenu"
+          onmouseover="setHamCol('red')"
+          onmouseout="setHamCol('blue')"
+          onclick="hamClick()"
+        >
+          <div class="hamburgerStripe" id="hamStripe1"></div>
+          <div class="hamburgerStripe" id="hamStripe2"></div>
+          <div class="hamburgerStripe" id="hamStripe3"></div>
+        </div>
+      </div>
 
-<div id="collapser">
-<div class="gridContainer cardGrid" id="taskParent">
-    <div class="gridContainer checkBox">
-        <input type="checkbox" name="taskCheckBox" id="">
-    </div>
-    <div class="gridContainer taskZone">
-        <h3>Parent task card</h3>
-    </div>
-    <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-        <div class="hamburgerStripe" id="hamStripe1"></div>
-        <div class="hamburgerStripe" id="hamStripe2"></div>
-        <div class="hamburgerStripe" id="hamStripe3"></div>
-    </div>
-</div> <br>
+      <div class="gridContainer cardGrid" id="taskChild">
+        <div class="gridContainer checkBox">
+          <input type="checkbox" name="taskCheckBox" id="" />
+        </div>
+        <div class="gridContainer taskZone">
+          <h3>Child task card</h3>
+        </div>
+        <div
+          class="gridContainer hamburgerMenu"
+          onmouseover="setHamCol('red')"
+          onmouseout="setHamCol('blue')"
+          onclick="hamClick()"
+        >
+          <div class="hamburgerStripe" id="hamStripe1"></div>
+          <div class="hamburgerStripe" id="hamStripe2"></div>
+          <div class="hamburgerStripe" id="hamStripe3"></div>
+        </div>
+      </div>
 
-<div class="gridContainer cardGrid" id="taskChild">
-    <div class="gridContainer checkBox">
-        <input type="checkbox" name="taskCheckBox" id="">
-    </div>
-    <div class="gridContainer taskZone">
-        <h3>Child task card</h3>
-    </div>
-    <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-        <div class="hamburgerStripe" id="hamStripe1"></div>
-        <div class="hamburgerStripe" id="hamStripe2"></div>
-        <div class="hamburgerStripe" id="hamStripe3"></div>
-    </div>
-</div> <br>
-
-<div class="gridContainer mainGrid">
-    <header>header</header>
-    <div class="gridContainer bodyGrid">
-
-        <div class="gridContainer cardGrid" id="taskParent">
+      <div class="gridContainer mainGrid">
+        <header>header</header>
+        <div class="gridContainer bodyGrid">
+          <div class="gridContainer cardGrid" id="taskParent">
             <div class="gridContainer checkBox">
-                <input type="checkbox" name="taskCheckBox" id="">
+              <input type="checkbox" name="taskCheckBox" id="" />
             </div>
             <div class="gridContainer taskZone">
-                <h3>Parent task card</h3>
+              <h3>Parent task card</h3>
             </div>
-            <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
+            <div
+              class="gridContainer hamburgerMenu"
+              onmouseover="setHamCol('red')"
+              onmouseout="setHamCol('blue')"
+              onclick="hamClick()"
+            >
+              <div class="hamburgerStripe" id="hamStripe1"></div>
+              <div class="hamburgerStripe" id="hamStripe2"></div>
+              <div class="hamburgerStripe" id="hamStripe3"></div>
             </div>
-        </div> <br>
+          </div>
 
-        <div class="gridContainer cardGrid" id="taskChild">
+          <div class="gridContainer cardGrid" id="taskChild">
             <div class="gridContainer checkBox">
-                <input type="checkbox" name="taskCheckBox" id="">
+              <input type="checkbox" name="taskCheckBox" id="" />
             </div>
             <div class="gridContainer taskZone">
-                <h3>Child task card</h3>
+              <h3>Child task card</h3>
             </div>
-            <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
+            <div
+              class="gridContainer hamburgerMenu"
+              onmouseover="setHamCol('red')"
+              onmouseout="setHamCol('blue')"
+              onclick="hamClick()"
+            >
+              <div class="hamburgerStripe" id="hamStripe1"></div>
+              <div class="hamburgerStripe" id="hamStripe2"></div>
+              <div class="hamburgerStripe" id="hamStripe3"></div>
             </div>
-        </div> <br>
+          </div>
 
-        <div class="gridContainer cardGrid" id="taskParent">
+          <div class="gridContainer cardGrid" id="taskParent">
             <div class="gridContainer checkBox">
-                <input type="checkbox" name="taskCheckBox" id="">
+              <input type="checkbox" name="taskCheckBox" id="" />
             </div>
             <div class="gridContainer taskZone">
-                <h3>Parent task card</h3>
+              <h3>Parent task card</h3>
             </div>
-            <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
+            <div
+              class="gridContainer hamburgerMenu"
+              onmouseover="setHamCol('red')"
+              onmouseout="setHamCol('blue')"
+              onclick="hamClick()"
+            >
+              <div class="hamburgerStripe" id="hamStripe1"></div>
+              <div class="hamburgerStripe" id="hamStripe2"></div>
+              <div class="hamburgerStripe" id="hamStripe3"></div>
             </div>
-        </div> <br>
+          </div>
 
-        <div class="gridContainer cardGrid" id="taskChild">
+          <div class="gridContainer cardGrid" id="taskChild">
             <div class="gridContainer checkBox">
-                <input type="checkbox" name="taskCheckBox" id="">
+              <input type="checkbox" name="taskCheckBox" id="" />
             </div>
             <div class="gridContainer taskZone">
-                <h3>Child task card</h3>
+              <h3>Child task card</h3>
             </div>
-            <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
+            <div
+              class="gridContainer hamburgerMenu"
+              onmouseover="setHamCol('red')"
+              onmouseout="setHamCol('blue')"
+              onclick="hamClick()"
+            >
+              <div class="hamburgerStripe" id="hamStripe1"></div>
+              <div class="hamburgerStripe" id="hamStripe2"></div>
+              <div class="hamburgerStripe" id="hamStripe3"></div>
             </div>
-        </div> <br>
+          </div>
 
-        <div class="gridContainer cardGrid" id="taskChild">
+          <div class="gridContainer cardGrid" id="taskChild">
             <div class="gridContainer checkBox">
-                <input type="checkbox" name="taskCheckBox" id="">
+              <input type="checkbox" name="taskCheckBox" id="" />
             </div>
             <div class="gridContainer taskZone">
-                <h3>Child task card</h3>
+              <h3>Child task card</h3>
             </div>
-            <div class="gridContainer hamburgerMenu" onmouseover="setHamCol('red')" onmouseout="setHamCol('blue')" onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
+            <div
+              class="gridContainer hamburgerMenu"
+              onmouseover="setHamCol('red')"
+              onmouseout="setHamCol('blue')"
+              onclick="hamClick()"
+            >
+              <div class="hamburgerStripe" id="hamStripe1"></div>
+              <div class="hamburgerStripe" id="hamStripe2"></div>
+              <div class="hamburgerStripe" id="hamStripe3"></div>
             </div>
-        </div> <br>
-    </div>
+          </div>
+        </div>
         <footer>footer</footer>
-</div>
-</div>
+      </div>
+    </div>
 
-<!-- <script>
+    <!-- <script>
     const hamBurgerMenu = document.querySelectorAll(".hamburgerMenu");
         function alertMessage(){
         alert('Share our recipe!')
@@ -133,27 +169,24 @@
     }
 </script> -->
 
-<!-- <button id='btn' value='some button'>some button</button> -->
-<div id='placeholder'></div> 
-<script>
-    (function() {
+    <!-- <button id='btn' value='some button'>some button</button> -->
+    <div id="placeholder"></div>
+    <script>
+      (function () {
         const menuInteraction = document.querySelectorAll(".hamburgerMenu");
         console.log(menuInteraction);
         // menuInteraction.addEventListener("click",doSomething,false);
         // menuInteraction.addEventListener("mouseover",doSomething,false);
-    })();
-    function doSomething(e) {
-        var p=document.getElementById("placeholder");
-        p.innerHTML=e.type;
-    }
-</script>
+      })();
+      function doSomething(e) {
+        var p = document.getElementById("placeholder");
+        p.innerHTML = e.type;
+      }
+    </script>
 
+    <!-- Examples -->
 
-
-
-<!-- Examples -->
-
-<!-- <div>Tumbling items into grid box
+    <!-- <div>Tumbling items into grid box
 <div class="grid-container">
     <div class="item1">1</div>
     <div class="item2">2</div>
@@ -184,8 +217,8 @@
 }
 </style>
 </div> -->
-    
-<!-- <div>Amazing grid-area example
+
+    <!-- <div>Amazing grid-area example
         <section class="grid-1">
             <div class="item-1">1</div>
             <div class="item-2">2</div>
@@ -229,7 +262,7 @@ body {
 </style>
 </div> -->
 
-<!-- <div>sticky header & footer
+    <!-- <div>sticky header & footer
     <div class="container">
         <div class="header">.header</div>
         <div class="body">
@@ -296,7 +329,5 @@ body {
     }    
     </style>
 </div> -->
-
-</body>
+  </body>
 </html>
-
