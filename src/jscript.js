@@ -3,11 +3,11 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
     
     //Add li in myList
     const node = document.createElement("li");
-    const textnode = document.createTextNode(itemname);
-    node.appendChild(textnode);
+    //const textnode = document.createTextNode(itemname);
+    //node.appendChild(textnode);
     
     document.getElementById("ToDoList").appendChild(node);
-    textnode.className = "text";
+    //textnode.className = "text";
     
         //set class of li
         newitem = document.getElementById("ToDoList").appendChild(node);
@@ -31,6 +31,13 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
                 newitem.appendChild(node_i_p);
                 newitem_i_p = newitem.appendChild(node_i_p);
                 newitem_i_p.className = "text";
+                const textnode = document.createTextNode(itemname);
+                newitem_i_p.appendChild(textnode);
+
+                //newitem_i_p = newitem.appendChild(node_i_p);
+                //const textnode = newitem_i_p.document.createTextNode(itemname);
+                //newitem_i_p.appendChild(textnode);                
+                //newitem_i_p.className = "text";
 
 }
 
