@@ -34,10 +34,6 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
                 const textnode = document.createTextNode(itemname);
                 newitem_i_p.appendChild(textnode);
 
-                //newitem_i_p = newitem.appendChild(node_i_p);
-                //const textnode = newitem_i_p.document.createTextNode(itemname);
-                //newitem_i_p.appendChild(textnode);                
-                //newitem_i_p.className = "text";
 
 }
 
