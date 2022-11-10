@@ -26,6 +26,12 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
                 newitem_i_h = newitem.appendChild(node_i_h)
                 newitem_i_h.className = "fa fa-bars ham";
 
+                //<p class="text">Buy Coffee</p>
+                const node_i_p = document.createElement("p");
+                newitem.appendChild(node_i_p);
+                newitem_i_p = newitem.appendChild(node_i_p);
+                newitem_i_p.className = "text";
+
 }
 
 
