@@ -1,18 +1,48 @@
 .dropdown {
     box-sizing: border-box;
     width: fit-content;
-    
-
+    position: absolute;
 }
+
 .select {
-    background-color: blue;
+    background-color: #2a2f3b;
     color: white;
     border: 2px black solid;
     border-radius: 0.5em;
     padding: 1em;
-    cursor: pointer;
-
+    width: auto;
 }
-.selected-clicked {
 
+.select:hover {
+    background-color: #2a2f3bdf;
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background-color: #2a2f3b;
+    color: white;
+    border: 1px white solid;
+    border-radius: 0.5em;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: max-content;
+    opacity: 0;
+    display: none;
+}
+
+.menu li {
+padding: 0.7em;
+margin: 0.3em 0;
+border-radius: 0.5em;
+cursor: pointer;
+}
+li:hover {
+    background-color: #ababab93;
+}
+
+.menu-open {
+display: block;
+opacity: 1;
 }
