@@ -73,10 +73,8 @@ input {
     grid-row: 2/3;
 }
 .hamburgerMenuBuffer {
-    /* grid-template-columns: 50px;
-    grid-template-rows: 50px; */
     grid-template-columns: 15px 20px 15px;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 15px 1fr;
     grid-column-start: 4;
 }
 .hamburgerMenu {
