@@ -72,10 +72,17 @@ input {
     grid-column: 1/4;
     grid-row: 2/3;
 }
-.hamburgerMenu {
+.hamburgerMenuBuffer {
     grid-template-columns: 15px 20px 15px;
-    grid-template-rows: auto 3px 3px 3px 3px 3px auto;
+    grid-template-rows: 1fr 15px 1fr;
     grid-column-start: 4;
+}
+.hamburgerMenu {
+    grid-template-columns: 20px ;
+    grid-template-rows:  3px 3px 3px 3px 3px ;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    justify-content: center;
 }
 .hamburgerStripe {
     display: flex;
@@ -83,14 +90,14 @@ input {
     background-color: blue;
 }
 #hamStripe1.hamburgerStripe {
-    grid-column-start: 2;
-    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 #hamStripe2.hamburgerStripe {
-    grid-column-start: 2;
-    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-row-start: 3;
 }
 #hamStripe3.hamburgerStripe {
-    grid-column-start: 2;
-    grid-row-start: 6;
+    grid-column-start: 1;
+    grid-row-start: 5;
 }
