@@ -1,7 +1,14 @@
-function setHamCol(color) {
-    document.getElementById('hamStripe1').style.backgroundColor = color;
-    document.getElementById('hamStripe2').style.backgroundColor = color;
-    document.getElementById('hamStripe3').style.backgroundColor = color;
+function setHamCol(hamburgerID, color) {
+    document.getElementById(hamburgerID+'.1').style.backgroundColor = color;
+    document.getElementById(hamburgerID+'.2').style.backgroundColor = color;
+    document.getElementById(hamburgerID+'.3').style.backgroundColor = color;
+    console.log(hamburgerID);
+    console.log(document.getElementById(hamburgerID).childElementCount); 
+    // document.getElementById(hamburgerID).childNodes.array.forEach(element => {
+    //     forEach
+    // });.backgroundColor = color; 
+    // .backgroundColor = color;
+    // .style.backgroundColor = color;
 }
 
 function setPlusCol (color) {
@@ -12,24 +19,19 @@ function setPlusCol (color) {
 function hamClick() {
     console.log('click');
 }
-
-
-
-
     const burgers = document.querySelectorAll(".hamburgerMenu");
     
-    // for (let i = 0; i < burgers.length; i++) {
-    //     burgers[i].addEventListener("mouseover", function() {
-    //         setHamCol('red');
-    //         console.log(this);
-    //     });
-    // }
+    for (let i = 0; i < burgers.length; i++) {
+        burgers[i].addEventListener("mouseover", function() {
+            setHamCol(this.id, 'red');
+        });
+    }
 
-    // for (let i = 0; i < burgers.length; i++) {
-    //     burgers[i].addEventListener("mouseout", function() {
-    //         setHamCol('blue');
-    //     });
-    // }
+    for (let i = 0; i < burgers.length; i++) {
+        burgers[i].addEventListener("mouseout", function() {
+            setHamCol(this.id, 'blue');
+        });
+    }
     
     for (let i = 0; i < burgers.length; i++) {
         burgers[i].addEventListener("click", function() {

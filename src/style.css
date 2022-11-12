@@ -64,11 +64,11 @@ input {
     border-radius: 2px;
     background-color: orangered;
 }
-#vertical.plusLine {
+.vertical.plusLine {
     grid-column: 2/3;
     grid-row: 1/4;
 }
-#horizontal.plusLine {
+.horizontal.plusLine {
     grid-column: 1/4;
     grid-row: 2/3;
 }
@@ -89,15 +89,15 @@ input {
     border-radius: 2px;
     background-color: blue;
 }
-#hamStripe1.hamburgerStripe {
+.hamStripe1.hamburgerStripe {
     grid-column-start: 1;
     grid-row-start: 1;
 }
-#hamStripe2.hamburgerStripe {
+.hamStripe2.hamburgerStripe {
     grid-column-start: 1;
     grid-row-start: 3;
 }
-#hamStripe3.hamburgerStripe {
+.hamStripe3.hamburgerStripe {
     grid-column-start: 1;
     grid-row-start: 5;
 }
