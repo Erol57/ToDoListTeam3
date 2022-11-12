@@ -10,20 +10,3 @@ function setHamCol(color) {
 function hamClick() {
     console.log('click');
 }
-
-
-
-
-
-
-
-// const hamBurgerMenu = document.querySelectorAll(".hamburgerMenu");
-// function alertMessage(){
-//   alert('Share our recipe!')
-// }
-
-// for (let i = 0; i < hamBurgerMenu.length; i++) {
-//   hamBurgerMenu[i].addEventListener("click", function() {
-//     alertMessage();
-//   });
-// }
