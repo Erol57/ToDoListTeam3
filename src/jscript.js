@@ -12,3 +12,14 @@ function setPlusCol (color) {
 function hamClick() {
     console.log('click');
 }
+
+const buttons = document.querySelectorAll(".shareButton");
+function alertMessage(){
+  alert('Share our recipe!')
+}
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function() {
+    alertMessage();
+  });
+}
