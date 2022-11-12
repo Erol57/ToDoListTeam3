@@ -84,11 +84,19 @@ input {
     grid-row-start: 2;
     justify-content: center;
 }
+
+
+.hamburgerMenu:hover {
+    background-color: red;
+  }
+
 .hamburgerStripe {
     display: flex;
     border-radius: 2px;
     background-color: blue;
 }
+
+
 #hamStripe1.hamburgerStripe {
     grid-column-start: 1;
     grid-row-start: 1;
@@ -101,3 +109,4 @@ input {
     grid-column-start: 1;
     grid-row-start: 5;
 }
+
