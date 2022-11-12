@@ -11,7 +11,7 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
     
         //set class of li
         newitem = document.getElementById("ToDoList").appendChild(node);
-        newitem.className = "item card";
+        newitem.className = "card";
 
                 //Add i for complete
                 const node_i_c = document.createElement("i");
