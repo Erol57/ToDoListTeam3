@@ -22,12 +22,14 @@
     grid-column-end: 3;
 }
 .cardGrid {
-    grid-template-columns: auto 1fr auto auto;
+    /* container for card subgrids */
+    grid-template-columns: auto 1fr auto auto; 
     height: 50px;
     border-radius: 15px;
     border: 1px solid grey;
     background-color: rgb(233, 233, 233);
 }
+/* defines how task grid connects to page body grid */
 #taskParent.cardGrid {
     grid-column-start: 2;
     grid-column-end: 4;
@@ -37,6 +39,7 @@
     grid-column-end: 4;
 }
 .checkBox {
+    /* 50px grid for checkbox */
     grid-template-columns:  14px 22px 14px; 
     grid-template-rows:     14px 22px 14px; 
 }
