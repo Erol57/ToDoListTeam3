@@ -13,13 +13,20 @@ function hamClick() {
     console.log('click');
 }
 
-const buttons = document.querySelectorAll(".shareButton");
-function alertMessage(){
-  alert('Share our recipe!')
+// Event Listner
+const burgers = document.querySelectorAll(".hamburgerMenu");
+
+for (let i = 0; i < burgers.length; i++) {
+    // burgers[i].addEventListener("click", function() {
+    burgers[i].addEventListener("mouseover", function() {
+        setHamCol(red);
+        console.log('hover!!');
+    });
 }
 
-for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function() {
-    alertMessage();
+for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("click", function() {
+    // burgers[i].addEventListener("mouseover", function() {
+    console.log("click worked");
   });
 }
