@@ -1,3 +1,16 @@
+header {
+    background-color: white;
+    height: 300px;
+
+}
+
+img {
+    display:grid;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+    
+}
 .dropdown {
     box-sizing: border-box;
     width: fit-content;
@@ -5,16 +18,15 @@
 }
 
 .select {
-    background-color: #2a2f3b;
+    background-color: transparent;
     color: white;
-    border: 2px black solid;
     border-radius: 0.5em;
     padding: 1em;
     width: auto;
 }
 
-.select:hover {
-    background-color: #2a2f3bdf;
+.select:hover #nav {
+    background-color: red;
 }
 
 .menu {
@@ -45,4 +57,35 @@ li:hover {
 .menu-open {
 display: block;
 opacity: 1;
+}
+
+#add-task{
+    border:none;
+    background-color: black;
+    color: white; 
+    width: 60px;
+    height:60px;
+    padding: auto;
+    font-size:40px;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#add-task:hover{
+    color: red;
+}
+#nav {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+      
+}
+
+.bodyGrid {
+    display:grid;
+    margin-left: auto;
+    margin-right:auto;
+
 }
