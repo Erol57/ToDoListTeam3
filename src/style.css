@@ -10,7 +10,6 @@ body {
     display: grid;
     width: auto;
     padding: 0 10px;
-
 }
 
 .item {
@@ -34,7 +33,6 @@ body {
     background-color: #f1f1f1;
     margin: 2px;
     border-radius: 10px;
-    
 }
 
 .sitem {
