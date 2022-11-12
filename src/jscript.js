@@ -17,7 +17,6 @@ function hamClick() {
 const burgers = document.querySelectorAll(".hamburgerMenu");
 
 for (let i = 0; i < burgers.length; i++) {
-    // burgers[i].addEventListener("click", function() {
     burgers[i].addEventListener("mouseover", function() {
         setHamCol(red);
         console.log('hover!!');
@@ -26,7 +25,6 @@ for (let i = 0; i < burgers.length; i++) {
 
 for (let i = 0; i < burgers.length; i++) {
     burgers[i].addEventListener("click", function() {
-    // burgers[i].addEventListener("mouseover", function() {
     console.log("click worked");
   });
 }
