@@ -22,7 +22,7 @@
     grid-column-end: 3;
 }
 .cardGrid {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr auto auto;
     height: 50px;
     border-radius: 15px;
     border: 1px solid grey;
@@ -51,9 +51,28 @@ input {
     grid-column-start: 2;
     font-family: 'Red Hat Display', sans-serif;
 }
+.plusSign {
+    grid-template-columns: 8px 3px 8px;
+    grid-template-rows: 8px 3px 8px ;
+    grid-column-start: 3;
+}
+.plusLine {
+    display: flex;
+    border-radius: 2px;
+    background-color: orangered;
+}
+#vertical.plusLine {
+    grid-column: 2/3;
+    grid-row: 1/4;
+}
+#horizontal.plusLine {
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
 .hamburgerMenu {
-    grid-template-columns: 20px 20px 15px;
+    grid-template-columns: 15px 20px 15px;
     grid-template-rows: auto 3px 3px 3px 3px 3px auto;
+    grid-column-start: 4;
 }
 .hamburgerStripe {
     display: flex;
