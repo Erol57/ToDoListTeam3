@@ -22,12 +22,14 @@
     grid-column-end: 3;
 }
 .cardGrid {
-    grid-template-columns: auto 1fr auto;
+    /* container for card subgrids */
+    grid-template-columns: auto 1fr auto auto; 
     height: 50px;
     border-radius: 15px;
     border: 1px solid grey;
     background-color: rgb(233, 233, 233);
 }
+/* defines how task grid connects to page body grid */
 #taskParent.cardGrid {
     grid-column-start: 2;
     grid-column-end: 4;
@@ -37,6 +39,7 @@
     grid-column-end: 4;
 }
 .checkBox {
+    /* 50px grid for checkbox */
     grid-template-columns:  14px 22px 14px; 
     grid-template-rows:     14px 22px 14px; 
 }
@@ -51,9 +54,28 @@ input {
     grid-column-start: 2;
     font-family: 'Red Hat Display', sans-serif;
 }
+.plusSign {
+    grid-template-columns: 8px 3px 8px;
+    grid-template-rows: 8px 3px 8px ;
+    grid-column-start: 3;
+}
+.plusLine {
+    display: flex;
+    border-radius: 2px;
+    background-color: orangered;
+}
+#vertical.plusLine {
+    grid-column: 2/3;
+    grid-row: 1/4;
+}
+#horizontal.plusLine {
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
 .hamburgerMenu {
-    grid-template-columns: 20px 20px 15px;
+    grid-template-columns: 15px 20px 15px;
     grid-template-rows: auto 3px 3px 3px 3px 3px auto;
+    grid-column-start: 4;
 }
 .hamburgerStripe {
     display: flex;
