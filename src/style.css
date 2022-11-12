@@ -23,6 +23,7 @@
 }
 .cardGrid {
     grid-template-columns: auto 1fr auto;
+    height: 50px;
     border-radius: 15px;
     border: 1px solid grey;
     background-color: rgb(233, 233, 233);
