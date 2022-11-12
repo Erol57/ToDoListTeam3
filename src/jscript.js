@@ -4,11 +4,6 @@ function setHamCol(hamburgerID, color) {
     document.getElementById(hamburgerID+'.3').style.backgroundColor = color;
     console.log(hamburgerID);
     console.log(document.getElementById(hamburgerID).childElementCount); 
-    // document.getElementById(hamburgerID).childNodes.array.forEach(element => {
-    //     forEach
-    // });.backgroundColor = color; 
-    // .backgroundColor = color;
-    // .style.backgroundColor = color;
 }
 
 function setPlusCol (color) {
