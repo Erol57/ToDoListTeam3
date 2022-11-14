@@ -64,19 +64,33 @@ footer {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     font-weight: bold;
+    width: auto;
 }
 
-.card .checkbox {
+.scard {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-color: rgb(233, 233, 233);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    width: 250px;
+}
+
+.card .checkbox, .scard .checkbox {
     grid-column-start: 1;
     grid-column-end: 2;
 }
 
-.card .tasktitle {
+.card .tasktitle, .scard .tasktitle  {
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
-.card .hambmen {
+.card .hambmen, .scard .hambmen {
     grid-column-start: 3;
     grid-column-end: 4;
     background-image: url(ham1.png);
@@ -86,7 +100,7 @@ footer {
     height: 17px;
 }
 
-.card .hambmen:hover {
+.card .hambmen:hover, .scard .hambmen:hover {
     background-image: url(ham2.png);
 }
 
