@@ -7,8 +7,8 @@ function setHamCol(hamburgerID, color) {
 }
 
 function setPlusCol(color) {
-  document.getElementById("vertical").style.backgroundColor = color;
-  document.getElementById("horizontal").style.backgroundColor = color;
+  document.getElementById("t1pv").style.backgroundColor = color;
+  document.getElementById("t1ph").style.backgroundColor = color;
 }
 
 function hamClick() {
@@ -31,6 +31,5 @@ for (let i = 0; i < burgers.length; i++) {
 for (let i = 0; i < burgers.length; i++) {
   burgers[i].addEventListener("click", function () {
     hamClick();
-    console.log(this);
   });
 }

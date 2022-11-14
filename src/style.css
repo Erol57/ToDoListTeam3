@@ -30,11 +30,11 @@
   background-color: rgb(233, 233, 233);
 }
 /* defines how task grid connects to page body grid */
-#taskParent.cardGrid {
+.taskParent.cardGrid {
   grid-column-start: 2;
   grid-column-end: 4;
 }
-#taskChild.cardGrid {
+.taskChild.cardGrid {
   grid-column-start: 3;
   grid-column-end: 4;
 }
@@ -54,10 +54,16 @@ input {
   grid-column-start: 2;
   font-family: "Red Hat Display", sans-serif;
 }
+.plusSignBuffer {
+  grid-template-columns: 5px 19px 5px;
+  grid-template-rows: 1fr 19px 1fr;
+  grid-column-start: 3;
+}
 .plusSign {
   grid-template-columns: 8px 3px 8px;
   grid-template-rows: 8px 3px 8px;
-  grid-column-start: 3;
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 .plusLine {
   display: flex;
