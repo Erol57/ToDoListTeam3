@@ -1,103 +1,103 @@
 .gridContainer {
-    display: grid;
-    align-content: center;
-    overflow: hidden;
+  display: grid;
+  align-content: center;
+  overflow: hidden;
 }
 .mainGrid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr 50px;
-    height: 99vh;
-    background-color: red;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  height: 99vh;
+  background-color: red;
 }
 .bodyGrid {
-    grid-template-columns: 25px 30px 1fr 25px;
-    background-color: aqua;
-    overflow-y: scroll;
-    align-content: flex-start;
+  grid-template-columns: 25px 30px 1fr 25px;
+  background-color: aqua;
+  overflow-y: scroll;
+  align-content: flex-start;
 }
 .text {
-    display: flex;
-    flex-direction: column;
-    grid-column-start: 2;
-    grid-column-end: 3;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 .cardGrid {
-    /* container for card subgrids */
-    grid-template-columns: auto 1fr auto auto; 
-    height: 50px;
-    border-radius: 15px;
-    border: 1px solid grey;
-    background-color: rgb(233, 233, 233);
+  /* container for card subgrids */
+  grid-template-columns: auto 1fr auto auto;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  background-color: rgb(233, 233, 233);
 }
 /* defines how task grid connects to page body grid */
 #taskParent.cardGrid {
-    grid-column-start: 2;
-    grid-column-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
 #taskChild.cardGrid {
-    grid-column-start: 3;
-    grid-column-end: 4;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 .checkBox {
-    /* 50px grid for checkbox */
-    grid-template-columns:  14px 22px 14px; 
-    grid-template-rows:     14px 22px 14px; 
+  /* 50px grid for checkbox */
+  grid-template-columns: 14px 22px 14px;
+  grid-template-rows: 14px 22px 14px;
 }
 input {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    display: inline-flex;
-    cursor: pointer;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: inline-flex;
+  cursor: pointer;
 }
 .taskZone {
-    height: 50px;
-    grid-column-start: 2;
-    font-family: 'Red Hat Display', sans-serif;
+  height: 50px;
+  grid-column-start: 2;
+  font-family: "Red Hat Display", sans-serif;
 }
 .plusSign {
-    grid-template-columns: 8px 3px 8px;
-    grid-template-rows: 8px 3px 8px ;
-    grid-column-start: 3;
+  grid-template-columns: 8px 3px 8px;
+  grid-template-rows: 8px 3px 8px;
+  grid-column-start: 3;
 }
 .plusLine {
-    display: flex;
-    border-radius: 2px;
-    background-color: orangered;
+  display: flex;
+  border-radius: 2px;
+  background-color: orangered;
 }
 .vertical.plusLine {
-    grid-column: 2/3;
-    grid-row: 1/4;
+  grid-column: 2/3;
+  grid-row: 1/4;
 }
 .horizontal.plusLine {
-    grid-column: 1/4;
-    grid-row: 2/3;
+  grid-column: 1/4;
+  grid-row: 2/3;
 }
 .hamburgerMenuBuffer {
-    grid-template-columns: 15px 20px 15px;
-    grid-template-rows: 1fr 15px 1fr;
-    grid-column-start: 4;
+  grid-template-columns: 15px 20px 15px;
+  grid-template-rows: 1fr 15px 1fr;
+  grid-column-start: 4;
 }
 .hamburgerMenu {
-    grid-template-columns: 20px ;
-    grid-template-rows:  3px 3px 3px 3px 3px ;
-    grid-column-start: 2;
-    grid-row-start: 2;
-    justify-content: center;
+  grid-template-columns: 20px;
+  grid-template-rows: 3px 3px 3px 3px 3px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  justify-content: center;
 }
 .hamburgerStripe {
-    display: flex;
-    border-radius: 2px;
-    background-color: blue;
+  display: flex;
+  border-radius: 2px;
+  background-color: blue;
 }
 .hamStripe1.hamburgerStripe {
-    grid-column-start: 1;
-    grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-start: 1;
 }
 .hamStripe2.hamburgerStripe {
-    grid-column-start: 1;
-    grid-row-start: 3;
+  grid-column-start: 1;
+  grid-row-start: 3;
 }
 .hamStripe3.hamburgerStripe {
-    grid-column-start: 1;
-    grid-row-start: 5;
+  grid-column-start: 1;
+  grid-row-start: 5;
 }
