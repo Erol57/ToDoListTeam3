@@ -12,6 +12,8 @@ function setPlusCol(plusID, color) {
 function hamClick() {
   console.log("click");
 }
+
+// Hamburger Menu Listner
 const burgers = document.querySelectorAll(".hamburgerMenu");
 for (let i = 0; i < burgers.length; i++) {
   burgers[i].addEventListener("mouseover", function () {
@@ -31,6 +33,7 @@ for (let i = 0; i < burgers.length; i++) {
   });
 }
 
+// Plus Sign Listner
 const plusses = document.querySelectorAll(".plusSign");
 
 for (let i = 0; i < plusses.length; i++) {
