@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>todo list - Group 3</title>
-    <link rel="stylesheet" href="src/style.css" />
-    <script async src="src/jscript.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="gridContainer mainGrid">
-      <header>header</header>
-      <div class="gridContainer bodyGrid">
-        
-        <div class="gridContainer cardGrid" id="taskParent">
-            <div class="gridContainer checkBox">
-              <input type="checkbox" name="taskCheckBox" id="" />
-            </div>
-            <div class="gridContainer taskZone">
-              <h3>Parent task card</h3>
-            </div>
-            <div class="gridContainer plusSign"               
-              onmouseover="setPlusCol('green')"
-              onmouseout="setPlusCol('orangered')">
-              <div class="plusLine" id="vertical"></div>
-              <div class="plusLine" id="horizontal"></div>
-            </div>
-            <div class="gridContainer hamburgerMenuBuffer">
-              <div
-                class="gridContainer hamburgerMenu"
-                onmouseover="setHamCol('red')"
-                onmouseout="setHamCol('blue')"
-                onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="gridContainer cardGrid" id="taskChild">
-            <div class="gridContainer checkBox">
-              <input type="checkbox" name="taskCheckBox" id="" />
-            </div>
-            <div class="gridContainer taskZone">
-              <h3>Child task card</h3>
-            </div>
-            <div class="gridContainer hamburgerMenuBuffer">
-              <div
-                class="gridContainer hamburgerMenu"
-                onmouseover="setHamCol('red')"
-                onmouseout="setHamCol('blue')"
-                onclick="hamClick()">
-                <div class="hamburgerStripe" id="hamStripe1"></div>
-                <div class="hamburgerStripe" id="hamStripe2"></div>
-                <div class="hamburgerStripe" id="hamStripe3"></div>
-              </div>
-            </div>
-          </div>
-
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>todo list - Group 3</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <script async src="src/jscript.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="gridContainer mainGrid">
+    <header>header</header>
+    <div class="gridContainer bodyGrid">
+      <div class="gridContainer cardGrid taskParent">
+        <div class="gridContainer checkBox">
+          <input type="checkbox" name="taskCheckBox" id="task1" />
         </div>
-        <footer>footer</footer>
+        <div class="gridContainer taskZone">
+          <h3>Parent task card</h3>
+        </div>
+        <div class="gridContainer plusSignBuffer">
+          <div class="gridContainer plusSign" id="t1plus">
+            <div class="plusLine vertical" id="t1plusVertical"></div>
+            <div class="plusLine horizontal" id="t1plusHorizontal"></div>
+          </div>
+        </div>
+        <div class="gridContainer hamburgerMenuBuffer">
+          <div class="gridContainer hamburgerMenu" id="t1">
+            <div class="hamburgerStripe hamStripe1" id="t1.1"></div>
+            <div class="hamburgerStripe hamStripe2" id="t1.2"></div>
+            <div class="hamburgerStripe hamStripe3" id="t1.3"></div>
+          </div>
+        </div>
       </div>
-  </body>
+      <div class="gridContainer cardGrid taskChild">
+        <div class="gridContainer checkBox">
+          <input type="checkbox" name="taskCheckBox" id="task1_sub1" />
+        </div>
+        <div class="gridContainer taskZone">
+          <h3>Child task card</h3>
+        </div>
+        <div class="gridContainer hamburgerMenuBuffer">
+          <div class="gridContainer hamburgerMenu" id="t1_s1">
+            <div class="hamburgerStripe hamStripe1" id="t1_s1.1"></div>
+            <div class="hamburgerStripe hamStripe2" id="t1_s1.2"></div>
+            <div class="hamburgerStripe hamStripe3" id="t1_s1.3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>footer</footer>
+  </div>
+</body>
+
 </html>
