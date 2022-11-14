@@ -33,8 +33,23 @@ for (let i = 0; i < burgers.length; i++) {
   });
 }
 
-// Plus Sign Listner
-const plusses = document.querySelectorAll(".plusSign");
+// newTask Listner
+const taskPlusses = document.querySelectorAll(".addTask");
+
+for (let i = 0; i < taskPlusses.length; i++) {
+  taskPlusses[i].addEventListener("mouseover", function () {
+    setPlusCol(this.id, "black");
+  });
+}
+
+for (let i = 0; i < taskPlusses.length; i++) {
+  taskPlusses[i].addEventListener("mouseout", function () {
+    setPlusCol(this.id, "cornflowerblue");
+  });
+}
+
+// newSubTask Listner
+const plusses = document.querySelectorAll(".addSubTask");
 
 for (let i = 0; i < plusses.length; i++) {
   plusses[i].addEventListener("mouseover", function () {
