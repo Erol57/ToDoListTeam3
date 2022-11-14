@@ -1,3 +1,90 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: bisque;
+}
+
+.maingrid {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+header {
+    background: tomato;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+left {
+    background: gold;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+todolist {
+    background: green;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+right {
+    background: gold;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+footer {
+    background: tomato;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+
+.card {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-color: rgb(233, 233, 233);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.card .checkbox {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.card .tasktitle {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.card .hambmen {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+
+
+
+
+
+/*
 .gridContainer {
     display: grid;
     align-content: center;
@@ -22,14 +109,13 @@
     grid-column-end: 3;
 }
 .cardGrid {
-    /* container for card subgrids */
     grid-template-columns: auto 1fr auto auto; 
     height: 50px;
     border-radius: 15px;
     border: 1px solid grey;
     background-color: rgb(233, 233, 233);
 }
-/* defines how task grid connects to page body grid */
+
 #taskParent.cardGrid {
     grid-column-start: 2;
     grid-column-end: 4;
@@ -39,7 +125,7 @@
     grid-column-end: 4;
 }
 .checkBox {
-    /* 50px grid for checkbox */
+
     grid-template-columns:  14px 22px 14px; 
     grid-template-rows:     14px 22px 14px; 
 }
@@ -109,4 +195,4 @@ input {
     grid-column-start: 1;
     grid-row-start: 5;
 }
-
+*/
