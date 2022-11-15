@@ -20,7 +20,7 @@ body {
 .mainGrid {
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
-  height: 99vh;
+  height: 100vh;
   background-color: red;
 }
 
@@ -29,8 +29,7 @@ body {
   background-color: aqua;
   overflow-y: scroll;
   align-content: flex-start;
-  margin-top: 3px;
-  row-gap: 3px;
+  row-gap: 1px;
 }
 
 .cardGrid {
