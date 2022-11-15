@@ -27,13 +27,6 @@
   align-content: flex-start;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
 .cardGrid {
   /* container for card subgrids */
   grid-template-columns: auto 1fr auto auto;
