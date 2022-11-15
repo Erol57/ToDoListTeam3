@@ -79,6 +79,7 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
   
   
   document.getElementById("bodyGrid").appendChild(newTaskNode);
+  
   //textnewTaskNode.className = "text";
   
   
