@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .gridContainer {
   display: grid;
   align-content: center;
@@ -25,6 +29,8 @@
   background-color: aqua;
   overflow-y: scroll;
   align-content: flex-start;
+  margin-top: 3px;
+  row-gap: 3px;
 }
 
 .cardGrid {
