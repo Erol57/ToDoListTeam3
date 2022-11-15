@@ -70,7 +70,7 @@ function hamClick() {
   console.log("click");
 }
 
-/*
+
 function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
   //Add li in myList 
   const newTaskNode = document.createElement("div");
@@ -80,12 +80,13 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
   
   document.getElementById("bodyGrid").appendChild(newTaskNode);
   //textnewTaskNode.className = "text";
-
+  
   
   //set class of li
   newitem = document.getElementById("ToDoList").appendChild(newTaskNode);
   newitem.className = "card";
-
+  //todo add task defining code to div
+  
   //Add i for complete
   const newTaskNode_i_c = document.createElement("i");
   newitem.appendChild(newTaskNode_i_c);
@@ -107,3 +108,45 @@ function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
   newitem_i_p.appendChild(textnewTaskNode);
 }
 */
+
+// ! copy of Erol Code
+
+function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) { 
+    
+  //Add li in myList
+  const node = document.createElement("li");
+  //const textnode = document.createTextNode(itemname);
+  //node.appendChild(textnode);
+  
+  document.getElementById("ToDoList").appendChild(node);
+  //textnode.className = "text";
+  
+      //set class of li
+      newitem = document.getElementById("ToDoList").appendChild(node);
+      newitem.className = "card";
+
+              //Add i for complete
+              const node_i_c = document.createElement("i");
+              newitem.appendChild(node_i_c)
+              newitem_i_c = newitem.appendChild(node_i_c)
+              newitem_i_c.className = "fa fa-circle-thin co";              
+
+
+              //Add i for hambumen
+              const node_i_h = document.createElement("i");
+              newitem.appendChild(node_i_h)
+              newitem_i_h = newitem.appendChild(node_i_h)
+              newitem_i_h.className = "fa fa-bars ham";
+
+              //<p class="text">Buy Coffee</p>
+              const node_i_p = document.createElement("p");
+              newitem.appendChild(node_i_p);
+              newitem_i_p = newitem.appendChild(node_i_p);
+              newitem_i_p.className = "text";
+              const textnode = document.createTextNode(itemname);
+              newitem_i_p.appendChild(textnode);
+
+
+}
+
+
