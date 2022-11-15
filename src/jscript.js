@@ -29,19 +29,19 @@ function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   document.getElementById(taskID).appendChild(newPlusSignBuffer);
 
   const newPlusSign = document.createElement("div");
-  newPlusSign.className = "gridContainer addTask plusSign";
-  newPlusSign.id = taskID + "plusSign";
+  newPlusSign.className = "gridContainer addSubTask plusSign";
+  newPlusSign.id = taskID + "addSubTask";
   document.getElementById(taskID + "plusSignBuffer").appendChild(newPlusSign);
 
   const newVertical = document.createElement("div");
   newVertical.className = "addSubTask plusLine vertical";
   newVertical.id = taskID + "plusVertical";
-  document.getElementById(taskID + "plusSign").appendChild(newVertical);
+  document.getElementById(taskID + "addSubTask").appendChild(newVertical);
 
   const newHorizontal = document.createElement("div");
   newHorizontal.className = "addSubTask plusLine horizontal";
   newHorizontal.id = taskID + "plusHorizontal";
-  document.getElementById(taskID + "plusSign").appendChild(newHorizontal);
+  document.getElementById(taskID + "addSubTask").appendChild(newHorizontal);
 
   const newHamburgerMenuBuffer = document.createElement("div");
   newHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
@@ -54,91 +54,88 @@ function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newHamburgerMenu);
 
   const newHamStripe1 = document.createElement("div");
-  newHamStripe1.className = "hamburgerStripe hamStripe1";
-  newHamStripe1.id = taskID + "HamStripe1";
+  newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
+  newHamStripe1.id = taskID + "hamburgerStripe1";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe1);
 
   const newHamStripe2 = document.createElement("div");
-  newHamStripe2.className = "hamburgerStripe hamStripe2";
-  newHamStripe2.id = taskID + "HamStripe2";
+  newHamStripe2.className = "hamburgerStripe hamburgerStripe2";
+  newHamStripe2.id = taskID + "hamburgerStripe2";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe2);
 
   const newHamStripe3 = document.createElement("div");
-  newHamStripe3.className = "hamburgerStripe hamStripe3";
-  newHamStripe3.id = taskID + "HamStripe3";
+  newHamStripe3.className = "hamburgerStripe hamburgerStripe3";
+  newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  hamburgerListner ()
+  hamburgerListner();
+  newSubTaskListner ();
 }
 
-function hamburgerListner () {
-// Hamburger Menu Listner
-// const burgers = document.querySelectorAll(".hamburgerMenu"); //! static list
-const burgers = document.getElementsByClassName("hamburgerMenu");
-// const burgers = document.getElementsByTagName("section"); //* alternative
-
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("mouseover", function () {
-    // setHamCol(this.id, "red");
-  });
-}
-
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("mouseout", function () {
-    // setHamCol(this.id, "blue");
-  });
-}
-
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("click", function () {
-    hamClick();
-  });
-}
+function hamburgerListner() {
+  // Hamburger Menu Listner
+  const burgers = document.getElementsByClassName("hamburgerMenu");
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("mouseover", function () {
+      const hoverBackgroundColor = "red";
+      burgers[i].children[0].style.backgroundColor = hoverBackgroundColor;
+      burgers[i].children[1].style.backgroundColor = hoverBackgroundColor;
+      burgers[i].children[2].style.backgroundColor = hoverBackgroundColor;
+    });
+  }
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("mouseout", function () {
+      const hoverOutBackgroundColor = "blue";
+      burgers[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
+      burgers[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
+      burgers[i].children[2].style.backgroundColor = hoverOutBackgroundColor;
+    });
+  }
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("click", function () {
+      hamClick();
+    });
+  }
 }
 
 
 // newTask Listner
 const taskPlusses = document.querySelectorAll(".addTask.plusSign");
-
 for (let i = 0; i < taskPlusses.length; i++) {
   taskPlusses[i].addEventListener("mouseover", function () {
-    setPlusCol(this.id, "black");
+    setPlusCol(this.id, "darkslateblue");
   });
 }
-
 for (let i = 0; i < taskPlusses.length; i++) {
   taskPlusses[i].addEventListener("mouseout", function () {
     setPlusCol(this.id, "cornflowerblue");
   });
 }
-
 for (let i = 0; i < taskPlusses.length; i++) {
   taskPlusses[i].addEventListener("click", function () {
     addItem();
   });
 }
 
+function newSubTaskListner () {
 // newSubTask Listner
-const plusses = document.querySelectorAll(".addSubTask");
-
+const plusses = document.getElementsByClassName("addSubTask plusSign");
 for (let i = 0; i < plusses.length; i++) {
   plusses[i].addEventListener("mouseover", function () {
-    setPlusCol(this.id, "green");
+    // setPlusCol(this.id, "green");
+    const hoverBackgroundColor = "green";
+    plusses[i].children[0].style.backgroundColor = hoverBackgroundColor;
+    plusses[i].children[1].style.backgroundColor = hoverBackgroundColor;
   });
 }
-
 for (let i = 0; i < plusses.length; i++) {
   plusses[i].addEventListener("mouseout", function () {
-    setPlusCol(this.id, "orangered");
+    // setPlusCol(this.id, "orangered");
+    const hoverOutBackgroundColor = "orangered";
+    plusses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
+    plusses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
   });
 }
-
-function setHamCol(hamburgerID, color) {
-  
-  document.getElementById(hamburgerID + "1").style.backgroundColor = color;
-  document.getElementById(hamburgerID + "2").style.backgroundColor = color;
-  document.getElementById(hamburgerID + "3").style.backgroundColor = color;
-  console.log(hamburgerID);
 }
 
 function setPlusCol(plusID, color) {

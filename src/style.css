@@ -114,17 +114,17 @@ input {
   background-color: blue;
 }
 
-.hamStripe1.hamburgerStripe {
+.hamburgerStripe1.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.hamStripe2.hamburgerStripe {
+.hamburgerStripe2.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 3;
 }
 
-.hamStripe3.hamburgerStripe {
+.hamburgerStripe3.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 5;
 }
