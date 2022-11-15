@@ -4,6 +4,15 @@
   overflow: hidden;
 }
 
+.addTask.plusSignBuffer {
+  height: 50px;
+  grid-template-columns: 19px 19px 19px;
+}
+
+.addTask.plusLine {
+  background-color: cornflowerblue;
+}
+
 .mainGrid {
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
@@ -28,7 +37,7 @@
 }
 
 /* defines how task grid connects to page body grid */
-.taskParent.cardGrid {
+.task.cardGrid {
   grid-column-start: 2;
   grid-column-end: 4;
 }
@@ -38,8 +47,7 @@
   grid-column-end: 4;
 }
 
-.checkBox {
-  /* 50px grid for checkbox */
+.checkBoxGrid {
   grid-template-columns: 14px 22px 14px;
   grid-template-rows: 14px 22px 14px;
 }
@@ -106,17 +114,17 @@ input {
   background-color: blue;
 }
 
-.hamStripe1.hamburgerStripe {
+.hamburgerStripe1.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 1;
 }
 
-.hamStripe2.hamburgerStripe {
+.hamburgerStripe2.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 3;
 }
 
-.hamStripe3.hamburgerStripe {
+.hamburgerStripe3.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 5;
 }

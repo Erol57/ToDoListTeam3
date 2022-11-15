@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,46 +12,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="gridContainer mainGrid">
-    <header>header</header>
-    <div class="gridContainer bodyGrid">
-      <div class="gridContainer cardGrid taskParent">
-        <div class="gridContainer checkBox">
-          <input type="checkbox" name="taskCheckBox" id="task1" />
+    <header>
+      <div class="gridContainer addTask plusSignBuffer">
+        <div class="gridContainer addTask plusSign" id="addTask">
+          <div class="addTask plusLine vertical" id="addTaskVertical"></div>
+          <div class="addTask plusLine horizontal" id="addTaskHorizontal"></div>
         </div>
-        <div class="gridContainer taskZone">
+      </div>
+    </header>
+    <div class="gridContainer bodyGrid" id="bodyGrid">
+      <!-- <div class="gridContainer cardGrid task" id="task1">
+        <div class="gridContainer checkBoxGrid" id="task1checkBoxGrid">
+          <input type="checkbox" name="taskCheckBox" id="task1checkbox" />
+        </div>
+        <div class="gridContainer taskZone" id="task1TaskZone">
           <h3>Parent task card</h3>
         </div>
-        <div class="gridContainer plusSignBuffer">
-          <div class="gridContainer plusSign" id="t1plus">
-            <div class="plusLine vertical" id="t1plusVertical"></div>
-            <div class="plusLine horizontal" id="t1plusHorizontal"></div>
+        <div class="gridContainer plusSignBuffer" id="task1plusSignBuffer">
+          <div class="gridContainer plusSign addSubTask" id="task1plusSign">
+            <div class="addSubTask plusLine vertical" id="task1plusVertical"></div>
+            <div class="addSubTask plusLine horizontal" id="task1plusHorizontal"></div>
           </div>
         </div>
-        <div class="gridContainer hamburgerMenuBuffer">
-          <div class="gridContainer hamburgerMenu" id="t1">
-            <div class="hamburgerStripe hamStripe1" id="t1.1"></div>
-            <div class="hamburgerStripe hamStripe2" id="t1.2"></div>
-            <div class="hamburgerStripe hamStripe3" id="t1.3"></div>
+        <div class="gridContainer hamburgerMenuBuffer" id="task1HamburgerMenuBuffer">
+          <div class="gridContainer hamburgerMenu" id="task1HamburgerMenu">
+            <div class="hamburgerStripe hamStripe1" id="task1HamStripe1"></div>
+            <div class="hamburgerStripe hamStripe2" id="task1HamStripe2"></div>
+            <div class="hamburgerStripe hamStripe3" id="task1HamStripe3"></div>
           </div>
         </div>
       </div>
-      <div class="gridContainer cardGrid taskChild">
+      <div class="gridContainer cardGrid taskChild" id="task1_sub1">
         <div class="gridContainer checkBox">
-          <input type="checkbox" name="taskCheckBox" id="task1_sub1" />
+          <input type="checkbox" name="taskCheckBox" id="task1_sub1Check" />
         </div>
         <div class="gridContainer taskZone">
           <h3>Child task card</h3>
         </div>
         <div class="gridContainer hamburgerMenuBuffer">
-          <div class="gridContainer hamburgerMenu" id="t1_s1">
-            <div class="hamburgerStripe hamStripe1" id="t1_s1.1"></div>
-            <div class="hamburgerStripe hamStripe2" id="t1_s1.2"></div>
-            <div class="hamburgerStripe hamStripe3" id="t1_s1.3"></div>
+          <div class="gridContainer hamburgerMenu" id="task1_sub1">
+            <div class="hamburgerStripe hamStripe1" id="task1_sub1.1"></div>
+            <div class="hamburgerStripe hamStripe2" id="task1_sub1.2"></div>
+            <div class="hamburgerStripe hamStripe3" id="task1_sub1.3"></div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <footer>footer</footer>
   </div>
