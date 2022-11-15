@@ -37,7 +37,7 @@
 }
 
 /* defines how task grid connects to page body grid */
-.taskParent.cardGrid {
+.task.cardGrid {
   grid-column-start: 2;
   grid-column-end: 4;
 }
@@ -47,8 +47,7 @@
   grid-column-end: 4;
 }
 
-.checkBox {
-  /* 50px grid for checkbox */
+.checkBoxGrid {
   grid-template-columns: 14px 22px 14px;
   grid-template-rows: 14px 22px 14px;
 }
