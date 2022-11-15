@@ -64,15 +64,15 @@ function setHamCol(hamburgerID, color) {
 function setPlusCol(plusID, color) {
   document.getElementById(plusID + "Vertical").style.backgroundColor = color;
   document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
-}
+} 
 
 function hamClick() {
   console.log("click");
 }
 
-
+/*
 function addItem(itemname = prompt("Please enter your ToDo", "My ToDo")) {
-  //Add li in myList
+  //Add li in myList 
   const newTaskNode = document.createElement("div");
   //const textnewTaskNode = document.createTextnewTaskNode(itemname);
   //newTaskNode.appendChild(textnewTaskNode);
