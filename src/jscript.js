@@ -1,84 +1,9 @@
-// Hamburger Menu Listner
-const burgers = document.querySelectorAll(".hamburgerMenu");
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("mouseover", function () {
-    setHamCol(this.id, "red");
-  });
-}
-
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("mouseout", function () {
-    setHamCol(this.id, "blue");
-  });
-}
-
-for (let i = 0; i < burgers.length; i++) {
-  burgers[i].addEventListener("click", function () {
-    hamClick();
-  });
-}
-
-// newTask Listner
-const taskPlusses = document.querySelectorAll(".addTask.plusSign");
-
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("mouseover", function () {
-    setPlusCol(this.id, "black");
-  });
-}
-
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("mouseout", function () {
-    setPlusCol(this.id, "cornflowerblue");
-  });
-}
-
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("click", function () {
-    addItem();
-  });
-}
-
-// newSubTask Listner
-const plusses = document.querySelectorAll(".addSubTask");
-
-for (let i = 0; i < plusses.length; i++) {
-  plusses[i].addEventListener("mouseover", function () {
-    setPlusCol(this.id, "green");
-  });
-}
-
-for (let i = 0; i < plusses.length; i++) {
-  plusses[i].addEventListener("mouseout", function () {
-    setPlusCol(this.id, "orangered");
-  });
-}
-
-function setHamCol(hamburgerID, color) {
-  document.getElementById(hamburgerID + ".1").style.backgroundColor = color;
-  document.getElementById(hamburgerID + ".2").style.backgroundColor = color;
-  document.getElementById(hamburgerID + ".3").style.backgroundColor = color;
-}
-
-function setPlusCol(plusID, color) {
-  document.getElementById(plusID + "Vertical").style.backgroundColor = color;
-  document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
-}
-
-function hamClick() {
-  console.log("click");
-}
-
 function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
-  console.log("counter = " + taskCounter);
   let taskID = "task" + taskCounter;
-  console.log(taskID);
-
-  const newTaskNode = document.createElement("div");
+  const newTaskNode = document.createElement("section");
   newTaskNode.className = "gridContainer cardGrid task";
   newTaskNode.id = taskID;
-  console.log(newTaskNode);
   document.getElementById("bodyGrid").appendChild(newTaskNode);
 
   const newCheckBoxGrid = document.createElement("div");
@@ -142,4 +67,85 @@ function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.className = "hamburgerStripe hamStripe3";
   newHamStripe3.id = taskID + "HamStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
+
+  hamburgerListner ()
+}
+
+function hamburgerListner () {
+// Hamburger Menu Listner
+// const burgers = document.querySelectorAll(".hamburgerMenu"); //! static list
+const burgers = document.getElementsByClassName("hamburgerMenu");
+// const burgers = document.getElementsByTagName("section"); //* alternative
+
+for (let i = 0; i < burgers.length; i++) {
+  burgers[i].addEventListener("mouseover", function () {
+    // setHamCol(this.id, "red");
+  });
+}
+
+for (let i = 0; i < burgers.length; i++) {
+  burgers[i].addEventListener("mouseout", function () {
+    // setHamCol(this.id, "blue");
+  });
+}
+
+for (let i = 0; i < burgers.length; i++) {
+  burgers[i].addEventListener("click", function () {
+    hamClick();
+  });
+}
+}
+
+
+// newTask Listner
+const taskPlusses = document.querySelectorAll(".addTask.plusSign");
+
+for (let i = 0; i < taskPlusses.length; i++) {
+  taskPlusses[i].addEventListener("mouseover", function () {
+    setPlusCol(this.id, "black");
+  });
+}
+
+for (let i = 0; i < taskPlusses.length; i++) {
+  taskPlusses[i].addEventListener("mouseout", function () {
+    setPlusCol(this.id, "cornflowerblue");
+  });
+}
+
+for (let i = 0; i < taskPlusses.length; i++) {
+  taskPlusses[i].addEventListener("click", function () {
+    addItem();
+  });
+}
+
+// newSubTask Listner
+const plusses = document.querySelectorAll(".addSubTask");
+
+for (let i = 0; i < plusses.length; i++) {
+  plusses[i].addEventListener("mouseover", function () {
+    setPlusCol(this.id, "green");
+  });
+}
+
+for (let i = 0; i < plusses.length; i++) {
+  plusses[i].addEventListener("mouseout", function () {
+    setPlusCol(this.id, "orangered");
+  });
+}
+
+function setHamCol(hamburgerID, color) {
+  
+  document.getElementById(hamburgerID + "1").style.backgroundColor = color;
+  document.getElementById(hamburgerID + "2").style.backgroundColor = color;
+  document.getElementById(hamburgerID + "3").style.backgroundColor = color;
+  console.log(hamburgerID);
+}
+
+function setPlusCol(plusID, color) {
+  document.getElementById(plusID + "Vertical").style.backgroundColor = color;
+  document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
+}
+
+function hamClick() {
+  console.log("click");
 }
