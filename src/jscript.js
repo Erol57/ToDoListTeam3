@@ -1,4 +1,6 @@
 addMainTaskListner();
+newSubTaskListnerGroup();
+hamburgerListnerGroup();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
