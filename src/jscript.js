@@ -126,7 +126,9 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   const newHamburgerMenu = document.createElement("div");
   newHamburgerMenu.className = "gridContainer hamburgerMenu";
   newHamburgerMenu.id = taskID + "HamburgerMenu";
-  document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newHamburgerMenu);
+  document
+    .getElementById(taskID + "HamburgerMenuBuffer")
+    .appendChild(newHamburgerMenu);
 
   const newHamStripe1 = document.createElement("div");
   newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
@@ -149,26 +151,31 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
 
 //! busy here
 // function addSubTask (clickedPlusSignID, subTaskName = prompt("Please enter your subToDo", "My subToDo")) {
-function addSubTask(clickedPlusSignID) { //!Revert to promt soon!
+function addSubTask(clickedPlusSignID) {
+  //!Revert to promt soon!
   // strip number out of id
-  const plusSignInteger = clickedPlusSignID.replace(/[^0-9]/g, '');
+  const plusSignInteger = clickedPlusSignID.replace(/[^0-9]/g, "");
   // Identify which card triggered the function call
   const reconstitutedCardID = "task" + plusSignInteger;
   const triggerCardSubTaskStartNumber = reconstitutedCardID + "_sub1";
   const childOfTriggerNode = document.getElementById(triggerCardSubTaskStartNumber);
-if (childOfTriggerNode != null) {
-  console.log("reconstitutedCardID: " + reconstitutedCardID);
-  console.log("childOfTriggerNode.id: " + childOfTriggerNode.id );
-  console.log("childOfTriggerNode.previousElementSibling.id: " + childOfTriggerNode.previousElementSibling.id); 
-  const test = document.getElementById(triggerCardSubTaskStartNumber).nextSibling.nextSibling;
-  console.log(test);
-
-}else {
-  console.log("nothing here");
+  const childNodeArray = [];
+  if (childOfTriggerNode != null) {
+    let childNodeString = childOfTriggerNode;
+    while (childNodeString.id.includes("_sub")) {
+      childNodeString = childNodeString.nextElementSibling;
+      childNodeArray.push (childNodeString.id);
+      childNodeArray.pop;
+      console.log(childNodeArray);
+    }
+  } else {
+    console.log("nothing here");
+  }
+childNodeArray.pop();
+console.log("popped array: " + childNodeArray);
+const lastSubtaskID = childNodeArray [childNodeArray.length - 1];
+console.log("lastSubtaskID: " + lastSubtaskID);
 }
-
-}
-
 
 function setPlusColor(plusID, color) {
   document.getElementById(plusID + "Vertical").style.backgroundColor = color;
