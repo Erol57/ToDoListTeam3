@@ -1,4 +1,6 @@
-function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
+addMainTaskListner();
+
+function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
   let taskID = "task" + taskCounter;
   const newTaskNode = document.createElement("section");
@@ -72,25 +74,26 @@ function addItem(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   hamburgerListnerGroup();
 }
 
-// newTask Listner
-const taskPlusses = document.querySelectorAll(".addTask.plusSign");
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("mouseover", function () {
-    setPlusCol(this.id, "darkslateblue");
-  });
-}
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("mouseout", function () {
-    setPlusCol(this.id, "cornflowerblue");
-  });
-}
-for (let i = 0; i < taskPlusses.length; i++) {
-  taskPlusses[i].addEventListener("click", function () {
-    addItem();
-  });
+function addMainTaskListner() {
+  const taskPlusses = document.querySelectorAll(".addTask.plusSign");
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("mouseover", function () {
+      setPlusColor(this.id, "darkslateblue");
+    });
+  }
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("mouseout", function () {
+      setPlusColor(this.id, "cornflowerblue");
+    });
+  }
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("click", function () {
+      addMainTask();
+    });
+  }
 }
 
-function setPlusCol(plusID, color) {
+function setPlusColor(plusID, color) {
   document.getElementById(plusID + "Vertical").style.backgroundColor = color;
   document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
 }
