@@ -1,4 +1,75 @@
-addMainTaskListner();
+function addMainTaskListnerGroup() {
+  const taskPlusses = document.querySelectorAll(".addTask.plusSign");
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("mouseover", function () {
+      setPlusColor(this.id, "darkslateblue");
+    });
+  }
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("mouseout", function () {
+      setPlusColor(this.id, "cornflowerblue");
+    });
+  }
+  for (let i = 0; i < taskPlusses.length; i++) {
+    taskPlusses[i].addEventListener("click", function () {
+      addMainTask();
+    });
+  }
+}
+
+function newSubTaskListnerGroup() {
+  // newSubTask Listner
+  const plusses = document.getElementsByClassName("addSubTask plusSign");
+  for (let i = 0; i < plusses.length; i++) {
+    plusses[i].addEventListener("mouseover", function () {
+      // setPlusCol(this.id, "green");
+      const hoverBackgroundColor = "green";
+      plusses[i].children[0].style.backgroundColor = hoverBackgroundColor;
+      plusses[i].children[1].style.backgroundColor = hoverBackgroundColor;
+    });
+  }
+  for (let i = 0; i < plusses.length; i++) {
+    plusses[i].addEventListener("mouseout", function () {
+      // setPlusCol(this.id, "orangered");
+      const hoverOutBackgroundColor = "orangered";
+      plusses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
+      plusses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
+    });
+  }
+  for (let i = 0; i < plusses.length; i++) {
+    plusses[i].addEventListener("click", function () {
+      const clickedPlusSignID = this.id;
+      addSubTask(clickedPlusSignID);
+    });
+  }
+}
+
+function hamburgerListnerGroup() {
+  const burgers = document.getElementsByClassName("hamburgerMenu");
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("mouseover", function () {
+      const hoverBackgroundColor = "red";
+      burgers[i].children[0].style.backgroundColor = hoverBackgroundColor;
+      burgers[i].children[1].style.backgroundColor = hoverBackgroundColor;
+      burgers[i].children[2].style.backgroundColor = hoverBackgroundColor;
+    });
+  }
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("mouseout", function () {
+      const hoverOutBackgroundColor = "blue";
+      burgers[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
+      burgers[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
+      burgers[i].children[2].style.backgroundColor = hoverOutBackgroundColor;
+    });
+  }
+  for (let i = 0; i < burgers.length; i++) {
+    burgers[i].addEventListener("click", function () {
+      hamClick(burgers);
+    });
+  }
+}
+
+addMainTaskListnerGroup(); //trigger event listeners
 newSubTaskListnerGroup();
 hamburgerListnerGroup();
 
@@ -76,79 +147,32 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   hamburgerListnerGroup();
 }
 
-function addMainTaskListner() {
-  const taskPlusses = document.querySelectorAll(".addTask.plusSign");
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("mouseover", function () {
-      setPlusColor(this.id, "darkslateblue");
-    });
-  }
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("mouseout", function () {
-      setPlusColor(this.id, "cornflowerblue");
-    });
-  }
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("click", function () {
-      addMainTask();
-    });
-  }
+//! busy here
+// function addSubTask (clickedPlusSignID, subTaskName = prompt("Please enter your subToDo", "My subToDo")) {
+function addSubTask(clickedPlusSignID) { //!Revert to promt soon!
+  // strip number out of id
+  const plusSignInteger = clickedPlusSignID.replace(/[^0-9]/g, '');
+  // Identify which card triggered the function call
+  const reconstitutedCardID = "task" + plusSignInteger;
+  const triggerCardSubTaskStartNumber = reconstitutedCardID + "_sub1";
+  const childOfTriggerNode = document.getElementById(triggerCardSubTaskStartNumber);
+if (childOfTriggerNode != null) {
+  console.log("reconstitutedCardID: " + reconstitutedCardID);
+  console.log("childOfTriggerNode.id: " + childOfTriggerNode.id );
+  console.log("childOfTriggerNode.previousElementSibling.id: " + childOfTriggerNode.previousElementSibling.id); 
+  const test = document.getElementById(triggerCardSubTaskStartNumber).nextSibling.nextSibling;
+  console.log(test);
+
+}else {
+  console.log("nothing here");
 }
+
+}
+
 
 function setPlusColor(plusID, color) {
   document.getElementById(plusID + "Vertical").style.backgroundColor = color;
   document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
-}
-
-function newSubTaskListnerGroup() {
-  // newSubTask Listner
-  const plusses = document.getElementsByClassName("addSubTask plusSign");
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("mouseover", function () {
-      // setPlusCol(this.id, "green");
-      const hoverBackgroundColor = "green";
-      plusses[i].children[0].style.backgroundColor = hoverBackgroundColor;
-      plusses[i].children[1].style.backgroundColor = hoverBackgroundColor;
-    });
-  }
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("mouseout", function () {
-      // setPlusCol(this.id, "orangered");
-      const hoverOutBackgroundColor = "orangered";
-      plusses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
-      plusses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
-    });
-  }
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("click", function () {
-      console.log("newsubtask");
-    });
-  }
-}
-
-function hamburgerListnerGroup() {
-  const burgers = document.getElementsByClassName("hamburgerMenu");
-  for (let i = 0; i < burgers.length; i++) {
-    burgers[i].addEventListener("mouseover", function () {
-      const hoverBackgroundColor = "red";
-      burgers[i].children[0].style.backgroundColor = hoverBackgroundColor;
-      burgers[i].children[1].style.backgroundColor = hoverBackgroundColor;
-      burgers[i].children[2].style.backgroundColor = hoverBackgroundColor;
-    });
-  }
-  for (let i = 0; i < burgers.length; i++) {
-    burgers[i].addEventListener("mouseout", function () {
-      const hoverOutBackgroundColor = "blue";
-      burgers[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
-      burgers[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
-      burgers[i].children[2].style.backgroundColor = hoverOutBackgroundColor;
-    });
-  }
-  for (let i = 0; i < burgers.length; i++) {
-    burgers[i].addEventListener("click", function () {
-      hamClick(burgers);
-    });
-  }
 }
 
 function hamClick() {

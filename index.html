@@ -23,30 +23,12 @@
         </div>
       </div>
     </header>
+
     <div class="gridContainer bodyGrid" id="bodyGrid">
-
-
-
-      <!-- <div class="gridContainer cardGrid taskChild" id="task1_sub1">
-        <div class="gridContainer checkBox">
-          <input type="checkbox" name="taskCheckBox" id="task1_sub1Check" />
-        </div>
-        <div class="gridContainer taskZone">
-          <h3>Child task card</h3>
-        </div>
-        <div class="gridContainer hamburgerMenuBuffer">
-          <div class="gridContainer hamburgerMenu" id="task1_sub1">
-            <div class="hamburgerStripe hamStripe1" id="task1_sub1.1"></div>
-            <div class="hamburgerStripe hamStripe2" id="task1_sub1.2"></div>
-            <div class="hamburgerStripe hamStripe3" id="task1_sub1.3"></div>
-          </div>
-        </div>
-      </div> -->
-
-
       <section class="gridContainer cardGrid task" id="task1">
-        <div class="gridContainer checkBoxGrid" id="task1checkBoxGrid"><input type="CheckBox" name="taskCheckBox"
-            id="task1checkbox"></div>
+        <div class="gridContainer checkBoxGrid" id="task1checkBoxGrid">
+          <input type="CheckBox" name="taskCheckBox" id="task1checkbox" />
+        </div>
         <div class="gridContainer taskZone" id="task1TaskZone">
           <h3>My ToDo</h3>
         </div>
@@ -65,9 +47,47 @@
         </div>
       </section>
 
+      <section class="gridContainer cardGrid subTask" id="task1_sub1">
+        <div class="gridContainer checkBoxGrid" id="task1_sub1CheckBoxGrid">
+          <input type="checkbox" name="taskCheckBox" id="task1_sub1TaskCheckBox" />
+        </div>
+        <div class="gridContainer taskZone" id="task1_sub1TaskZone">
+          <h3>Child task card</h3>
+        </div>
+        <div class="gridContainer hamburgerMenuBuffer" id="task1_sub1HamburgerMenuBuffer">
+          <div class="gridContainer hamburgerMenu" id="task1_sub1HamburgerMenu">
+            <div class="hamburgerStripe hamburgerStripe1" id="task1_sub1HamburgerStripe1"></div>
+            <div class="hamburgerStripe hamburgerStripe2" id="task1_sub1HamburgerStripe2"></div>
+            <div class="hamburgerStripe hamburgerStripe3" id="task1_sub1HamburgerStripe3"></div>
+          </div>
+        </div>
+      </section>
+
+
+
+<section class="gridContainer cardGrid subTask" id="task1_sub2">
+    <div class="gridContainer checkBoxGrid" id="task1_sub2CheckBoxGrid">
+      <input type="checkbox" name="taskCheckBox" id="task1_sub2TaskCheckBox" />
+    </div>
+    <div class="gridContainer taskZone" id="task1_sub2TaskZone">
+      <h3>Child task card</h3>
+    </div>
+    <div class="gridContainer hamburgerMenuBuffer" id="task1_sub2HamburgerMenuBuffer">
+      <div class="gridContainer hamburgerMenu" id="task1_sub2HamburgerMenu">
+        <div class="hamburgerStripe hamburgerStripe1" id="task1_sub2HamburgerStripe1"></div>
+        <div class="hamburgerStripe hamburgerStripe2" id="task1_sub2HamburgerStripe2"></div>
+        <div class="hamburgerStripe hamburgerStripe3" id="task1_sub2HamburgerStripe3"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
       <section class="gridContainer cardGrid task" id="task2">
-        <div class="gridContainer checkBoxGrid" id="task2checkBoxGrid"><input type="CheckBox" name="taskCheckBox"
-            id="task2checkbox"></div>
+        <div class="gridContainer checkBoxGrid" id="task2checkBoxGrid">
+          <input type="CheckBox" name="taskCheckBox" id="task2checkbox" />
+        </div>
         <div class="gridContainer taskZone" id="task2TaskZone">
           <h3>My ToDo</h3>
         </div>
@@ -85,7 +105,6 @@
           </div>
         </div>
       </section>
-
     </div>
     <footer>footer</footer>
   </div>
