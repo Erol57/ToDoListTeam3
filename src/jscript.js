@@ -68,9 +68,19 @@ function hamburgerListnerGroup() {
   }
 }
 
+function checkboxListner() {
+const checkbox = document.getElementsByName("taskCheckBox");
+for (let i = 0; i < checkbox.length; i++) {
+  checkbox[i].addEventListener("change", function () {
+    log(checkbox);
+  });
+}
+
+
 addMainTaskListnerGroup(); //trigger event listeners
 newSubTaskListnerGroup();
 hamburgerListnerGroup();
+checkboxListner();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
