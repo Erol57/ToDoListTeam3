@@ -68,19 +68,34 @@ function hamburgerListnerGroup() {
   }
 }
 
-function checkboxListner() {
-const checkbox = document.getElementsByName("taskCheckBox");
-for (let i = 0; i < checkbox.length; i++) {
-  checkbox[i].addEventListener("change", function () {
-    log(checkbox);
-  });
-}
 
+function checkboxListener() {
+  const checkbox = document.getElementsByClassName("checkBoxGrid"); //*works
+  for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].addEventListener("change", function () {
+      if (this.children[0].checked) {
+        this.parentElement.style.gridColumnStart = "3"; //*mark card done
+        const taggedText = this.parentElement.children[1].innerHTML;
+        let strippedText = String(taggedText);
+        strippedText = strippedText.replace("<h3>", "<s>");
+        strippedText = strippedText.replace("</h3>", "</s>");
+        const newText = this.parentElement.children[1].innerHTML = strippedText;
+      } else {
+        const taggedText = this.parentElement.children[1].innerHTML; //*mark card undone
+        let strippedText = String(taggedText);
+        strippedText = strippedText.replace("<s>", "<h3>");
+        strippedText = strippedText.replace("</s>", "</h3>");
+        this.parentElement.style.gridColumnStart = "2";
+        const restoredText = this.parentElement.children[1].innerHTML = strippedText;
+      }
+    });
+  }
+}
 
 addMainTaskListnerGroup(); //trigger event listeners
 newSubTaskListnerGroup();
 hamburgerListnerGroup();
-checkboxListner();
+checkboxListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -135,7 +150,9 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   const newHamburgerMenu = document.createElement("div");
   newHamburgerMenu.className = "gridContainer hamburgerMenu";
   newHamburgerMenu.id = taskID + "HamburgerMenu";
-  document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newHamburgerMenu);
+  document
+    .getElementById(taskID + "HamburgerMenuBuffer")
+    .appendChild(newHamburgerMenu);
 
   const newHamStripe1 = document.createElement("div");
   newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
@@ -154,6 +171,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
 
   newSubTaskListnerGroup();
   hamburgerListnerGroup();
+  checkboxListener();
 }
 
 function setPlusColor(plusID, color) {
