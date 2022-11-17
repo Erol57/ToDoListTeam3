@@ -41,8 +41,8 @@ body {
   background-color: rgb(233, 233, 233);
 }
 
-/* defines how task grid connects to page body grid */
 .task.cardGrid {
+  /* defines how task grid connects to page body grid */
   grid-column-start: 2;
   grid-column-end: 4;
 }
