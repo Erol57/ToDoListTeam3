@@ -39,7 +39,7 @@ function newSubTaskListnerGroup() {
   for (let i = 0; i < plusses.length; i++) {
     plusses[i].addEventListener("click", function () {
       const clickedPlusSignID = this.id;
-      addSubTask(clickedPlusSignID);
+      addNewSubTask(clickedPlusSignID);
     });
   }
 }
@@ -74,29 +74,29 @@ newSubTaskListnerGroup();
 hamburgerListnerGroup();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
-  let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
-  let taskID = "task" + taskCounter;
-  const newTaskNode = document.createElement("section");
-  newTaskNode.className = "gridContainer cardGrid task";
-  newTaskNode.id = taskID;
-  document.getElementById("bodyGrid").appendChild(newTaskNode);
+  const taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
+  const taskID = "task" + taskCounter;
+  const newSubTaskNode = document.createElement("section");
+  newSubTaskNode.className = "gridContainer cardGrid task";
+  newSubTaskNode.id = taskID;
+  document.getElementById("bodyGrid").appendChild(newSubTaskNode);
 
-  const newCheckBoxGrid = document.createElement("div");
-  newCheckBoxGrid.className = "gridContainer checkBoxGrid";
-  newCheckBoxGrid.id = taskID + "checkBoxGrid";
-  document.getElementById(taskID).appendChild(newCheckBoxGrid);
+  const newSubCheckBoxGrid = document.createElement("div");
+  newSubCheckBoxGrid.className = "gridContainer checkBoxGrid";
+  newSubCheckBoxGrid.id = taskID + "checkBoxGrid";
+  document.getElementById(taskID).appendChild(newSubCheckBoxGrid);
 
-  const newCheckBox = document.createElement("INPUT");
-  newCheckBox.setAttribute("type", "CheckBox");
-  newCheckBox.setAttribute("name", "taskCheckBox");
-  newCheckBox.id = taskID + "checkbox";
-  document.getElementById(taskID + "checkBoxGrid").appendChild(newCheckBox);
+  const newSubCheckBox = document.createElement("INPUT");
+  newSubCheckBox.setAttribute("type", "CheckBox");
+  newSubCheckBox.setAttribute("name", "taskCheckBox");
+  newSubCheckBox.id = taskID + "checkbox";
+  document.getElementById(taskID + "checkBoxGrid").appendChild(newSubCheckBox);
 
-  const newTaskZone = document.createElement("div");
-  newTaskZone.className = "gridContainer taskZone";
-  newTaskZone.id = taskID + "TaskZone";
-  newTaskZone.innerHTML = "<h3>" + taskName;
-  document.getElementById(taskID).appendChild(newTaskZone);
+  const newSubTaskZone = document.createElement("div");
+  newSubTaskZone.className = "gridContainer taskZone";
+  newSubTaskZone.id = taskID + "TaskZone";
+  newSubTaskZone.innerHTML = "<h3>" + taskName;
+  document.getElementById(taskID).appendChild(newSubTaskZone);
 
   const newPlusSignBuffer = document.createElement("div");
   newPlusSignBuffer.className = "gridContainer plusSignBuffer";
@@ -118,17 +118,15 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHorizontal.id = taskID + "plusHorizontal";
   document.getElementById(taskID + "addSubTask").appendChild(newHorizontal);
 
-  const newHamburgerMenuBuffer = document.createElement("div");
-  newHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
-  newHamburgerMenuBuffer.id = taskID + "HamburgerMenuBuffer";
-  document.getElementById(taskID).appendChild(newHamburgerMenuBuffer);
+  const newSubHamburgerMenuBuffer = document.createElement("div");
+  newSubHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
+  newSubHamburgerMenuBuffer.id = taskID + "HamburgerMenuBuffer";
+  document.getElementById(taskID).appendChild(newSubHamburgerMenuBuffer);
 
-  const newHamburgerMenu = document.createElement("div");
-  newHamburgerMenu.className = "gridContainer hamburgerMenu";
-  newHamburgerMenu.id = taskID + "HamburgerMenu";
-  document
-    .getElementById(taskID + "HamburgerMenuBuffer")
-    .appendChild(newHamburgerMenu);
+  const newSubHamburgerMenu = document.createElement("div");
+  newSubHamburgerMenu.className = "gridContainer hamburgerMenu";
+  newSubHamburgerMenu.id = taskID + "HamburgerMenu";
+  document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newSubHamburgerMenu);
 
   const newHamStripe1 = document.createElement("div");
   newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
@@ -145,36 +143,100 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
+  addMainTaskListnerGroup(); //trigger event listeners
   newSubTaskListnerGroup();
   hamburgerListnerGroup();
 }
 
-//! busy here
-// function addSubTask (clickedPlusSignID, subTaskName = prompt("Please enter your subToDo", "My subToDo")) {
-function addSubTask(clickedPlusSignID) {
-  //!Revert to promt soon!
+function addNewSubTask(clickedPlusSignID) {
   // strip number out of id
   const plusSignInteger = clickedPlusSignID.replace(/[^0-9]/g, "");
+  // alert("plusSignInteger: " + plusSignInteger);
   // Identify which card triggered the function call
   const reconstitutedCardID = "task" + plusSignInteger;
+  // alert("reconstitutedCardID: " + reconstitutedCardID);
   const triggerCardSubTaskStartNumber = reconstitutedCardID + "_sub1";
-  const childOfTriggerNode = document.getElementById(triggerCardSubTaskStartNumber);
+  // alert("triggerCardSubTaskStartNumber: "+triggerCardSubTaskStartNumber);
+  const firstChildOfTriggerNode = document.getElementById(triggerCardSubTaskStartNumber);
+  // alert("firstChildOfTriggerNode.id: " + firstChildOfTriggerNode.id);
   const childNodeArray = [];
-  if (childOfTriggerNode != null) {
-    let childNodeString = childOfTriggerNode;
+  if (firstChildOfTriggerNode != null) {
+    let childNodeString = firstChildOfTriggerNode;
+    const childNodeStringID = childNodeString.id;
     while (childNodeString.id.includes("_sub")) {
       childNodeString = childNodeString.nextElementSibling;
-      childNodeArray.push (childNodeString.id);
-      childNodeArray.pop;
+      childNodeArray.push(childNodeStringID);
       console.log(childNodeArray);
     }
   } else {
-    console.log("nothing here");
+    const latchSubtaskTo = reconstitutedCardID;
+    const newSubIDInteger = 1;
+    const parentCardID = reconstitutedCardID;
+    insertSubTask(latchSubtaskTo, newSubIDInteger, parentCardID);
+    return;
   }
-childNodeArray.pop();
-console.log("popped array: " + childNodeArray);
-const lastSubtaskID = childNodeArray [childNodeArray.length - 1];
-console.log("lastSubtaskID: " + lastSubtaskID);
+  childNodeArray.pop();
+  const latchSubtaskTo = childNodeArray[childNodeArray.length - 1];
+  const slicingPoint = latchSubtaskTo.indexOf("_");
+  const newSubIDIntegerSlice = latchSubtaskTo.slice(slicingPoint);
+  const newSubIDIntegerRaw = newSubIDIntegerSlice.replace(/[^0-9]/g, "");
+  const newSubIDInteger = +newSubIDIntegerRaw + 1;
+  const parentCardID = reconstitutedCardID;
+  insertSubTask(latchSubtaskTo, newSubIDInteger, parentCardID);
+}
+
+function insertSubTask(latchSubtaskTo, newSubIDInteger, parentCardID, subTaskName = prompt("Please enter your subToDo", "My subToDo")) {
+  const subTaskID = parentCardID + "_sub" + newSubIDInteger;
+  const newSubTaskNode = document.createElement("section");
+  newSubTaskNode.className = "gridContainer cardGrid subTask";
+  newSubTaskNode.id = subTaskID;
+  document.getElementById(latchSubtaskTo).after(newSubTaskNode);
+
+  const newSubCheckBoxGrid = document.createElement("div");
+  newSubCheckBoxGrid.className = "gridContainer checkBoxGrid";
+  newSubCheckBoxGrid.id = subTaskID + "checkBoxGrid";
+  document.getElementById(subTaskID).appendChild(newSubCheckBoxGrid);
+
+  const newSubCheckBox = document.createElement("INPUT");
+  newSubCheckBox.setAttribute("type", "CheckBox");
+  newSubCheckBox.setAttribute("name", "taskCheckBox");
+  newSubCheckBox.id = subTaskID + "checkbox";
+  document.getElementById(subTaskID + "checkBoxGrid").appendChild(newSubCheckBox);
+
+  const newSubTaskZone = document.createElement("div");
+  newSubTaskZone.className = "gridContainer taskZone";
+  newSubTaskZone.id = subTaskID + "TaskZone";
+  newSubTaskZone.innerHTML = "<h3>" + subTaskName;
+  document.getElementById(subTaskID).appendChild(newSubTaskZone);
+
+  const newSubHamburgerMenuBuffer = document.createElement("div");
+  newSubHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
+  newSubHamburgerMenuBuffer.id = subTaskID + "HamburgerMenuBuffer";
+  document.getElementById(subTaskID).appendChild(newSubHamburgerMenuBuffer);
+
+  const newSubHamburgerMenu = document.createElement("div");
+  newSubHamburgerMenu.className = "gridContainer hamburgerMenu";
+  newSubHamburgerMenu.id = subTaskID + "HamburgerMenu";
+  document.getElementById(subTaskID + "HamburgerMenuBuffer").appendChild(newSubHamburgerMenu);
+
+  const newHamStripe1 = document.createElement("div");
+  newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
+  newHamStripe1.id = subTaskID + "hamburgerStripe1";
+  document.getElementById(subTaskID + "HamburgerMenu").appendChild(newHamStripe1);
+
+  const newHamStripe2 = document.createElement("div");
+  newHamStripe2.className = "hamburgerStripe hamburgerStripe2";
+  newHamStripe2.id = subTaskID + "hamburgerStripe2";
+  document.getElementById(subTaskID + "HamburgerMenu").appendChild(newHamStripe2);
+
+  const newHamStripe3 = document.createElement("div");
+  newHamStripe3.className = "hamburgerStripe hamburgerStripe3";
+  newHamStripe3.id = subTaskID + "hamburgerStripe3";
+  document.getElementById(subTaskID + "HamburgerMenu").appendChild(newHamStripe3);
+
+  addMainTaskListnerGroup(); //trigger event listeners
+  newSubTaskListnerGroup();
+  hamburgerListnerGroup();
 }
 
 function setPlusColor(plusID, color) {
