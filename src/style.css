@@ -83,6 +83,10 @@ input {
   grid-row-start: 2;
 }
 
+.plusSign.addSubTask {
+  transform: rotate(45deg);
+}
+
 .plusLine {
   display: flex;
   border-radius: 2px;
