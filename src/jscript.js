@@ -91,14 +91,10 @@ function checkboxListener() {
   }
 }
 
-function triggerListenerGroup() {
   addMainTaskListner(); //trigger event listeners
   newSubTaskListner();
   hamburgerListner();
   checkboxListener();
-}
-
-triggerListenerGroup();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -172,7 +168,10 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  triggerListenerGroup();
+  addMainTaskListner(); //retrigger event listeners
+  newSubTaskListner();
+  hamburgerListner();
+  checkboxListener();
 }
 
 function setPlusColor(plusID, color) {
