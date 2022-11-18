@@ -19,7 +19,7 @@ function addMainTaskListnerGroup() {
 
 function newSubTaskListnerGroup() {
   // newSubTask Listner
-  const plusses = document.getElementsByClassName("addSubTask plusSign");
+  const plusses = document.getElementsByClassName("removeTask plusSign");
   for (let i = 0; i < plusses.length; i++) {
     plusses[i].addEventListener("mouseover", function () {
       // setPlusCol(this.id, "green");
@@ -122,25 +122,25 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newTaskZone.innerHTML = "<h3>" + taskName;
   document.getElementById(taskID).appendChild(newTaskZone);
 
-  const newPlusSignBuffer = document.createElement("div");
-  newPlusSignBuffer.className = "gridContainer plusSignBuffer";
-  newPlusSignBuffer.id = taskID + "plusSignBuffer";
-  document.getElementById(taskID).appendChild(newPlusSignBuffer);
+  const newsignBuffer = document.createElement("div");
+  newsignBuffer.className = "gridContainer signBuffer";
+  newsignBuffer.id = taskID + "signBuffer";
+  document.getElementById(taskID).appendChild(newsignBuffer);
 
   const newPlusSign = document.createElement("div");
-  newPlusSign.className = "gridContainer addSubTask plusSign";
-  newPlusSign.id = taskID + "addSubTask";
-  document.getElementById(taskID + "plusSignBuffer").appendChild(newPlusSign);
+  newPlusSign.className = "gridContainer removeTask plusSign";
+  newPlusSign.id = taskID + "removeTask";
+  document.getElementById(taskID + "signBuffer").appendChild(newPlusSign);
 
   const newVertical = document.createElement("div");
-  newVertical.className = "addSubTask plusLine vertical";
+  newVertical.className = "removeTask plusLine vertical";
   newVertical.id = taskID + "plusVertical";
-  document.getElementById(taskID + "addSubTask").appendChild(newVertical);
+  document.getElementById(taskID + "removeTask").appendChild(newVertical);
 
   const newHorizontal = document.createElement("div");
-  newHorizontal.className = "addSubTask plusLine horizontal";
+  newHorizontal.className = "removeTask plusLine horizontal";
   newHorizontal.id = taskID + "plusHorizontal";
-  document.getElementById(taskID + "addSubTask").appendChild(newHorizontal);
+  document.getElementById(taskID + "removeTask").appendChild(newHorizontal);
 
   const newHamburgerMenuBuffer = document.createElement("div");
   newHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
