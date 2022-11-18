@@ -25,7 +25,7 @@ body {
 }
 
 .bodyGrid {
-  grid-template-columns: 25px 30px 1fr 25px;
+  grid-template-columns: 30px 50px 1fr 30px;
   background-color: aqua;
   overflow-y: scroll;
   align-content: flex-start;
