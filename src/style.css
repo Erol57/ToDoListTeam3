@@ -8,7 +8,7 @@ body {
   overflow: hidden;
 }
 
-.addTask.plusSignBuffer {
+.addTask.signBuffer {
   height: 50px;
   grid-template-columns: 19px 19px 19px;
 }
@@ -70,7 +70,7 @@ input {
   font-family: "Red Hat Display", sans-serif;
 }
 
-.plusSignBuffer {
+.signBuffer {
   grid-template-columns: 5px 19px 5px;
   grid-template-rows: 1fr 19px 1fr;
   grid-column-start: 3;
@@ -83,7 +83,7 @@ input {
   grid-row-start: 2;
 }
 
-.plusSign.addSubTask {
+.plusSign.removeTask {
   transform: rotate(45deg);
 }
 
