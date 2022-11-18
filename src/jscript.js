@@ -1,4 +1,4 @@
-function addMainTaskListner() {
+function addMainTaskListnerGroup() {
   const taskPlusses = document.querySelectorAll(".addTask.plusSign");
   for (let i = 0; i < taskPlusses.length; i++) {
     taskPlusses[i].addEventListener("mouseover", function () {
@@ -17,7 +17,7 @@ function addMainTaskListner() {
   }
 }
 
-function newSubTaskListner() {
+function newSubTaskListnerGroup() {
   // newSubTask Listner
   const plusses = document.getElementsByClassName("addSubTask plusSign");
   for (let i = 0; i < plusses.length; i++) {
@@ -43,7 +43,7 @@ function newSubTaskListner() {
   }
 }
 
-function hamburgerListner() {
+function hamburgerListnerGroup() {
   const burgers = document.getElementsByClassName("hamburgerMenu");
   for (let i = 0; i < burgers.length; i++) {
     burgers[i].addEventListener("mouseover", function () {
@@ -68,6 +68,7 @@ function hamburgerListner() {
   }
 }
 
+
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid"); //*works
   for (let i = 0; i < checkbox.length; i++) {
@@ -91,10 +92,10 @@ function checkboxListener() {
   }
 }
 
-  addMainTaskListner(); //trigger event listeners
-  newSubTaskListner();
-  hamburgerListner();
-  checkboxListener();
+addMainTaskListnerGroup(); //trigger event listeners
+newSubTaskListnerGroup();
+hamburgerListnerGroup();
+checkboxListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -168,9 +169,8 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  addMainTaskListner(); //retrigger event listeners
-  newSubTaskListner();
-  hamburgerListner();
+  newSubTaskListnerGroup();
+  hamburgerListnerGroup();
   checkboxListener();
 }
 
