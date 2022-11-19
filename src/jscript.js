@@ -72,7 +72,6 @@ function hamburgerListener() {
   }
 }
 
-
 function checkboxListener() {
   getNodeCount()
   const checkbox = document.getElementsByClassName("checkBoxGrid");
@@ -97,10 +96,22 @@ function checkboxListener() {
   }
 }
 
+function renameTodoListener() { //*busy here
+  getNodeCount()
+  const todoText = document.getElementsByClassName("checkBoxGrid");
+  for (let i = 0; i < nodeCount; i++) {
+    todoText[i].addEventListener("dblclick", function () {
+      console.log("triggered");
+      console.log(todoText[i]);
+    } 
+  }
+}
+
 addTaskListener(); //trigger event listeners
 removeTaskListener();
 hamburgerListener();
 checkboxListener();
+renameTodoListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
