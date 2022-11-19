@@ -97,7 +97,6 @@ function checkboxListener() {
   }
 }
 
-getNodeCount();
 addTaskListner(); //trigger event listeners
 removeTaskListner();
 hamburgerListner();
