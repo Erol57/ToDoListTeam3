@@ -41,7 +41,10 @@ function removeTaskListner() {
   }
   for (let i = 0; i < nodeCount; i++) {
     crosses[i].addEventListener("click", function () {
-      console.log("remove task");
+      // console.log("remove task");
+      // console.log(crosses[i].parentElement.parentElement);
+      crosses[i].parentElement.parentElement.remove();
+      getNodeCount();
     });
   }
 }
