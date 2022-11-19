@@ -17,12 +17,18 @@ function addMainTaskListnerGroup() {
   }
 }
 
+function getListenerNodes() {
+  const TaskNodes = document.getElementsByClassName("task");
+  listenerTaskNodes = TaskNodes;
+  console.log(listenerTaskNodes);
+}
+
+getListenerNodes();
+
 function newSubTaskListnerGroup() {
-  // newSubTask Listner
   const plusses = document.getElementsByClassName("removeTask plusSign");
   for (let i = 0; i < plusses.length; i++) {
     plusses[i].addEventListener("mouseover", function () {
-      // setPlusCol(this.id, "green");
       const hoverBackgroundColor = "green";
       plusses[i].children[0].style.backgroundColor = hoverBackgroundColor;
       plusses[i].children[1].style.backgroundColor = hoverBackgroundColor;
@@ -30,7 +36,6 @@ function newSubTaskListnerGroup() {
   }
   for (let i = 0; i < plusses.length; i++) {
     plusses[i].addEventListener("mouseout", function () {
-      // setPlusCol(this.id, "orangered");
       const hoverOutBackgroundColor = "orangered";
       plusses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
       plusses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
@@ -172,6 +177,10 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newSubTaskListnerGroup();
   hamburgerListnerGroup();
   checkboxListener();
+
+
+
+  getListenerNodes();
 }
 
 function setPlusColor(plusID, color) {
