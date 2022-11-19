@@ -1,139 +1,236 @@
-body {
-  overflow: hidden;
-}
-
-.gridContainer {
+header {
+  background-color: white;
+  height: auto;
   display: grid;
-  align-content: center;
-  overflow: hidden;
 }
 
-.addTask.signBuffer {
-  height: 50px;
-  grid-template-columns: 19px 19px 19px;
+img {
+  display:grid;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  
 }
 
-.addTask.plusLine {
-  background-color: cornflowerblue;
+#add-task{
+  border:none;
+  background-color: black;
+  color: white; 
+  width: 60px;
+  height:60px;
+  padding: auto;
+  font-size:40px;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.mainGrid {
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 50px;
-  height: 100vh;
+#add-task:hover{
+  color: red;
+}
+
+.dropdown {
+  box-sizing: border-box;
+  width: fit-content;
+  position: absolute;
+}
+
+.select {
+  background-color: transparent;
+  color: white;
+  border-radius: 0.5em;
+  padding: 1em;
+  width: auto;
+}
+
+.select:hover #nav {
   background-color: red;
 }
 
+.menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background-color: #2a2f3b;
+  color: white;
+  border: 1px white solid;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: max-content;
+  opacity: 0;
+  display: none;
+}
+
+.menu li {
+padding: 0.7em;
+margin: 0.3em 0;
+border-radius: 0.5em;
+cursor: pointer;
+}
+li:hover {
+  background-color: #ababab93;
+}
+
+.menu-open {
+display: block;
+opacity: 1;
+}
+#nav {
+      width: 35px;
+      height: 5px;
+      background-color: black;
+      margin: 6px 0;
+    
+}
+
+body {
+overflow: hidden;
+}
+
+.gridContainer {
+display: grid;
+align-content: center;
+overflow: hidden;
+}
+
+.addTask.signBuffer {
+height: 50px;
+grid-template-columns: 19px 19px 19px;
+}
+
+.addTask.plusLine {
+background-color: cornflowerblue;
+}
+
+.mainGrid {
+grid-template-columns: 1fr;
+grid-template-rows: 50px 1fr 50px;
+}
+
 .bodyGrid {
-  grid-template-columns: 30px 50px 1fr 30px;
-  background-color: aqua;
-  overflow-y: scroll;
-  align-content: flex-start;
-  row-gap: 1px;
+grid-template-columns: 30px 50px 1fr 30px;
+background-color: aqua;
+overflow-y: scroll;
+align-content: flex-start;
+row-gap: 1px;
 }
 
 .cardGrid {
-  /* container for card subgrids */
-  grid-template-columns: auto 1fr auto auto;
-  height: 50px;
-  border-radius: 15px;
-  border: 1px solid grey;
-  background-color: rgb(233, 233, 233);
+/* container for card subgrids */
+grid-template-columns: auto 1fr auto auto;
+height: 50px;
+border-radius: 15px;
+border: 1px solid grey;
+background-color: rgb(233, 233, 233);
 }
 
 .task.cardGrid {
-  /* defines how task grid connects to page body grid */
-  grid-column-start: 2;
-  grid-column-end: 4;
+/* defines how task grid connects to page body grid */
+grid-column-start: 2;
+grid-column-end: 4;
 }
 
 .taskChild.cardGrid {
-  grid-column-start: 3;
-  grid-column-end: 4;
+grid-column-start: 3;
+grid-column-end: 4;
 }
 
 .checkBoxGrid {
-  grid-template-columns: 14px 22px 14px;
-  grid-template-rows: 14px 22px 14px;
+grid-template-columns: 14px 22px 14px;
+grid-template-rows: 14px 22px 14px;
 }
 
 input {
-  grid-column-start: 2;
-  grid-row-start: 2;
-  display: inline-flex;
-  cursor: pointer;
+grid-column-start: 2;
+grid-row-start: 2;
+display: inline-flex;
+cursor: pointer;
 }
 
 .taskZone {
-  height: 50px;
-  grid-column-start: 2;
-  font-family: "Red Hat Display", sans-serif;
+height: 50px;
+grid-column-start: 2;
+font-family: "Red Hat Display", sans-serif;
 }
 
 .signBuffer {
-  grid-template-columns: 5px 19px 5px;
-  grid-template-rows: 1fr 19px 1fr;
-  grid-column-start: 3;
+grid-template-columns: 5px 19px 5px;
+grid-template-rows: 1fr 19px 1fr;
+grid-column-start: 3;
 }
 
 .plusSign {
-  grid-template-columns: 8px 3px 8px;
-  grid-template-rows: 8px 3px 8px;
-  grid-column-start: 2;
-  grid-row-start: 2;
+grid-template-columns: 8px 3px 8px;
+grid-template-rows: 8px 3px 8px;
+grid-column-start: 2;
+grid-row-start: 2;
 }
 
 .plusSign.removeTask {
-  transform: rotate(45deg);
+transform: rotate(45deg);
 }
 
 .plusLine {
-  display: flex;
-  border-radius: 2px;
-  background-color: orangered;
+display: flex;
+border-radius: 2px;
+background-color: orangered;
 }
 
 .vertical.plusLine {
-  grid-column: 2/3;
-  grid-row: 1/4;
+grid-column: 2/3;
+grid-row: 1/4;
 }
 
 .horizontal.plusLine {
-  grid-column: 1/4;
-  grid-row: 2/3;
+grid-column: 1/4;
+grid-row: 2/3;
 }
 
 .hamburgerMenuBuffer {
-  grid-template-columns: 15px 20px 15px;
-  grid-template-rows: 1fr 15px 1fr;
-  grid-column-start: 4;
+grid-template-columns: 15px 20px 15px;
+grid-template-rows: 1fr 15px 1fr;
+grid-column-start: 4;
 }
 
 .hamburgerMenu {
-  grid-template-columns: 20px;
-  grid-template-rows: 3px 3px 3px 3px 3px;
-  grid-column-start: 2;
-  grid-row-start: 2;
-  justify-content: center;
+grid-template-columns: 20px;
+grid-template-rows: 3px 3px 3px 3px 3px;
+grid-column-start: 2;
+grid-row-start: 2;
+justify-content: center;
 }
 
 .hamburgerStripe {
-  display: flex;
-  border-radius: 2px;
-  background-color: blue;
+display: flex;
+border-radius: 2px;
+background-color: blue;
 }
 
 .hamburgerStripe1.hamburgerStripe {
-  grid-column-start: 1;
-  grid-row-start: 1;
+grid-column-start: 1;
+grid-row-start: 1;
 }
 
 .hamburgerStripe2.hamburgerStripe {
-  grid-column-start: 1;
-  grid-row-start: 3;
+grid-column-start: 1;
+grid-row-start: 3;
 }
 
 .hamburgerStripe3.hamburgerStripe {
-  grid-column-start: 1;
-  grid-row-start: 5;
+grid-column-start: 1;
+grid-row-start: 5;
+}
+
+footer {
+  background-color: black;
+  height: 5%;
+  color:white;
+  font-family: "Red Hat Display", sans-serif;
+  font-size: large;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
