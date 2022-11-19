@@ -1,4 +1,4 @@
-function addTaskListner() {
+function addTaskListener() {
   const taskPlusses = document.querySelectorAll(".addTask.plusSign");
   for (let i = 0; i < taskPlusses.length; i++) {
     taskPlusses[i].addEventListener("mouseover", function () {
@@ -22,7 +22,7 @@ function getNodeCount() {
   nodeCount = taskNodes.length;
 }
 
-function removeTaskListner() {
+function removeTaskListener() {
   getNodeCount()
   const crosses = document.getElementsByClassName("removeTask plusSign");
   for (let i = 0; i < nodeCount; i++) {
@@ -46,7 +46,7 @@ function removeTaskListner() {
   }
 }
 
-function hamburgerListner() {
+function hamburgerListener() {
   getNodeCount()
   const burgers = document.getElementsByClassName("hamburgerMenu");
   for (let i = 0; i < nodeCount; i++) {
@@ -97,9 +97,9 @@ function checkboxListener() {
   }
 }
 
-addTaskListner(); //trigger event listeners
-removeTaskListner();
-hamburgerListner();
+addTaskListener(); //trigger event listeners
+removeTaskListener();
+hamburgerListener();
 checkboxListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
@@ -174,8 +174,8 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  removeTaskListner();
-  hamburgerListner();
+  removeTaskListener();
+  hamburgerListener();
   checkboxListener();
 }
 
