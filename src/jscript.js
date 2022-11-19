@@ -96,16 +96,16 @@ function checkboxListener() {
   }
 }
 
-// function renameTodoListener() { //*busy here
-//   getNodeCount();
-//   const todoText = document.getElementsByClassName("checkBoxGrid");
-//   for (let i = 0; i < nodeCount; i++) {
-//     todoText[i].addEventListener("dblclick", function ()) {
-//       console.log("triggered");
-//       console.log(todoText[i]);
-//     } 
-//   }
-// }
+function renameTodoListener() { //*busy here
+  getNodeCount();
+  const todoText = document.getElementsByClassName("taskZone");
+  for (let i = 0; i < nodeCount; i++) {
+    todoText[i].addEventListener("dblclick", function () {
+      newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+      this.innerHTML = "<h3>" + newTaskName;
+    });
+  }
+}
 
 addTaskListener(); //trigger event listeners
 removeTaskListener();
@@ -188,6 +188,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   removeTaskListener();
   hamburgerListener();
   checkboxListener();
+  renameTodoListener();
 }
 
 function setPlusColor(plusID, color) {
