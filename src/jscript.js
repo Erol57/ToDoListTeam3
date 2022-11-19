@@ -189,5 +189,7 @@ function setPlusColor(plusID, color) {
 }
 
 function hamBurgerClick() {
-  console.log("HamburgerMenu clicked");
-}
+  select.addEventListener('click', () => {
+    select.classList.toggle('select-clicked');
+    menu.classList.toggle('menu-open');
+});}
