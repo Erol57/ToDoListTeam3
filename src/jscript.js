@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
@@ -8,7 +7,6 @@ dropdowns.forEach(dropdown => {
         menu.classList.toggle('menu-open');
     });
 });
-=======
 function addTaskListner() {
   const taskPlusses = document.querySelectorAll(".addTask.plusSign");
   for (let i = 0; i < taskPlusses.length; i++) {
@@ -190,4 +188,3 @@ function setPlusColor(plusID, color) {
 function hamBurgerClick() {
   console.log("HamburgerMenu clicked");
 }
->>>>>>> 50dee87dd22adc9c828244129e933202410a19ad

@@ -1,7 +1,7 @@
 header {
     background-color: white;
-    height: 300px;
-
+    height: auto;
+    display: grid;
 }
 
 img {
@@ -11,6 +11,24 @@ img {
     max-width: fit-content;
     
 }
+
+#add-task{
+    border:none;
+    background-color: black;
+    color: white; 
+    width: 60px;
+    height:60px;
+    padding: auto;
+    font-size:40px;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#add-task:hover{
+    color: red;
+}
+
 .dropdown {
     box-sizing: border-box;
     width: fit-content;
@@ -58,23 +76,6 @@ li:hover {
 display: block;
 opacity: 1;
 }
-
-#add-task{
-    border:none;
-    background-color: black;
-    color: white; 
-    width: 60px;
-    height:60px;
-    padding: auto;
-    font-size:40px;
-    border-radius: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#add-task:hover{
-    color: red;
-}
 #nav {
         width: 35px;
         height: 5px;
@@ -83,12 +84,6 @@ opacity: 1;
       
 }
 
-.bodyGrid {
-    display:grid;
-    margin-left: auto;
-    margin-right:auto;
-
-}
 body {
   overflow: hidden;
 }
@@ -111,8 +106,6 @@ body {
 .mainGrid {
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
-  height: 100vh;
-  background-color: red;
 }
 
 .bodyGrid {
@@ -227,4 +220,17 @@ input {
 .hamburgerStripe3.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 5;
+}
+
+footer {
+    background-color: black;
+    height: 5%;
+    color:white;
+    font-family: "Red Hat Display", sans-serif;
+    font-size: large;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
