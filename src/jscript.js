@@ -1,4 +1,4 @@
-function addMainTaskListnerGroup() {
+function addTaskListner() {
   const taskPlusses = document.querySelectorAll(".addTask.plusSign");
   for (let i = 0; i < taskPlusses.length; i++) {
     taskPlusses[i].addEventListener("mouseover", function () {
@@ -17,33 +17,30 @@ function addMainTaskListnerGroup() {
   }
 }
 
-function newSubTaskListnerGroup() {
-  // newSubTask Listner
-  const plusses = document.getElementsByClassName("removeTask plusSign");
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("mouseover", function () {
-      // setPlusCol(this.id, "green");
+function removeTaskListner() {
+  const crosses = document.getElementsByClassName("removeTask plusSign");
+  for (let i = 0; i < crosses.length; i++) {
+    crosses[i].addEventListener("mouseover", function () {
       const hoverBackgroundColor = "green";
-      plusses[i].children[0].style.backgroundColor = hoverBackgroundColor;
-      plusses[i].children[1].style.backgroundColor = hoverBackgroundColor;
+      crosses[i].children[0].style.backgroundColor = hoverBackgroundColor;
+      crosses[i].children[1].style.backgroundColor = hoverBackgroundColor;
     });
   }
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("mouseout", function () {
-      // setPlusCol(this.id, "orangered");
+  for (let i = 0; i < crosses.length; i++) {
+    crosses[i].addEventListener("mouseout", function () {
       const hoverOutBackgroundColor = "orangered";
-      plusses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
-      plusses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
+      crosses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
+      crosses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
     });
   }
-  for (let i = 0; i < plusses.length; i++) {
-    plusses[i].addEventListener("click", function () {
-      console.log("newsubtask");
+  for (let i = 0; i < crosses.length; i++) {
+    crosses[i].addEventListener("click", function () {
+      console.log("remove task");
     });
   }
 }
 
-function hamburgerListnerGroup() {
+function hamburgerListner() {
   const burgers = document.getElementsByClassName("hamburgerMenu");
   for (let i = 0; i < burgers.length; i++) {
     burgers[i].addEventListener("mouseover", function () {
@@ -63,25 +60,25 @@ function hamburgerListnerGroup() {
   }
   for (let i = 0; i < burgers.length; i++) {
     burgers[i].addEventListener("click", function () {
-      hamClick(burgers);
+      hamBurgerClick(burgers);
     });
   }
 }
 
 
 function checkboxListener() {
-  const checkbox = document.getElementsByClassName("checkBoxGrid"); //*works
+  const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked) {
-        this.parentElement.style.gridColumnStart = "3"; //*mark card done
+        this.parentElement.style.gridColumnStart = "3";
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
         strippedText = strippedText.replace("<h3>", "<s>");
         strippedText = strippedText.replace("</h3>", "</s>");
         const newText = this.parentElement.children[1].innerHTML = strippedText;
       } else {
-        const taggedText = this.parentElement.children[1].innerHTML; //*mark card undone
+        const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
         strippedText = strippedText.replace("<s>", "<h3>");
         strippedText = strippedText.replace("</s>", "</h3>");
@@ -92,9 +89,9 @@ function checkboxListener() {
   }
 }
 
-addMainTaskListnerGroup(); //trigger event listeners
-newSubTaskListnerGroup();
-hamburgerListnerGroup();
+addTaskListner(); //trigger event listeners
+removeTaskListner();
+hamburgerListner();
 checkboxListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
@@ -169,8 +166,8 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  newSubTaskListnerGroup();
-  hamburgerListnerGroup();
+  removeTaskListner();
+  hamburgerListner();
   checkboxListener();
 }
 
@@ -179,6 +176,6 @@ function setPlusColor(plusID, color) {
   document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
 }
 
-function hamClick() {
+function hamBurgerClick() {
   console.log("HamburgerMenu clicked");
 }
