@@ -21,12 +21,12 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr 50px;
   height: 100vh;
-  background-color: red;
+  background-color: whitesmoke;
 }
 
 .bodyGrid {
   grid-template-columns: 30px 50px 1fr 30px;
-  background-color: aqua;
+  background-color: whitesmoke;
   overflow-y: scroll;
   align-content: flex-start;
   row-gap: 1px;
@@ -38,7 +38,7 @@ body {
   height: 50px;
   border-radius: 15px;
   border: 1px solid grey;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(218, 218, 218);
 }
 
 .task.cardGrid {
