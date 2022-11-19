@@ -29,13 +29,14 @@ img {
   color: red;
 }
 
-.dropdown {
-  box-sizing: border-box;
-  width: fit-content;
-  position: absolute;
-}
+
 
 .select {
+
+  /* box-sizing: border-box;
+  width: fit-content;
+  position: absolute; */
+
   background-color: transparent;
   color: white;
   border-radius: 0.5em;
@@ -55,11 +56,14 @@ img {
   border: 1px white solid;
   border-radius: 0.5em;
   position: absolute;
-  top: 3em;
+  /* top: 3em; */
+  top: 40px;
   right: 70%;
   width: max-content;
   opacity: 0;
   display: none;
+  z-index: 3;
+  border-radius: 15px;
 }
 
 .menu li {
@@ -188,8 +192,8 @@ grid-row: 2/3;
 }
 
 .hamburgerMenuBuffer {
-grid-template-columns: 15px 20px 15px;
-grid-template-rows: 1fr 15px 1fr;
+grid-template-columns: 15px auto 15px;
+grid-template-rows: 1fr auto 1fr;
 grid-column-start: 4;
 }
 
