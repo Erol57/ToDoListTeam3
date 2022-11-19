@@ -35,7 +35,10 @@ function removeTaskListner() {
   }
   for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("click", function () {
-      console.log("remove task");
+      // console.log("remove task");
+      const cardToRemove = crosses[i].parentElement.parentElement; //I added a variable step, not really necessary, but maybe a bit more readable
+      cardToRemove.remove(); //This is the remove step
+      getNodeCount();
     });
   }
 }
