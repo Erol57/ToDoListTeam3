@@ -205,6 +205,13 @@ grid-row-start: 2;
 justify-content: center;
 }
 
+.newpos {
+  display: grid; !important
+  grid-column-start: 2; !important
+grid-row-start: 2; !important
+z-index: 3;
+}
+
 .hamburgerStripe {
 display: flex;
 border-radius: 2px;
