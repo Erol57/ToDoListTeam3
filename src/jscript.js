@@ -23,7 +23,7 @@ function getNodeCount() {
 }
 
 function removeTaskListener() {
-  getNodeCount()
+  getNodeCount();
   const crosses = document.getElementsByClassName("removeTask plusSign");
   for (let i = 0; i < nodeCount; i++) {
     crosses[i].addEventListener("mouseover", function () {
@@ -47,7 +47,7 @@ function removeTaskListener() {
 }
 
 function hamburgerListener() {
-  getNodeCount()
+  getNodeCount();
   const burgers = document.getElementsByClassName("hamburgerMenu");
   for (let i = 0; i < nodeCount; i++) {
     burgers[i].addEventListener("mouseover", function () {
@@ -72,9 +72,8 @@ function hamburgerListener() {
   }
 }
 
-
 function checkboxListener() {
-  getNodeCount()
+  getNodeCount();
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < nodeCount; i++) {
     checkbox[i].addEventListener("change", function () {
@@ -97,10 +96,22 @@ function checkboxListener() {
   }
 }
 
+function renameTodoListener() { //*busy here
+  getNodeCount();
+  const todoText = document.getElementsByClassName("taskZone");
+  for (let i = 0; i < nodeCount; i++) {
+    todoText[i].addEventListener("dblclick", function () {
+      newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+      this.innerHTML = "<h3>" + newTaskName;
+    });
+  }
+}
+
 addTaskListener(); //trigger event listeners
 removeTaskListener();
 hamburgerListener();
 checkboxListener();
+renameTodoListener();
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -177,6 +188,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   removeTaskListener();
   hamburgerListener();
   checkboxListener();
+  renameTodoListener();
 }
 
 function setPlusColor(plusID, color) {
