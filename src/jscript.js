@@ -76,7 +76,7 @@ function hamburgerListner() {
 }
 
 function hamBurgerClick() {
-  const dropdowns = document.querySelectorAll('.dropdown');
+  const dropdowns = document.querySelectorAll('.hamburgerMenu');
   dropdowns.forEach(dropdown => {
       const select = dropdown.querySelector('.select');
       const menu = dropdown.querySelector('.menu');
