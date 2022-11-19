@@ -2,44 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ToDo List</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap">
-    <script async src="src/jscript.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>todo list - Group 3</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <script async src="src/jscript.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
 </head>
-<body>
-    <div class="gridContainer mainGrid">
-        <header>
-        <img src="https://i.ibb.co/gw3vV3N/To-Do.png" alt="To-Do"/>
-        </header>
-    </div>
-        <div class="gridContainer bodyGrid">
-             <button id="add-task">+</button>
-        </div>
-    
-
-
-    <div class="dropdown">
-        <div class="select">
-            <span class="selected">
-        <div id="nav"></div>
-        <div id="nav"></div>
-        <div id="nav"></div>
-            </span>
-        </div>
-        <ul class="menu">
-            <li>Add subtask</li>
-            <li>Edit task</li>
-            <li>Delete task</li>
-        </ul>   
+        <body>
+            <div class="gridContainer mainGrid">
+                <header>
+                <img src="https://i.ibb.co/gw3vV3N/To-Do.png" alt="To-Do"/>
+                </header>
+            </div>
+                <div class="gridContainer bodyGrid">
+                     <button id="add-task">+</button>
+                </div>
+            
         
+        
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">
+                <div id="nav"></div>
+                <div id="nav"></div>
+                <div id="nav"></div>
+                    </span>
+                </div>
+                <ul class="menu">
+                    <li>Add subtask</li>
+                    <li>Edit task</li>
+                    <li>Delete task</li>
+                </ul>   
+      <div class="gridContainer addTask signBuffer">
+        <div class="gridContainer addTask plusSign" id="addTask">
+          <div class="addTask plusLine vertical" id="addTaskVertical"></div>
+          <div class="addTask plusLine horizontal" id="addTaskHorizontal"></div>
+        </div>
+      </div>
+    </header>
+    <div class="gridContainer bodyGrid" id="bodyGrid">
     </div>
-
-    
-    
+    <footer>footer</footer>
+  </div>
 </body>
+
 </html>
