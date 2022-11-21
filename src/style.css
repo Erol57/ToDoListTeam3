@@ -8,6 +8,167 @@ body {
   overflow: hidden;
 }
 
+.LogoContainer {
+  grid-template-columns: 93px 150px 150px auto ;
+  grid-template-rows: 1fr;
+  justify-content: center;
+}
+
+.T-logoGrid {
+  grid-template-columns: 53fr 16fr 53fr;
+  grid-template-rows: 3fr 26fr;
+  height: 145px;
+  width: 122px;
+}
+
+.T-topBar {
+  display: flex;
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.T-vertBar {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.roundCheckGrid {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 8fr 5fr;
+  height: 115px;
+  width: 115px;
+  align-self: flex-end;
+  overflow: visible;
+}
+
+.roundCheckCircle {
+  display: flex;
+  border: 16px solid black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  border-radius: 50%;
+}
+
+/* .circleCutterGrid {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 4fr 1fr;
+} */
+
+.circleCutterElement {
+  display: flex;
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: -1;
+  background-color: white;
+  z-index: 1;
+}
+
+.checkGrid {
+  grid-template-columns: 16px 1fr;
+  grid-template-rows: 1fr 10px 16px 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: flex-end;
+  rotate: -45deg;
+  z-index: 2;
+  height: 50px;
+  width: 90px;
+}
+
+.checkShort {
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: -2;
+  z-index: 2;
+}
+
+.checkLong {
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: -3;
+  grid-row-end: -2;
+  z-index: 2;
+}
+
+.D-logoGrid {
+  grid-template-columns: 16px 1fr 2fr;
+  grid-template-rows: 16fr 113fr 16fr;
+  height: 145px;
+  width: 125px;
+}
+
+.D-vertLine {
+  display: flex;
+  background-color: black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.D-horLine1 {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.D-horLine2 {
+  display: flex;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: -2;
+  grid-row-end: -1;
+}
+
+.D-curve {
+  /* border: 16px solid black; */
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  border-top: 16px solid black;
+  border-bottom: 16px solid black;
+  border-right: 16px solid black;
+  border-top-right-radius: 333px;
+  border-bottom-right-radius: 333px;
+  
+
+  /* border-radius: 50%; */
+  /* width: 200%; */
+}
+
+
+
+
+
+
+
+
+
+
 .addTask.signBuffer {
   height: 50px;
   grid-template-columns: 19px 19px 19px;
