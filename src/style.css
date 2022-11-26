@@ -9,7 +9,7 @@ body {
 }
 
 .LogoContainer {
-  grid-template-columns: 93px 150px 150px auto ;
+  grid-template-columns: 93px 150px 150px auto;
   grid-template-rows: 1fr;
   justify-content: center;
 }
@@ -156,15 +156,6 @@ body {
   border-bottom-right-radius: 333px;
 }
 
-
-
-
-
-
-
-
-
-
 .addTask.signBuffer {
   height: 50px;
   grid-template-columns: 19px 19px 19px;
@@ -293,4 +284,22 @@ input {
 .hamburgerStripe3.hamburgerStripe {
   grid-column-start: 1;
   grid-row-start: 5;
+}
+
+@media screen and (max-width: 530px) {
+  .LogoContainer {    
+    zoom: 0.7;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .LogoContainer {    
+    zoom: 0.6;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .LogoContainer {    
+    zoom: 0.5;
+  }
 }
