@@ -1,21 +1,15 @@
 function addTaskListener() {
-  const taskPlusses = document.querySelectorAll(".addTask.plusSign");
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("mouseover", function () {
-      setPlusColor(this.id, "darkslateblue");
-    });
+  const taskPlus = document.querySelector(".addTask.plusSign");
+  taskPlus.addEventListener("mouseover", function () {
+    setPlusColor(this.id, "darkslateblue");
+  });
+  taskPlus.addEventListener("mouseout", function () {
+    setPlusColor(this.id, "cornflowerblue");
+  });
+  taskPlus.addEventListener("click", function () {
+    addMainTask();
+  });
   }
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("mouseout", function () {
-      setPlusColor(this.id, "cornflowerblue");
-    });
-  }
-  for (let i = 0; i < taskPlusses.length; i++) {
-    taskPlusses[i].addEventListener("click", function () {
-      addMainTask();
-    });
-  }
-}
 
 function getNodeCount() {
   const taskNodes = document.getElementsByClassName("task");
