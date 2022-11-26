@@ -285,21 +285,3 @@ input {
   grid-column-start: 1;
   grid-row-start: 5;
 }
-
-@media screen and (max-width: 530px) {
-  .LogoContainer {    
-    zoom: 0.7;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .LogoContainer {    
-    zoom: 0.6;
-  }
-}
-
-@media screen and (max-width: 280px) {
-  .LogoContainer {    
-    zoom: 0.5;
-  }
-}

@@ -199,3 +199,14 @@ function setPlusColor(plusID, color) {
 function hamBurgerClick() {
   console.log("HamburgerMenu clicked");
 }
+
+
+
+function resizeLogo() {
+  if (window.innerWidth >= 530) {
+    document.querySelector("#LogoContainer").style.zoom = 0.5;
+  } else {
+    document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060);
+  }
+  console.log(document.querySelector("#LogoContainer").style.zoom);
+}
