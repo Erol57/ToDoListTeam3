@@ -80,7 +80,7 @@ function checkboxListener() {
   }
 }
 
-function renameTodoListener() { //*busy here
+function renameTodoListener() {
   document.querySelectorAll('.taskZone').forEach(element => {
     element.addEventListener('dblclick', () => {   
       newTaskName = prompt("Please enter your new ToDo text", element.children[0].innerHTML);
@@ -167,10 +167,10 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  // removeTaskListener();
-  // hamburgerListener();
-  // checkboxListener();
-  // renameTodoListener();
+  removeTaskListener();
+  hamburgerListener();
+  checkboxListener();
+  renameTodoListener();
 }
 
 function setPlusColor(plusID, color) {
