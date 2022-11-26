@@ -11,65 +11,55 @@ function addTaskListener() {
   });
   }
 
-function getNodeCount() {
-  const taskNodes = document.getElementsByClassName("task");
-  nodeCount = taskNodes.length;
-}
-
 function removeTaskListener() {
-  getNodeCount();
-  const crosses = document.getElementsByClassName("removeTask plusSign");
-  for (let i = 0; i < nodeCount; i++) {
-    crosses[i].addEventListener("mouseover", function () {
+  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
+    element.addEventListener('mouseover', () => {   
       const hoverBackgroundColor = "green";
-      crosses[i].children[0].style.backgroundColor = hoverBackgroundColor;
-      crosses[i].children[1].style.backgroundColor = hoverBackgroundColor;
-    });
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    crosses[i].addEventListener("mouseout", function () {
-      const hoverOutBackgroundColor = "orangered";
-      crosses[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
-      crosses[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
-    });
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    crosses[i].addEventListener("click", function () {
-      console.log("remove task");
-    });
-  }
+      element.children[0].style.backgroundColor = hoverBackgroundColor;
+      element.children[1].style.backgroundColor = hoverBackgroundColor;           
+    })
+  })
+  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
+    element.addEventListener('mouseout', () => {   
+      const hoverBackgroundColor = "orangered";
+      element.children[0].style.backgroundColor = hoverBackgroundColor;
+      element.children[1].style.backgroundColor = hoverBackgroundColor;           
+    })
+  })
+  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
+    element.addEventListener('click', () => {   
+      element.parentElement.parentElement.remove();
+    })
+  })
 }
 
 function hamburgerListener() {
-  getNodeCount();
-  const burgers = document.getElementsByClassName("hamburgerMenu");
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("mouseover", function () {
+  document.querySelectorAll('.hamburgerMenu').forEach(element => {
+    element.addEventListener('mouseover', () => {   
       const hoverBackgroundColor = "red";
-      burgers[i].children[0].style.backgroundColor = hoverBackgroundColor;
-      burgers[i].children[1].style.backgroundColor = hoverBackgroundColor;
-      burgers[i].children[2].style.backgroundColor = hoverBackgroundColor;
-    });
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("mouseout", function () {
-      const hoverOutBackgroundColor = "blue";
-      burgers[i].children[0].style.backgroundColor = hoverOutBackgroundColor;
-      burgers[i].children[1].style.backgroundColor = hoverOutBackgroundColor;
-      burgers[i].children[2].style.backgroundColor = hoverOutBackgroundColor;
-    });
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("click", function () {
-      hamBurgerClick(burgers);
-    });
-  }
+      element.children[1].style.backgroundColor = hoverBackgroundColor;
+      element.children[0].style.backgroundColor = hoverBackgroundColor;
+      element.children[2].style.backgroundColor = hoverBackgroundColor;   
+    })
+  })
+  document.querySelectorAll('.hamburgerMenu').forEach(element => {
+    const hoverOutBackgroundColor = "blue";
+    element.addEventListener('mouseout', () => {   
+      element.children[0].style.backgroundColor = hoverOutBackgroundColor;
+      element.children[1].style.backgroundColor = hoverOutBackgroundColor;
+      element.children[2].style.backgroundColor = hoverOutBackgroundColor;
+    })
+  })
+  document.querySelectorAll('.hamburgerMenu').forEach(element => {
+    element.addEventListener('click', () => {   
+      hamBurgerClick(element);
+    })
+  })
 }
 
 function checkboxListener() {
-  getNodeCount();
   const checkbox = document.getElementsByClassName("checkBoxGrid");
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < checkbox.length; i++) {
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked) {
         this.parentElement.style.gridColumnStart = "3";
@@ -91,15 +81,26 @@ function checkboxListener() {
 }
 
 function renameTodoListener() { //*busy here
-  getNodeCount();
-  const todoText = document.getElementsByClassName("taskZone");
-  for (let i = 0; i < nodeCount; i++) {
-    todoText[i].addEventListener("dblclick", function () {
-      newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
-      this.innerHTML = "<h3>" + newTaskName;
-    });
-  }
+  document.querySelectorAll('.taskZone').forEach(element => {
+    element.addEventListener('dblclick', () => {   
+      newTaskName = prompt("Please enter your new ToDo text", element.children[0].innerHTML);
+      element.innerHTML = "<h3>" + newTaskName;
+    })
+  })
 }
+
+
+
+
+
+//   const todoText = document.getElementsByClassName("taskZone");
+//   for (let i = 0; i < todoText.count; i++) {
+//     todoText[i].addEventListener("dblclick", function () {
+//       newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+//       this.innerHTML = "<h3>" + newTaskName;
+//     });
+//   }
+// }
 
 addTaskListener(); //trigger event listeners
 removeTaskListener();
@@ -179,10 +180,10 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   newHamStripe3.id = taskID + "hamburgerStripe3";
   document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
 
-  removeTaskListener();
-  hamburgerListener();
-  checkboxListener();
-  renameTodoListener();
+  // removeTaskListener();
+  // hamburgerListener();
+  // checkboxListener();
+  // renameTodoListener();
 }
 
 function setPlusColor(plusID, color) {
@@ -190,6 +191,6 @@ function setPlusColor(plusID, color) {
   document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
 }
 
-function hamBurgerClick() {
-  console.log("HamburgerMenu clicked");
+function hamBurgerClick(element) {
+  console.log("HamburgerMenu " + element.id + " clicked");
 }
