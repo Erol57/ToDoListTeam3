@@ -85,6 +85,7 @@ function renameTodoListener() {
     element.addEventListener('dblclick', () => {   
       newTaskName = prompt("Please enter your new ToDo text", element.children[0].innerHTML);
       element.innerHTML = "<h3>" + newTaskName;
+      
     })
   })
 }
