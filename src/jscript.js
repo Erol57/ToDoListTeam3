@@ -29,6 +29,7 @@ function removeTaskListener() {
   document.querySelectorAll('.removeTask.plusSign').forEach(element => {
     element.addEventListener('click', () => {   
       element.parentElement.parentElement.remove();
+      reorderAllTaskID();
     })
   })
 }
@@ -181,4 +182,77 @@ function setPlusColor(plusID, color) {
 
 function hamBurgerClick(element) {
   console.log("HamburgerMenu " + element.id + " clicked");
+}
+
+function reorderAllTaskID() {
+  const taskIDReorder = document.getElementsByClassName("cardGrid task");
+  for (let i = 0; i < taskIDReorder.length; i++) {
+    taskIDReorder[i].id = "task" + (i + 1);
+    console.log(taskIDReorder[i]);
+  }
+
+  const checkBoxGridIDReOrder = document.getElementsByClassName("checkBoxGrid");
+  for (let i = 0; i < checkBoxGridIDReOrder.length; i++) {
+    checkBoxGridIDReOrder[i].id = "task" + (i + 1) + "checkBoxGrid";
+  }
+
+  const checkBoxIDReOrder = document.getElementsByName("taskCheckBox");
+  for (let i = 0; i < checkBoxGridIDReOrder.length; i++) {
+    checkBoxIDReOrder[i].id = "task" + (i + 1) + "checkbox";
+  }
+
+  const taskZoneReOrder = document.getElementsByClassName("taskZone");
+  for (let i = 0; i < taskZoneReOrder.length; i++) {
+    taskZoneReOrder[i].id = "task" + (i + 1) + "taskZone";
+  }
+
+  const signBufferReOrder = document.getElementsByClassName("signBuffer");
+  for (let i = 0; i < signBufferReOrder.length; i++) {
+    signBufferReOrder[i].id = "task" + (i) + "signBuffer";
+  }
+
+  const removeTaskReOrder = document.getElementsByClassName("removeTask plusSign");
+  for (let i = 0; i < removeTaskReOrder.length; i++) {
+    removeTaskReOrder[i].id = "task" + (i + 1) + "removeTask";
+  }
+
+  const plusVerticalReOrder = document.getElementsByClassName("plusLine vertical");
+  for (let i = 0; i < plusVerticalReOrder.length; i++) {
+    plusVerticalReOrder[i].id = "task" + (i) + "plusVertical";
+  }
+
+  const plusHorizontalReOrder = document.getElementsByClassName("plusLine horizontal");
+  for (let i = 0; i < plusHorizontalReOrder.length; i++) {
+    plusHorizontalReOrder[i].id = "task" + (i) + "plusHorizontal";
+  }
+
+  const hamburgerMenuBufferReOrder = document.getElementsByClassName("hamburgerMenuBuffer");
+  for (let i = 0; i < hamburgerMenuBufferReOrder.length; i++) {
+    hamburgerMenuBufferReOrder[i].id = "task" + (i + 1) + "HamburgerMenuBuffer";
+  }
+
+  const hamburgerMenuReOrder = document.getElementsByClassName("hamburgerMenu");
+  for (let i = 0; i < hamburgerMenuReOrder.length; i++) {
+    hamburgerMenuReOrder[i].id = "task" + (i + 1) + "HamburgerMenu";
+  }
+
+  const hamburgerStripe1ReOrder = document.getElementsByClassName("hamburgerStripe1");
+  for (let i = 0; i < hamburgerStripe1ReOrder.length; i++) {
+    hamburgerStripe1ReOrder[i].id = "task" + (i + 1) + "hamburgerStripe1";
+  }
+
+  const hamburgerStripe2ReOrder = document.getElementsByClassName("hamburgerStripe2");
+  for (let i = 0; i < hamburgerStripe2ReOrder.length; i++) {
+    hamburgerStripe2ReOrder[i].id = "task" + (i + 1) + "hamburgerStripe2";
+  }
+
+  const hamburgerStripe3ReOrder = document.getElementsByClassName("hamburgerStripe3");
+  for (let i = 0; i < hamburgerStripe3ReOrder.length; i++) {
+    hamburgerStripe3ReOrder[i].id = "task" + (i + 1) + "hamburgerStripe3";
+  }
+
+  removeTaskListener();
+  hamburgerListener();
+  checkboxListener();
+  renameTodoListener();
 }
