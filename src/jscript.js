@@ -1,10 +1,10 @@
 function addTaskListener() {
   const taskPlus = document.querySelector(".addTask.plusSign");
   taskPlus.addEventListener("mouseover", function () {
-    setPlusColor(this.id, "darkslateblue");
+    setPlusColor(this.children, "darkslateblue");
   });
   taskPlus.addEventListener("mouseout", function () {
-    setPlusColor(this.id, "cornflowerblue");
+    setPlusColor(this.children, "cornflowerblue");
   });
   taskPlus.addEventListener("click", function () {
     addMainTask();
@@ -176,8 +176,10 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
 }
 
 function setPlusColor(plusID, color) {
-  document.getElementById(plusID + "Vertical").style.backgroundColor = color;
-  document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
+  document.getElementById(plusID[0].id).style.backgroundColor = color;
+  document.getElementById(plusID[1].id).style.backgroundColor = color;
+  // document.getElementById(plusID + "Vertical").style.backgroundColor = color;
+  // document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
 }
 
 function hamBurgerClick(element) {
@@ -188,7 +190,6 @@ function reorderAllTaskID() {
   const taskIDReorder = document.getElementsByClassName("cardGrid task");
   for (let i = 0; i < taskIDReorder.length; i++) {
     taskIDReorder[i].id = "task" + (i + 1);
-    console.log(taskIDReorder[i]);
   }
 
   const checkBoxGridIDReOrder = document.getElementsByClassName("checkBoxGrid");
