@@ -89,19 +89,6 @@ function renameTodoListener() { //*busy here
   })
 }
 
-
-
-
-
-//   const todoText = document.getElementsByClassName("taskZone");
-//   for (let i = 0; i < todoText.count; i++) {
-//     todoText[i].addEventListener("dblclick", function () {
-//       newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
-//       this.innerHTML = "<h3>" + newTaskName;
-//     });
-//   }
-// }
-
 addTaskListener(); //trigger event listeners
 removeTaskListener();
 hamburgerListener();
