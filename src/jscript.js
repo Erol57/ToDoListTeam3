@@ -42,8 +42,13 @@ function removeTaskListener() {
   for (let i = 0; i < nodeCount; i++) {
     crosses[i].addEventListener("click", function () {
       console.log("remove task");
+      const cardToRemove = crosses[i].parentElement.parentElement; //I added a variable step, not really necessary, but maybe a bit more readable
+      cardToRemove.remove(); //This is the remove step
+      getNodeCount();
+      getAllopenTasks();
     });
   }
+  
 }
 
 function hamburgerListener() {
@@ -107,11 +112,14 @@ function renameTodoListener() { //*busy here
   }
 }
 
+
+
 addTaskListener(); //trigger event listeners
 removeTaskListener();
 hamburgerListener();
 checkboxListener();
 renameTodoListener();
+
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -189,6 +197,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   hamburgerListener();
   checkboxListener();
   renameTodoListener();
+  getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -199,3 +208,41 @@ function setPlusColor(plusID, color) {
 function hamBurgerClick() {
   console.log("HamburgerMenu clicked");
 }
+
+
+
+//###### Start: Display clock on footer left side#######
+window.addEventListener('load', display_ct());
+function display_c() {
+  var refresh = 1000; // Refresh rate in milli seconds
+  mytime = setTimeout('display_ct()', refresh)
+}
+
+function display_ct() {
+  var x = new Date()
+  var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+
+  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+  x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+  document.getElementById("clock").innerHTML = x1;
+  display_c();
+}
+//###### End: Display clock on footer left side#######
+
+
+//###### Start: Display open tasks on footer midle #######
+window.addEventListener('load', getAllopenTasks());
+function getAllopenTasks() {
+  let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+  if (allTasks.length == 0) {
+    document.getElementById("ot").innerHTML = '';
+  } else {
+    document.getElementById("ot").innerHTML = allTasks.length;
+  }
+}
+//###### Ende: Display open tasks on footer midle #######
+
+
+
+
+
