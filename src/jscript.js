@@ -9,25 +9,25 @@ function addTaskListener() {
   taskPlus.addEventListener("click", function () {
     addMainTask();
   });
-  }
+}
 
 function removeTaskListener() {
   document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('mouseover', () => {   
+    element.addEventListener('mouseover', () => {
       const hoverBackgroundColor = "green";
       element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[1].style.backgroundColor = hoverBackgroundColor;           
+      element.children[1].style.backgroundColor = hoverBackgroundColor;
     })
   })
   document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('mouseout', () => {   
+    element.addEventListener('mouseout', () => {
       const hoverBackgroundColor = "orangered";
       element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[1].style.backgroundColor = hoverBackgroundColor;           
+      element.children[1].style.backgroundColor = hoverBackgroundColor;
     })
   })
   document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('click', () => {   
+    element.addEventListener('click', () => {
       element.parentElement.parentElement.remove();
       reorderAllTaskID();
     })
@@ -36,23 +36,23 @@ function removeTaskListener() {
 
 function hamburgerListener() {
   document.querySelectorAll('.hamburgerMenu').forEach(element => {
-    element.addEventListener('mouseover', () => {   
+    element.addEventListener('mouseover', () => {
       const hoverBackgroundColor = "red";
       element.children[1].style.backgroundColor = hoverBackgroundColor;
       element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[2].style.backgroundColor = hoverBackgroundColor;   
+      element.children[2].style.backgroundColor = hoverBackgroundColor;
     })
   })
   document.querySelectorAll('.hamburgerMenu').forEach(element => {
     const hoverOutBackgroundColor = "blue";
-    element.addEventListener('mouseout', () => {   
+    element.addEventListener('mouseout', () => {
       element.children[0].style.backgroundColor = hoverOutBackgroundColor;
       element.children[1].style.backgroundColor = hoverOutBackgroundColor;
       element.children[2].style.backgroundColor = hoverOutBackgroundColor;
     })
   })
   document.querySelectorAll('.hamburgerMenu').forEach(element => {
-    element.addEventListener('click', () => {   
+    element.addEventListener('click', () => {
       hamBurgerClick(element);
     })
   })
@@ -86,7 +86,7 @@ function renameTodoListener() {
     element.addEventListener('dblclick', () => {   
       newTaskName = prompt("Please enter your new ToDo text", element.children[0].innerHTML);
       element.innerHTML = "<h3>" + newTaskName;
-      
+
     })
   })
 }
