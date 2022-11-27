@@ -12,8 +12,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
 </head>
+<body onresize="resizeLogo()">
 
-<body>
+  <div class="gridContainer LogoContainer" id="LogoContainer">
+  
+    <div class="gridContainer T-logoGrid">
+      <div class="T-topBar"></div>
+      <div class="T-vertBar"></div>
+    </div>
+
+    <div class="gridContainer roundCheckGrid">
+      <div class="gridContainer checkGrid">
+        <div class="circleCutterElement"></div>
+        <div class="checkShort"></div>
+        <div class="checkLong"></div>
+      </div>
+      <div class="roundCheckCircle">
+      </div>
+    </div>
+
+    <div class="gridContainer D-logoGrid">
+      <div class="D-vertLine"></div>
+      <div class="D-horLine1"></div>
+      <div class="D-horLine2"></div>
+      <div class="D-curve"></div>
+    </div>
+
+    <div class="gridContainer roundCheckGrid">
+      <div class="gridContainer checkGrid">
+        <div class="circleCutterElement"></div>
+        <div class="checkShort"></div>
+        <div class="checkLong"></div>
+      </div>
+      <div class="roundCheckCircle">
+      </div>
+    </div>
+  </div>
+  
   <div class="gridContainer mainGrid">
     <header>
       <div class="gridContainer addTask signBuffer">
@@ -24,9 +59,10 @@
       </div>
     </header>
     <div class="gridContainer bodyGrid" id="bodyGrid">
+    
+    
     </div>
     <footer>footer</footer>
   </div>
 </body>
-
 </html>

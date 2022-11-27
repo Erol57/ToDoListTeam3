@@ -257,3 +257,11 @@ function reorderAllTaskID() {
   checkboxListener();
   renameTodoListener();
 }
+
+function resizeLogo() {
+  if (window.innerWidth >= 530) {
+    document.querySelector("#LogoContainer").style.zoom = 0.5;
+  } else {
+    document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
+  }  
+}
