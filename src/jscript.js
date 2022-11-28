@@ -91,11 +91,14 @@ function renameTodoListener() {
   })
 }
 
+
+
 addTaskListener(); //trigger event listeners
 removeTaskListener();
 hamburgerListener();
 checkboxListener();
 renameTodoListener();
+
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -173,6 +176,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   hamburgerListener();
   checkboxListener();
   renameTodoListener();
+  getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -258,6 +262,37 @@ function reorderAllTaskID() {
   renameTodoListener();
 }
 
+//###### Start: Display clock on footer left side#######
+window.addEventListener('load', display_ct());
+function display_c() {
+  var refresh = 1000; // Refresh rate in milli seconds
+  mytime = setTimeout('display_ct()', refresh)
+}
+
+function display_ct() {
+  var x = new Date()
+  var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+
+  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+  x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+  document.getElementById("clock").innerHTML = x1;
+  display_c();
+}
+//###### End: Display clock on footer left side#######
+
+
+//###### Start: Display open tasks on footer midle #######
+window.addEventListener('load', getAllopenTasks());
+function getAllopenTasks() {
+  let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+  if (allTasks.length == 0) {
+    document.getElementById("ot").innerHTML = '';
+  } else {
+    document.getElementById("ot").innerHTML = allTasks.length;
+  }
+}
+//###### Ende: Display open tasks on footer midle #######
+
 function resizeLogo() {
   if (window.innerWidth >= 530) {
     document.querySelector("#LogoContainer").style.zoom = 0.5;
@@ -265,3 +300,4 @@ function resizeLogo() {
     document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
   }  
 }
+
