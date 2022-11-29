@@ -1,3 +1,4 @@
+Tryg_Reposition_Logo
 body {
   overflow: hidden;
   margin: 0;
@@ -161,8 +162,7 @@ body {
 
 .mainGrid {
   grid-template-columns: 1fr;
-  /* grid-template-rows: 50px 1fr 100px; */
-  grid-template-rows: 145px 1fr 100px;
+  grid-template-rows: auto 1fr 100px;
   height: 100vh;
   background-color: whitesmoke;
 }
