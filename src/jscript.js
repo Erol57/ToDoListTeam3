@@ -140,9 +140,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                           </div>
                       </div>
                     </section>`
-                    
 document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
-
 removeTaskListener();
 hamburgerListener();
 checkboxListener();
