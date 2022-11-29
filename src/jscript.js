@@ -121,17 +121,7 @@ function renameTodoListenerDblclick() {
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task").length + 1;
-  let taskID = "task" + taskCounter;
-
-
-
-
-
-
-
-
-
-  
+  let taskID = "task" + taskCounter;  
   const newTaskNode = document.createElement("section");
   newTaskNode.className = "gridContainer cardGrid task";
   newTaskNode.id = taskID;
