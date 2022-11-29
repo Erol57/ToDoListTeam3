@@ -92,6 +92,7 @@ function checkboxListener() {
         strippedText = strippedText.replace("<h3>", "<s>");
         strippedText = strippedText.replace("</h3>", "</s>");
         const newText = this.parentElement.children[1].innerHTML = strippedText;
+        this.parentElement.className = "gridContainer cardGrid clicked task";
       } else {
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -99,6 +100,7 @@ function checkboxListener() {
         strippedText = strippedText.replace("</s>", "</h3>");
         this.parentElement.style.gridColumnStart = "2";
         const restoredText = this.parentElement.children[1].innerHTML = strippedText;
+        this.parentElement.className = "gridContainer cardGrid task";
       }
     });
   }
