@@ -145,7 +145,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   document.getElementById(taskID).appendChild(newTaskZone);
 
   const newsignBuffer = document.createElement("div");
-  newsignBuffer.className = "gridContainer signBuffer";
+  newsignBuffer.className = "gridContainer removeTask signBuffer";
   newsignBuffer.id = taskID + "signBuffer";
   document.getElementById(taskID).appendChild(newsignBuffer);
 
