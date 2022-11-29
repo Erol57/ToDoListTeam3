@@ -191,6 +191,10 @@ body {
   background-color: rgb(218, 218, 218);
 }
 
+.cardGrid.clicked {
+  background-color: rgb(160, 160, 160);
+}
+
 .task.cardGrid {
   /* defines how task grid connects to page body grid */
   grid-column-start: 2;
