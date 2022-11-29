@@ -11,51 +11,74 @@ function addTaskListener() {
   });
 }
 
+addTaskListener();
+
+function getNodeCount() {
+  const taskNodes = document.getElementsByClassName("task");
+  nodeCount = taskNodes.length;
+}
+
 function removeTaskListener() {
-  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('mouseover', () => {
-      const hoverBackgroundColor = "green";
-      element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[1].style.backgroundColor = hoverBackgroundColor;
-    })
-  })
-  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('mouseout', () => {
-      const hoverBackgroundColor = "orangered";
-      element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[1].style.backgroundColor = hoverBackgroundColor;
-    })
-  })
-  document.querySelectorAll('.removeTask.plusSign').forEach(element => {
-    element.addEventListener('click', () => {
-      element.parentElement.parentElement.remove();
+  getNodeCount();
+  const crosses = document.getElementsByClassName("removeTask plusSign");
+  for (let i = 0; i < nodeCount; i++) {
+    crosses[i].addEventListener("mouseover", removeTaskListenerMouseover);
+  }
+  for (let i = 0; i < nodeCount; i++) {
+    crosses[i].addEventListener("mouseout", removeTaskListenerMouseout);
+  }
+  for (let i = 0; i < nodeCount; i++) {
+    crosses[i].addEventListener("click", removeTaskListenerClick);
+  }
+}
+
+function removeTaskListenerMouseover() {
+  const hoverBackgroundColor = "green";
+  this.children[0].style.backgroundColor = hoverBackgroundColor;
+  this.children[1].style.backgroundColor = hoverBackgroundColor;
+}
+
+function removeTaskListenerMouseout() {
+  const hoverOutBackgroundColor = "orangered";
+  this.children[0].style.backgroundColor = hoverOutBackgroundColor;
+  this.children[1].style.backgroundColor = hoverOutBackgroundColor;
+}
+
+function removeTaskListenerClick() {
+  this.parentElement.parentElement.remove();
       reorderAllTaskID();
-    })
-  })
 }
 
 function hamburgerListener() {
-  document.querySelectorAll('.hamburgerMenu').forEach(element => {
-    element.addEventListener('mouseover', () => {
-      const hoverBackgroundColor = "red";
-      element.children[1].style.backgroundColor = hoverBackgroundColor;
-      element.children[0].style.backgroundColor = hoverBackgroundColor;
-      element.children[2].style.backgroundColor = hoverBackgroundColor;
-    })
-  })
-  document.querySelectorAll('.hamburgerMenu').forEach(element => {
-    const hoverOutBackgroundColor = "blue";
-    element.addEventListener('mouseout', () => {
-      element.children[0].style.backgroundColor = hoverOutBackgroundColor;
-      element.children[1].style.backgroundColor = hoverOutBackgroundColor;
-      element.children[2].style.backgroundColor = hoverOutBackgroundColor;
-    })
-  })
-  document.querySelectorAll('.hamburgerMenu').forEach(element => {
-    element.addEventListener('click', () => {
-      hamBurgerClick(element);
-    })
-  })
+  getNodeCount();
+  const burgers = document.getElementsByClassName("hamburgerMenu");
+  for (let i = 0; i < nodeCount; i++) {
+    burgers[i].addEventListener("mouseover", hamburgerListenerMouseover);
+  }
+  for (let i = 0; i < nodeCount; i++) {
+    burgers[i].addEventListener("mouseout", hamburgerListenerMouseout);
+  }
+  for (let i = 0; i < nodeCount; i++) {
+    burgers[i].addEventListener("click", hamburgerListenerClick);
+  }
+}
+
+function hamburgerListenerMouseover() {
+  const hoverBackgroundColor = "red";
+  this.children[0].style.backgroundColor = hoverBackgroundColor;
+  this.children[1].style.backgroundColor = hoverBackgroundColor;
+  this.children[2].style.backgroundColor = hoverBackgroundColor;
+}
+
+function hamburgerListenerMouseout() {
+  const hoverOutBackgroundColor = "blue";
+  this.children[0].style.backgroundColor = hoverOutBackgroundColor;
+  this.children[1].style.backgroundColor = hoverOutBackgroundColor;
+  this.children[2].style.backgroundColor = hoverOutBackgroundColor;
+}
+
+function hamburgerListenerClick() {
+  console.log("HamburgerMenu " + this.id + " clicked");;
 }
 
 function checkboxListener() {
@@ -82,23 +105,17 @@ function checkboxListener() {
 }
 
 function renameTodoListener() {
-  document.querySelectorAll('.taskZone').forEach(element => {
-    element.addEventListener('dblclick', () => {   
-      newTaskName = prompt("Please enter your new ToDo text", element.children[0].innerHTML);
-      element.innerHTML = "<h3>" + newTaskName;
-
-    })
-  })
+  getNodeCount();
+  const todoText = document.getElementsByClassName("taskZone");
+  for (let i = 0; i < nodeCount; i++) {
+    todoText[i].addEventListener("dblclick", renameTodoListenerDblclick);
 }
+};
 
-
-
-addTaskListener(); //trigger event listeners
-removeTaskListener();
-hamburgerListener();
-checkboxListener();
-renameTodoListener();
-
+function renameTodoListenerDblclick() {
+  newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+  this.innerHTML = "<h3>" + newTaskName;
+}
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task.cardGrid").length + 1;
@@ -153,9 +170,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   const newHamburgerMenu = document.createElement("div");
   newHamburgerMenu.className = "gridContainer hamburgerMenu";
   newHamburgerMenu.id = taskID + "HamburgerMenu";
-  document
-    .getElementById(taskID + "HamburgerMenuBuffer")
-    .appendChild(newHamburgerMenu);
+  document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newHamburgerMenu);
 
   const newHamStripe1 = document.createElement("div");
   newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
@@ -184,10 +199,6 @@ function setPlusColor(plusID, color) {
   document.getElementById(plusID[1].id).style.backgroundColor = color;
   // document.getElementById(plusID + "Vertical").style.backgroundColor = color;
   // document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
-}
-
-function hamBurgerClick(element) {
-  console.log("HamburgerMenu " + element.id + " clicked");
 }
 
 function reorderAllTaskID() {
