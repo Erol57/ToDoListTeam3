@@ -122,92 +122,32 @@ function renameTodoListenerDblclick() {
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task").length + 1;
   let taskID = "task" + taskCounter;
-let newToDoHTML = ``
+  let newToDoHTML = `<section class="gridContainer cardGrid task" id="${taskID}">
+                      <div class="gridContainer checkBoxGrid" id="${taskID}checkBoxGrid">
+                          <input type="CheckBox" name="taskCheckBox" id="${taskID}checkbox"></div>
+                      <div class="gridContainer taskZone" id="${taskID}TaskZone"><h3>${taskName}</h3 ></div >
+                      <div class="gridContainer removeTask signBuffer" id="${taskID}signBuffer">
+                          <div class="gridContainer removeTask plusSign" id="${taskID}removeTask">
+                              <div class="removeTask plusLine vertical" id="${taskID}plusVertical"></div>
+                              <div class="removeTask plusLine horizontal" id="${taskID}plusHorizontal"></div>
+                          </div>
+                      </div>
+                      <div class="gridContainer hamburgerMenuBuffer" id="${taskID}HamburgerMenuBuffer">
+                          <div class="gridContainer hamburgerMenu" id="${taskID}HamburgerMenu">
+                              <div class="hamburgerStripe hamburgerStripe1" id="${taskID}hamburgerStripe1"></div>
+                              <div class="hamburgerStripe hamburgerStripe2" id="${taskID}hamburgerStripe2"></div>
+                              <div class="hamburgerStripe hamburgerStripe3" id="${taskID}hamburgerStripe3"></div>
+                          </div>
+                      </div>
+                    </section>`
+                    
+document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 
-
-
-
-
-
-
-
-
-
-
-
-
-  const newTaskNode = document.createElement("section");
-  newTaskNode.className = "gridContainer cardGrid task";
-  newTaskNode.id = taskID;
-  document.getElementById("bodyGrid").appendChild(newTaskNode);
-
-  const newCheckBoxGrid = document.createElement("div");
-  newCheckBoxGrid.className = "gridContainer checkBoxGrid";
-  newCheckBoxGrid.id = taskID + "checkBoxGrid";
-  document.getElementById(taskID).appendChild(newCheckBoxGrid);
-
-  const newCheckBox = document.createElement("INPUT");
-  newCheckBox.setAttribute("type", "CheckBox");
-  newCheckBox.setAttribute("name", "taskCheckBox");
-  newCheckBox.id = taskID + "checkbox";
-  document.getElementById(taskID + "checkBoxGrid").appendChild(newCheckBox);
-
-  const newTaskZone = document.createElement("div");
-  newTaskZone.className = "gridContainer taskZone";
-  newTaskZone.id = taskID + "TaskZone";
-  newTaskZone.innerHTML = "<h3>" + taskName;
-  document.getElementById(taskID).appendChild(newTaskZone);
-
-  const newsignBuffer = document.createElement("div");
-  newsignBuffer.className = "gridContainer removeTask signBuffer";
-  newsignBuffer.id = taskID + "signBuffer";
-  document.getElementById(taskID).appendChild(newsignBuffer);
-
-  const newPlusSign = document.createElement("div");
-  newPlusSign.className = "gridContainer removeTask plusSign";
-  newPlusSign.id = taskID + "removeTask";
-  document.getElementById(taskID + "signBuffer").appendChild(newPlusSign);
-
-  const newVertical = document.createElement("div");
-  newVertical.className = "removeTask plusLine vertical";
-  newVertical.id = taskID + "plusVertical";
-  document.getElementById(taskID + "removeTask").appendChild(newVertical);
-
-  const newHorizontal = document.createElement("div");
-  newHorizontal.className = "removeTask plusLine horizontal";
-  newHorizontal.id = taskID + "plusHorizontal";
-  document.getElementById(taskID + "removeTask").appendChild(newHorizontal);
-
-  const newHamburgerMenuBuffer = document.createElement("div");
-  newHamburgerMenuBuffer.className = "gridContainer hamburgerMenuBuffer";
-  newHamburgerMenuBuffer.id = taskID + "HamburgerMenuBuffer";
-  document.getElementById(taskID).appendChild(newHamburgerMenuBuffer);
-
-  const newHamburgerMenu = document.createElement("div");
-  newHamburgerMenu.className = "gridContainer hamburgerMenu";
-  newHamburgerMenu.id = taskID + "HamburgerMenu";
-  document.getElementById(taskID + "HamburgerMenuBuffer").appendChild(newHamburgerMenu);
-
-  const newHamStripe1 = document.createElement("div");
-  newHamStripe1.className = "hamburgerStripe hamburgerStripe1";
-  newHamStripe1.id = taskID + "hamburgerStripe1";
-  document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe1);
-
-  const newHamStripe2 = document.createElement("div");
-  newHamStripe2.className = "hamburgerStripe hamburgerStripe2";
-  newHamStripe2.id = taskID + "hamburgerStripe2";
-  document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe2);
-
-  const newHamStripe3 = document.createElement("div");
-  newHamStripe3.className = "hamburgerStripe hamburgerStripe3";
-  newHamStripe3.id = taskID + "hamburgerStripe3";
-  document.getElementById(taskID + "HamburgerMenu").appendChild(newHamStripe3);
-
-  removeTaskListener();
-  hamburgerListener();
-  checkboxListener();
-  renameTodoListener();
-  getAllopenTasks();
+removeTaskListener();
+hamburgerListener();
+checkboxListener();
+renameTodoListener();
+getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -238,7 +178,7 @@ function reorderAllTaskID() {
 
   const signBufferReOrder = document.getElementsByClassName("signBuffer");
   for (let i = 0; i < signBufferReOrder.length; i++) {
-    signBufferReOrder[i].id = "task" + (i) + "signBuffer";
+    signBufferReOrder[i].id = "task" + (i + 1) + "signBuffer";
   }
 
   const removeTaskReOrder = document.getElementsByClassName("removeTask plusSign");
