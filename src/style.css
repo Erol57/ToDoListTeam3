@@ -10,10 +10,23 @@ body {
   overflow: hidden;
 }
 
+
+.addTask.plusSign {
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 7px;
+}
+
+.addTask.plusLine {
+  background-color: cornflowerblue;
+}
+
 .LogoContainer {
   grid-template-columns: 93px 150px 150px auto;
   grid-template-rows: 1fr;
   justify-content: center;
+  align-self: center;
+  grid-column-start: 2;
 }
 
 .T-logoGrid {
@@ -66,7 +79,7 @@ body {
   grid-column-end: -1;
   grid-row-start: 2;
   grid-row-end: -1;
-  background-color: white;
+  background-color: whitesmoke;
   z-index: 1;
 }
 
@@ -149,25 +162,20 @@ body {
   border-bottom-right-radius: 333px;
 }
 
-.addTask.signBuffer {
-  height: 50px;
-  grid-template-columns: 19px 19px 19px;
-}
-
-.addTask.plusLine {
-  background-color: cornflowerblue;
-}
-
 .mainGrid {
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 100px;
+  grid-template-rows: auto 1fr 100px;
   height: 100vh;
   background-color: whitesmoke;
 }
 
+.headerGrid {
+  grid-template-columns: 57px 1fr 57px;
+}
+
 .bodyGrid {
   grid-template-columns: 30px 50px 1fr 30px;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   overflow-y: scroll;
   align-content: flex-start;
   row-gap: 1px;
@@ -216,20 +224,19 @@ input {
 }
 
 .signBuffer {
-  grid-template-columns: 5px 19px 5px;
+  grid-template-columns: 19px 19px 19px;
   grid-template-rows: 1fr 19px 1fr;
-  grid-column-start: 3;
 }
 
 .plusSign {
   grid-template-columns: 8px 3px 8px;
   grid-template-rows: 8px 3px 8px;
-  grid-column-start: 2;
-  grid-row-start: 2;
 }
 
 .plusSign.removeTask {
   transform: rotate(45deg);
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 
 .plusLine {
