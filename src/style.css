@@ -1,4 +1,3 @@
-Tryg_Reposition_Logo
 body {
   overflow: hidden;
   margin: 0;
@@ -11,11 +10,23 @@ body {
   overflow: hidden;
 }
 
+
+.addTask.plusSign {
+  justify-self: center;
+  align-self: flex-end;
+  margin-bottom: 7px;
+}
+
+.addTask.plusLine {
+  background-color: cornflowerblue;
+}
+
 .LogoContainer {
   grid-template-columns: 93px 150px 150px auto;
   grid-template-rows: 1fr;
   justify-content: center;
   align-self: center;
+  grid-column-start: 2;
 }
 
 .T-logoGrid {
@@ -151,15 +162,6 @@ body {
   border-bottom-right-radius: 333px;
 }
 
-/* .addTask.signBuffer {
-  height: 50px;
-  grid-template-columns: 19px 19px 19px;
-} */
-
-.addTask.plusLine {
-  background-color: cornflowerblue;
-}
-
 .mainGrid {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 100px;
@@ -224,21 +226,17 @@ input {
 .signBuffer {
   grid-template-columns: 19px 19px 19px;
   grid-template-rows: 1fr 19px 1fr;
-  grid-column-start: 1;
-  height: 50px;
-  width: 57px;
-  align-self: flex-end;
 }
 
 .plusSign {
   grid-template-columns: 8px 3px 8px;
   grid-template-rows: 8px 3px 8px;
-  grid-column-start: 2;
-  grid-row-start: 2;
 }
 
 .plusSign.removeTask {
   transform: rotate(45deg);
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 
 .plusLine {

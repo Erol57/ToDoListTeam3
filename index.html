@@ -12,26 +12,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet" />
 </head>
+
 <body onresize="resizeLogo()" onload="resizeLogo()">
 
   <div class="gridContainer mainGrid">
     <header>
       <div class="gridContainer headerGrid">
-        
-        <div class="gridContainer addTask signBuffer">
-          <div class="gridContainer addTask plusSign" id="addTask">
-            <div class="addTask plusLine vertical" id="addTaskVertical"></div>
-            <div class="addTask plusLine horizontal" id="addTaskHorizontal"></div>
-          </div>
+
+        <div class="gridContainer addTask plusSign" id="addTask">
+          <div class="addTask plusLine vertical" id="addTaskVertical"></div>
+          <div class="addTask plusLine horizontal" id="addTaskHorizontal"></div>
         </div>
-        
+
         <div class="gridContainer LogoContainer" id="LogoContainer">
-    
+
           <div class="gridContainer T-logoGrid">
             <div class="T-topBar"></div>
             <div class="T-vertBar"></div>
           </div>
-      
+
           <div class="gridContainer roundCheckGrid">
             <div class="gridContainer checkGrid">
               <div class="circleCutterElement"></div>
@@ -41,14 +40,14 @@
             <div class="roundCheckCircle">
             </div>
           </div>
-      
+
           <div class="gridContainer D-logoGrid">
             <div class="D-vertLine"></div>
             <div class="D-horLine1"></div>
             <div class="D-horLine2"></div>
             <div class="D-curve"></div>
           </div>
-      
+
           <div class="gridContainer roundCheckGrid">
             <div class="gridContainer checkGrid">
               <div class="circleCutterElement"></div>
@@ -65,31 +64,12 @@
 
     </header>
     <div class="gridContainer bodyGrid" id="bodyGrid">
-    
-      <section class="gridContainer cardGrid task" id="task1">
-        <div class="gridContainer checkBoxGrid" id="task1checkBoxGrid"><input type="CheckBox" name="taskCheckBox"
-                id="task1checkbox"></div>
-        <div class="gridContainer taskZone" id="task1TaskZone">
-            <h3>Task 1</h3>
-        </div>
-        <div class="gridContainer signBuffer" id="task1signBuffer">
-            <div class="gridContainer removeTask plusSign" id="task1removeTask">
-                <div class="removeTask plusLine vertical" id="task1plusVertical"></div>
-                <div class="removeTask plusLine horizontal" id="task1plusHorizontal"></div>
-            </div>
-        </div>
-        <div class="gridContainer hamburgerMenuBuffer" id="task1HamburgerMenuBuffer">
-            <div class="gridContainer hamburgerMenu" id="task1HamburgerMenu">
-                <div class="hamburgerStripe hamburgerStripe1" id="task1hamburgerStripe1"></div>
-                <div class="hamburgerStripe hamburgerStripe2" id="task1hamburgerStripe2"></div>
-                <div class="hamburgerStripe hamburgerStripe3" id="task1hamburgerStripe3"></div>
-            </div>
-        </div>
-    </section>
+
+      <!-- Cards appear here -->
 
     </div>
     <footer class="footers">
-       <div class="dates">
+      <div class="dates">
         <h3><span id="clock"></span></h3>
       </div>
       <div class="opentasks1">
@@ -106,4 +86,5 @@
     </footer>
   </div>
 </body>
+
 </html>
