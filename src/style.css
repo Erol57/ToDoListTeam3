@@ -60,15 +60,6 @@ body {
   border-radius: 50%;
 }
 
-/* .circleCutterGrid {
-  grid-column-start: 2;
-  grid-column-end: -1;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 4fr 1fr;
-} */
-
 .circleCutterElement {
   display: flex;
   grid-column-start: 2;
