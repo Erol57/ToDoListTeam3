@@ -46,7 +46,7 @@ function removeTaskListenerMouseout() {
 
 function removeTaskListenerClick() {
   this.parentElement.parentElement.remove();
-      reorderAllTaskID();
+  reorderAllTaskID();
 }
 
 function hamburgerListener() {
@@ -109,7 +109,7 @@ function renameTodoListener() {
   const todoText = document.getElementsByClassName("taskZone");
   for (let i = 0; i < nodeCount; i++) {
     todoText[i].addEventListener("dblclick", renameTodoListenerDblclick);
-}
+  }
 };
 
 function renameTodoListenerDblclick() {
@@ -197,8 +197,6 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
 function setPlusColor(plusID, color) {
   document.getElementById(plusID[0].id).style.backgroundColor = color;
   document.getElementById(plusID[1].id).style.backgroundColor = color;
-  // document.getElementById(plusID + "Vertical").style.backgroundColor = color;
-  // document.getElementById(plusID + "Horizontal").style.backgroundColor = color;
 }
 
 function reorderAllTaskID() {
@@ -309,6 +307,6 @@ function resizeLogo() {
     document.querySelector("#LogoContainer").style.zoom = 0.5;
   } else {
     document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
-  }  
+  }
 }
 
