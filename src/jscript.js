@@ -144,7 +144,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                     </section>`
 document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 removeTaskListener();
-hamburgerListener();
+//hamburgerListener();
 checkboxListener();
 renameTodoListener();
 getAllopenTasks();
@@ -222,9 +222,10 @@ function reorderAllTaskID() {
   }
 
   removeTaskListener();
-  hamburgerListener();
+  //hamburgerListener();
   checkboxListener();
   renameTodoListener();
+  getAllopenTasks();
 }
 
 //###### Start: Display clock on footer left side#######
@@ -239,8 +240,10 @@ function display_ct() {
   var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
 
   var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-  x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
   document.getElementById("clock").innerHTML = x1;
+
+  var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+  document.getElementById("clock2").innerHTML = x2;
   display_c();
 }
 //###### End: Display clock on footer left side#######
@@ -250,6 +253,7 @@ function display_ct() {
 window.addEventListener('load', getAllopenTasks());
 function getAllopenTasks() {
   let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+  console.log(allTasks);
   if (allTasks.length == 0) {
     document.getElementById("ot").innerHTML = '';
   } else {
