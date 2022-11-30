@@ -84,6 +84,7 @@ function hamburgerListenerClick() {
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked) {
         this.parentElement.style.gridColumnStart = "3";
