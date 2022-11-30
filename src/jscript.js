@@ -47,6 +47,7 @@ function removeTaskListenerMouseout() {
 function removeTaskListenerClick() {
   this.parentElement.parentElement.remove();
   reorderAllTaskID();
+  getAllopenTasks();
 }
 
 function hamburgerListener() {
