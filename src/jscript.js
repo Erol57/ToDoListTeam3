@@ -238,8 +238,10 @@ function display_ct() {
   var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
 
   var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-  x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
   document.getElementById("clock").innerHTML = x1;
+
+  var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+  document.getElementById("clock2").innerHTML = x2;
   display_c();
 }
 //###### End: Display clock on footer left side#######
