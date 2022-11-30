@@ -134,13 +134,13 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                               <div class="removeTask plusLine horizontal" id="${taskID}plusHorizontal"></div>
                           </div>
                       </div>
-                      <div class="gridContainer hamburgerMenuBuffer" id="${taskID}HamburgerMenuBuffer">
+                      <!--  <div class="gridContainer hamburgerMenuBuffer" id="${taskID}HamburgerMenuBuffer">
                           <div class="gridContainer hamburgerMenu" id="${taskID}HamburgerMenu">
                               <div class="hamburgerStripe hamburgerStripe1" id="${taskID}hamburgerStripe1"></div>
                               <div class="hamburgerStripe hamburgerStripe2" id="${taskID}hamburgerStripe2"></div>
                               <div class="hamburgerStripe hamburgerStripe3" id="${taskID}hamburgerStripe3"></div>
                           </div>
-                      </div>
+                      </div> -->     
                     </section>`
 document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 removeTaskListener();
