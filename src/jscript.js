@@ -50,37 +50,37 @@ function removeTaskListenerClick() {
   getAllopenTasks();
 }
 
-function hamburgerListener() {
-  getNodeCount();
-  const burgers = document.getElementsByClassName("hamburgerMenu");
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("mouseover", hamburgerListenerMouseover);
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("mouseout", hamburgerListenerMouseout);
-  }
-  for (let i = 0; i < nodeCount; i++) {
-    burgers[i].addEventListener("click", hamburgerListenerClick);
-  }
-}
+// function hamburgerListener() {
+//   getNodeCount();
+//   const burgers = document.getElementsByClassName("hamburgerMenu");
+//   for (let i = 0; i < nodeCount; i++) {
+//     burgers[i].addEventListener("mouseover", hamburgerListenerMouseover);
+//   }
+//   for (let i = 0; i < nodeCount; i++) {
+//     burgers[i].addEventListener("mouseout", hamburgerListenerMouseout);
+//   }
+//   for (let i = 0; i < nodeCount; i++) {
+//     burgers[i].addEventListener("click", hamburgerListenerClick);
+//   }
+// }
 
-function hamburgerListenerMouseover() {
-  const hoverBackgroundColor = "red";
-  this.children[0].style.backgroundColor = hoverBackgroundColor;
-  this.children[1].style.backgroundColor = hoverBackgroundColor;
-  this.children[2].style.backgroundColor = hoverBackgroundColor;
-}
+// function hamburgerListenerMouseover() {
+//   const hoverBackgroundColor = "red";
+//   this.children[0].style.backgroundColor = hoverBackgroundColor;
+//   this.children[1].style.backgroundColor = hoverBackgroundColor;
+//   this.children[2].style.backgroundColor = hoverBackgroundColor;
+// }
 
-function hamburgerListenerMouseout() {
-  const hoverOutBackgroundColor = "blue";
-  this.children[0].style.backgroundColor = hoverOutBackgroundColor;
-  this.children[1].style.backgroundColor = hoverOutBackgroundColor;
-  this.children[2].style.backgroundColor = hoverOutBackgroundColor;
-}
+// function hamburgerListenerMouseout() {
+//   const hoverOutBackgroundColor = "blue";
+//   this.children[0].style.backgroundColor = hoverOutBackgroundColor;
+//   this.children[1].style.backgroundColor = hoverOutBackgroundColor;
+//   this.children[2].style.backgroundColor = hoverOutBackgroundColor;
+// }
 
-function hamburgerListenerClick() {
-  console.log("HamburgerMenu " + this.id + " clicked");;
-}
+// function hamburgerListenerClick() {
+//   console.log("HamburgerMenu " + this.id + " clicked");;
+// }
 
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
