@@ -13,6 +13,7 @@ function addTaskListener() {
 
 addTaskListener();
 
+
 function getNodeCount() {
   const taskNodes = document.getElementsByClassName("task");
   nodeCount = taskNodes.length;
