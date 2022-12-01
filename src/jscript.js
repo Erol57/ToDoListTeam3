@@ -13,21 +13,72 @@ function addTaskListener() {
 
 addTaskListener();
 
-function getNodeCount() {
-  const taskNodes = document.getElementsByClassName("task");
-  nodeCount = taskNodes.length;
+// localStorage.clear();
+// localStorage.setItem("1", "My ToDo 1|false");
+// localStorage.setItem("2", "My ToDo 2|false");
+// localStorage.setItem("3", "My ToDo 3|false");
+// localStorage.setItem("4", "My ToDo 4 (checked)|true");
+// localStorage.setItem("5", "My ToDo 5|false");
+// localStorage.setItem("6", "My ToDo 6|false");
+
+
+function getLocalstorage() {
+  for (let i = 0; i < localStorage.length; i++) {
+    let taskID = "task" + (i + 1);
+    const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
+    const taskName = localstorageArray[0]
+    let newToDoHTML = `<section class="gridContainer cardGrid task" id="${taskID}">
+                      <div class="gridContainer checkBoxGrid" id="${taskID}checkBoxGrid">
+                          <input type="CheckBox" name="taskCheckBox" id="${taskID}checkbox"></div>
+                      <div class="gridContainer taskZone" id="${taskID}TaskZone"><h3>${taskName}</h3 ></div >
+                      <div class="gridContainer removeTask signBuffer" id="${taskID}signBuffer">
+                          <div class="gridContainer removeTask plusSign" id="${taskID}removeTask">
+                              <div class="removeTask plusLine vertical" id="${taskID}plusVertical"></div>
+                              <div class="removeTask plusLine horizontal" id="${taskID}plusHorizontal"></div>
+                          </div>
+                      </div>
+                      <!--  <div class="gridContainer hamburgerMenuBuffer" id="${taskID}HamburgerMenuBuffer">
+                          <div class="gridContainer hamburgerMenu" id="${taskID}HamburgerMenu">
+                              <div class="hamburgerStripe hamburgerStripe1" id="${taskID}hamburgerStripe1"></div>
+                              <div class="hamburgerStripe hamburgerStripe2" id="${taskID}hamburgerStripe2"></div>
+                              <div class="hamburgerStripe hamburgerStripe3" id="${taskID}hamburgerStripe3"></div>
+                          </div>
+                      </div> -->     
+                    </section>`
+    document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+
+      const checkbox = document.getElementsByClassName("checkBoxGrid");
+      checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
+      let checkboxStatus = localstorageArray[1]
+        if (checkboxStatus=="true") {
+          const taggedText = document.getElementById(taskID+"TaskZone").innerHTML;
+          console.log(taskID);
+          let strippedText = String(taggedText);
+          strippedText = strippedText.replace("<h3>", "<s>");
+          strippedText = strippedText.replace("</h3>", "</s>");
+          document.getElementById(taskID+"TaskZone").innerHTML = strippedText;
+          document.getElementById(taskID).style.gridColumnStart = "3";
+          document.getElementById(taskID).className = "gridContainer cardGrid clicked task";
+        }
+    removeTaskListener();
+    //hamburgerListener();
+    checkboxListener();
+    renameTodoListener();
+    // getAllopenTasks();  
+  }
 }
 
+getLocalstorage();
+
 function removeTaskListener() {
-  getNodeCount();
   const crosses = document.getElementsByClassName("removeTask plusSign");
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("mouseover", removeTaskListenerMouseover);
   }
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("mouseout", removeTaskListenerMouseout);
   }
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("click", removeTaskListenerClick);
   }
 }
@@ -46,20 +97,28 @@ function removeTaskListenerMouseout() {
 
 function removeTaskListenerClick() {
   this.parentElement.parentElement.remove();
+  const localstorageRemoveItemString = String(this.id).slice(4, -10);
+  const localstorageRemoveItem = Number(localstorageRemoveItemString);
+  localStorage.removeItem(localstorageRemoveItem);
+
+  for (let index = (localstorageRemoveItem); index < localStorage.length + 1; index++) {
+    const capturedStorage = localStorage.getItem(index + 1);
+    localStorage.setItem(index, capturedStorage);
+    localStorage.removeItem(index + 1);
+  }
   reorderAllTaskID();
   getAllopenTasks();
 }
 
 // function hamburgerListener() {
-//   getNodeCount();
 //   const burgers = document.getElementsByClassName("hamburgerMenu");
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("mouseover", hamburgerListenerMouseover);
 //   }
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("mouseout", hamburgerListenerMouseout);
 //   }
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("click", hamburgerListenerClick);
 //   }
 // }
@@ -82,7 +141,7 @@ function removeTaskListenerClick() {
 //   console.log("HamburgerMenu " + this.id + " clicked");;
 // }
 
-function checkboxListener() {
+function checkboxListener() { 
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
@@ -93,8 +152,55 @@ function checkboxListener() {
         let strippedText = String(taggedText);
         strippedText = strippedText.replace("<h3>", "<s>");
         strippedText = strippedText.replace("</h3>", "</s>");
+        this.parentElement.children[1].innerHTML = strippedText;
+        this.parentElement.className = "gridContainer cardGrid clicked task";
+        const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
+        const taskName = localstorageArray[0]
+        let checkboxStatus = localstorageArray[1]
+        const checkboxID = "task" + (i + 1) + "checkbox";
+        const checkStatus = localstorageArray[1];
+        checkboxStatus = true;
+        localStorage.setItem(i+1, taskName+'|'+checkboxStatus);
+      } else {
+        const taggedText = this.parentElement.children[1].innerHTML;
+        let strippedText = String(taggedText);
+        strippedText = strippedText.replace("<s>", "<h3>");
+        strippedText = strippedText.replace("</s>", "</h3>");
+        this.parentElement.style.gridColumnStart = "2";
+        this.parentElement.children[1].innerHTML = strippedText;
+        this.parentElement.className = "gridContainer cardGrid task";
+        const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
+        const taskName = localstorageArray[0]
+        let checkboxStatus = localstorageArray[1]
+        const checkboxID = "task" + (i + 1) + "checkbox";
+        const checkStatus = localstorageArray[1];
+        checkboxStatus = false;
+        localStorage.setItem(i+1, taskName+'|'+checkboxStatus);
+      }
+    });
+  }
+} 
+
+function checkboxListeners() {
+  const checkbox = document.getElementsByClassName("checkBoxGrid");
+  for (let i = 0; i < checkbox.length; i++) {
+    const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
+    const taskName = localstorageArray[0]
+    let checkboxStatus = localstorageArray[1]
+    checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
+    const checkboxID = "task" + (i + 1) + "checkbox";
+    const checkStatus = localstorageArray[1];
+    document.getElementById(checkboxID)
+    checkbox[i].addEventListener("change", function () {
+      if (this.children[0].checked = true) {
+        this.parentElement.style.gridColumnStart = "3";
+        const taggedText = this.parentElement.children[1].innerHTML;
+        let strippedText = String(taggedText);
+        strippedText = strippedText.replace("<h3>", "<s>");
+        strippedText = strippedText.replace("</h3>", "</s>");
         const newText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid clicked task";
+        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + true]);
       } else {
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -103,22 +209,32 @@ function checkboxListener() {
         this.parentElement.style.gridColumnStart = "2";
         const restoredText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid task";
+        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + false]);
       }
-    });
+    })
   }
 }
 
 function renameTodoListener() {
-  getNodeCount();
   const todoText = document.getElementsByClassName("taskZone");
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < todoText.length; i++) {
     todoText[i].addEventListener("dblclick", renameTodoListenerDblclick);
   }
 };
 
 function renameTodoListenerDblclick() {
-  newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+  // newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+  const localstorageRenameItemString = String(this.id).slice(4, -8);
+  const localstorageRenameItem = Number(localstorageRenameItemString);
+  const localstorageArray = String(localStorage.getItem(localstorageRenameItem)).split("|");
+  const taskName = localstorageArray[0]
+  let checkboxStatus = localstorageArray[1]
+  const newTaskName = prompt("Please enter your new ToDo text", taskName);
+  localStorage.setItem(localstorageRenameItem, `${newTaskName}|${checkboxStatus}`)
   this.innerHTML = "<h3>" + newTaskName;
+  if (checkboxStatus == "true") {
+    this
+  }
 }
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
@@ -142,12 +258,16 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                           </div>
                       </div> -->     
                     </section>`
-document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
-removeTaskListener();
-//hamburgerListener();
-checkboxListener();
-renameTodoListener();
-getAllopenTasks();
+
+  document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+
+  localStorage.setItem(taskCounter, [taskName + "|" + false]);
+
+  removeTaskListener();
+  //hamburgerListener();
+  checkboxListener();
+  renameTodoListener();
+  getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -228,45 +348,45 @@ function reorderAllTaskID() {
   getAllopenTasks();
 }
 
-//###### Start: Display clock on footer left side#######
-window.addEventListener('load', display_ct());
-function display_c() {
-  var refresh = 1000; // Refresh rate in milli seconds
-  mytime = setTimeout('display_ct()', refresh)
-}
-
-function display_ct() {
-  var x = new Date()
-  var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-
-  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-  document.getElementById("clock").innerHTML = x1;
-
-  var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-  document.getElementById("clock2").innerHTML = x2;
-  display_c();
-}
-//###### End: Display clock on footer left side#######
-
-
-//###### Start: Display open tasks on footer midle #######
-window.addEventListener('load', getAllopenTasks());
-function getAllopenTasks() {
-  let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
-  console.log(allTasks);
-  if (allTasks.length == 0) {
-    document.getElementById("ot").innerHTML = '';
-  } else {
-    document.getElementById("ot").innerHTML = allTasks.length;
+  //###### Start: Display clock on footer left side#######
+  window.addEventListener('load', display_ct());
+  function display_c() {
+    var refresh = 1000; // Refresh rate in milli seconds
+    mytime = setTimeout('display_ct()', refresh)
   }
-}
-//###### Ende: Display open tasks on footer midle #######
-
-function resizeLogo() {
-  if (window.innerWidth >= 530) {
-    document.querySelector("#LogoContainer").style.zoom = 0.5;
-  } else {
-    document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
+  
+  function display_ct() {
+    var x = new Date()
+    var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+  
+    var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+    document.getElementById("clock").innerHTML = x1;
+  
+    var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+    document.getElementById("clock2").innerHTML = x2;
+    display_c();
   }
-}
-
+  //###### End: Display clock on footer left side#######
+  
+  
+  //###### Start: Display open tasks on footer midle #######
+  window.addEventListener('load', getAllopenTasks());
+  function getAllopenTasks() {
+    let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+    console.log(allTasks);
+    if (allTasks.length == 0) {
+      document.getElementById("ot").innerHTML = '';
+    } else {
+      document.getElementById("ot").innerHTML = allTasks.length;
+    }
+  }
+  //###### Ende: Display open tasks on footer midle #######
+  
+  function resizeLogo() {
+    if (window.innerWidth >= 530) {
+      document.querySelector("#LogoContainer").style.zoom = 0.5;
+    } else {
+      document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
+    }
+  }
+  
