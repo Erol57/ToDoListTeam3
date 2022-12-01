@@ -1,3 +1,11 @@
+// localStorage.clear();
+// localStorage.setItem("1", "My ToDo 1|false");
+// localStorage.setItem("2", "My ToDo 2|false");
+// localStorage.setItem("3", "My ToDo 3|false");
+// localStorage.setItem("4", "My ToDo 4|true");
+// localStorage.setItem("5", "My ToDo 5|false");
+// localStorage.setItem("6", "My ToDo 6|false");
+
 function addTaskListener() {
   const taskPlus = document.querySelector(".addTask.plusSign");
   taskPlus.addEventListener("mouseover", function () {
@@ -15,8 +23,8 @@ addTaskListener();
 
 function getLocalstorage() {
   for (let index = 0; index < localStorage.length; index++) {
-    const taskID = "task"+(index+1);
-    const localstorageArray = String(localStorage.getItem(index+1)).split("|");
+    const taskID = "task" + (index + 1);
+    const localstorageArray = String(localStorage.getItem(index + 1)).split("|");
     const taskName = localstorageArray[0]
     let newToDoHTML = `<section class="gridContainer cardGrid task" id="${taskID}">
                       <div class="gridContainer checkBoxGrid" id="${taskID}checkBoxGrid">
@@ -36,13 +44,13 @@ function getLocalstorage() {
                           </div>
                       </div> -->     
                     </section>`
-document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);  
+    document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 
-removeTaskListener();
-//hamburgerListener();
-checkboxListener();
-renameTodoListener();
-// getAllopenTasks();  
+    removeTaskListener();
+    //hamburgerListener();
+    checkboxListener();
+    renameTodoListener();
+    // getAllopenTasks();  
   }
 }
 
@@ -74,15 +82,15 @@ function removeTaskListenerMouseout() {
 }
 
 function removeTaskListenerClick() {
-  this.parentElement.parentElement.remove(); 
-  const localstorageRemoveItemString = String(this.id).slice(4,-10);
+  this.parentElement.parentElement.remove();
+  const localstorageRemoveItemString = String(this.id).slice(4, -10);
   const localstorageRemoveItem = Number(localstorageRemoveItemString);
   localStorage.removeItem(localstorageRemoveItem);
 
-  for (let index = (localstorageRemoveItem); index < localStorage.length+1; index++) {
-    const capturedStorage = localStorage.getItem(index+1);
+  for (let index = (localstorageRemoveItem); index < localStorage.length + 1; index++) {
+    const capturedStorage = localStorage.getItem(index + 1);
     localStorage.setItem(index, capturedStorage);
-    localStorage.removeItem(index+1);
+    localStorage.removeItem(index + 1);
   }
   reorderAllTaskID();
   // getAllopenTasks();
@@ -90,25 +98,25 @@ function removeTaskListenerClick() {
 
 function resetLocalstorage() {
   const cardCount = document.querySelectorAll(".task");
-      for (let i = 0; i < cardCount.length; i++) {
-        // if (document.getElementById(`task${i+1}checkbox`).checked) {
-        //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+true]);
-        // } else {
-        //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+false]);
-        // }
-document.getElementsByClassName("task");
-console.log(document.getElementById("task"+(i+1)));
-console.log(document.getElementById("task"+(i+1)).classList);
+  for (let i = 0; i < cardCount.length; i++) {
+    // if (document.getElementById(`task${i+1}checkbox`).checked) {
+    //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+true]);
+    // } else {
+    //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+false]);
+    // }
+    document.getElementsByClassName("task");
+    console.log(document.getElementById("task" + (i + 1)));
+    console.log(document.getElementById("task" + (i + 1)).classList);
 
-        if (String(document.getElementById("task"+(i+1)).classList).indexOf("clicked")) {
-          console.log((String(document.getElementById("task"+(i+1)).classList).indexOf("clicked")))
-          console.log("Checked");
-          localStorage.setItem((i+1), [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+true]);
-        } else {
-          console.log("unchecked");
-          localStorage.setItem((i+1), [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+false]);
-        }
+    if (String(document.getElementById("task" + (i + 1)).classList).indexOf("clicked")) {
+      console.log((String(document.getElementById("task" + (i + 1)).classList).indexOf("clicked")))
+      console.log("Checked");
+      localStorage.setItem((i + 1), [document.getElementById("task" + (i + 1) + "TaskZone")/*.textContent*/ + "|" + true]);
+    } else {
+      console.log("unchecked");
+      localStorage.setItem((i + 1), [document.getElementById("task" + (i + 1) + "TaskZone")/*.textContent*/ + "|" + false]);
     }
+  }
 }
 
 // console.log((1, [document.getElementById("task"+(1)+"TaskZone").textContent+"|"+true]))
@@ -147,14 +155,13 @@ console.log(document.getElementById("task"+(i+1)).classList);
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
-    const localstorageArray = String(localStorage.getItem(i+1)).split("|");
+    const localstorageArray = String(localStorage.getItem(i + 1)).split("|");
     const taskName = localstorageArray[0]
     const checkboxStatus = localstorageArray[1]
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
-    const checkboxID = "task"+(i+1)+"checkbox";
+    const checkboxID = "task" + (i + 1) + "checkbox";
     const checkStatus = localstorageArray[1];
-    console.log(checkStatus);
-    // document.getElementById(checkboxID).checked = false;
+    document.getElementById(checkboxID)
     // if (checkStatus == "true") {
     //   document.getElementById(checkboxID).checked = true;
     //   addCheckedFeatures(checkboxID);
@@ -167,7 +174,7 @@ function checkboxListener() {
         strippedText = strippedText.replace("</h3>", "</s>");
         const newText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid clicked task";
-        localStorage.setItem((i+1), [document.getElementById(`task${i+1}TaskZone`).textContent+"|"+true]);
+        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + true]);
       } else {
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -176,12 +183,11 @@ function checkboxListener() {
         this.parentElement.style.gridColumnStart = "2";
         const restoredText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid task";
-        localStorage.setItem((i+1), [document.getElementById(`task${i+1}TaskZone`).textContent+"|"+false]);
+        localStorage.setItem((i + 1), [document.getElementById(`task${i + 1}TaskZone`).textContent + "|" + false]);
       }
-    }
-    }
-    );
+    })
   }
+}
 
 
 // function addCheckedFeatures(checkboxID) {
@@ -203,7 +209,7 @@ function renameTodoListener() {
 
 function renameTodoListenerDblclick() {
   // newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
-  const localstorageRenameItemString = String(this.id).slice(4,-8);
+  const localstorageRenameItemString = String(this.id).slice(4, -8);
   const localstorageRenameItem = Number(localstorageRenameItemString);
   const localstorageArray = String(localStorage.getItem(localstorageRenameItem)).split("|");
   const taskName = localstorageArray[0]
@@ -211,8 +217,8 @@ function renameTodoListenerDblclick() {
   const newTaskName = prompt("Please enter your new ToDo text", taskName);
   localStorage.setItem(localstorageRenameItem, `${newTaskName}|${checkboxStatus}`)
   this.innerHTML = "<h3>" + newTaskName;
-  if (checkboxStatus=="true") {
-      this
+  if (checkboxStatus == "true") {
+    this
   }
 }
 
@@ -238,15 +244,15 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                       </div> -->     
                     </section>`
 
-document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+  document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 
-localStorage.setItem(taskCounter, [taskName+"|"+false]);
+  localStorage.setItem(taskCounter, [taskName + "|" + false]);
 
-removeTaskListener();
-//hamburgerListener();
-checkboxListener();
-renameTodoListener();
-// getAllopenTasks();
+  removeTaskListener();
+  //hamburgerListener();
+  checkboxListener();
+  renameTodoListener();
+  // getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
