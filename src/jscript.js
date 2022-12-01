@@ -11,8 +11,6 @@ function addTaskListener() {
   });
 }
 
-// localStorage.clear();
-
 addTaskListener();
 
 function getLocalstorage() {
@@ -80,8 +78,12 @@ function removeTaskListenerClick() {
   const localstorageRemoveItemString = String(this.id).slice(4,-10);
   const localstorageRemoveItem = Number(localstorageRemoveItemString);
   localStorage.removeItem(localstorageRemoveItem);
-  for (let index = (localstorageRemoveItem+1); index < localStorage.length; index++) {
-    let localstorageGotItem = localStorage.getItem(index);
+
+  for (let index = (localstorageRemoveItem); index < localStorage.length+1; index++) {
+    const capturedStorage = localStorage.getItem(index+1); //!here
+    localStorage.setItem(index, capturedStorage);
+    localStorage.removeItem(index+1);
+    console.log(localStorage);
   }
   reorderAllTaskID();
   // getAllopenTasks();
