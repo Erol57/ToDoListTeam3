@@ -13,22 +13,55 @@ function addTaskListener() {
 
 addTaskListener();
 
+function getLocalstorage() {
+  for (let index = 0; index < localStorage.length; index++) {
+    const taskID = "task"+(index+1);
+    const localstorageArray = String(localStorage.getItem(index+1)).split("|");
+    const taskName = localstorageArray[0]
+    let newToDoHTML = `<section class="gridContainer cardGrid task" id="${taskID}">
+                      <div class="gridContainer checkBoxGrid" id="${taskID}checkBoxGrid">
+                          <input type="CheckBox" name="taskCheckBox" id="${taskID}checkbox"></div>
+                      <div class="gridContainer taskZone" id="${taskID}TaskZone"><h3>${taskName}</h3 ></div >
+                      <div class="gridContainer removeTask signBuffer" id="${taskID}signBuffer">
+                          <div class="gridContainer removeTask plusSign" id="${taskID}removeTask">
+                              <div class="removeTask plusLine vertical" id="${taskID}plusVertical"></div>
+                              <div class="removeTask plusLine horizontal" id="${taskID}plusHorizontal"></div>
+                          </div>
+                      </div>
+                      <!--  <div class="gridContainer hamburgerMenuBuffer" id="${taskID}HamburgerMenuBuffer">
+                          <div class="gridContainer hamburgerMenu" id="${taskID}HamburgerMenu">
+                              <div class="hamburgerStripe hamburgerStripe1" id="${taskID}hamburgerStripe1"></div>
+                              <div class="hamburgerStripe hamburgerStripe2" id="${taskID}hamburgerStripe2"></div>
+                              <div class="hamburgerStripe hamburgerStripe3" id="${taskID}hamburgerStripe3"></div>
+                          </div>
+                      </div> -->     
+                    </section>`
+document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);  
 
-function getNodeCount() {
-  const taskNodes = document.getElementsByClassName("task");
-  nodeCount = taskNodes.length;
+//restore checkboxes
+const checkboxID = "task"+(index+1)+"checkbox"; //!busy here
+    const checkStatus = localstorageArray[1]
+
+
+removeTaskListener();
+//hamburgerListener();
+checkboxListener();
+renameTodoListener();
+getAllopenTasks();  
+  }
 }
 
+getLocalstorage();
+
 function removeTaskListener() {
-  getNodeCount();
   const crosses = document.getElementsByClassName("removeTask plusSign");
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("mouseover", removeTaskListenerMouseover);
   }
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("mouseout", removeTaskListenerMouseout);
   }
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener("click", removeTaskListenerClick);
   }
 }
@@ -46,21 +79,51 @@ function removeTaskListenerMouseout() {
 }
 
 function removeTaskListenerClick() {
-  this.parentElement.parentElement.remove();
+  this.parentElement.parentElement.remove(); 
+  const localstorageRemoveItemString = String(this.id).slice(4,-10);
+  const localstorageRemoveItem = Number(localstorageRemoveItemString);
+  localStorage.removeItem(localstorageRemoveItem);
+  for (let index = (localstorageRemoveItem+1); index < localStorage.length; index++) {
+    let localstorageGotItem = localStorage.getItem(index);
+  }
   reorderAllTaskID();
   getAllopenTasks();
 }
 
+function resetLocalstorage() {
+  const cardCount = document.querySelectorAll(".task");
+      for (let i = 0; i < cardCount.length; i++) {
+        // if (document.getElementById(`task${i+1}checkbox`).checked) {
+        //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+true]);
+        // } else {
+        //   localStorage.setItem(i+1, [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+false]);
+        // }
+document.getElementsByClassName("task");
+console.log(document.getElementById("task"+(i+1)));
+console.log(document.getElementById("task"+(i+1)).classList);
+
+        if (String(document.getElementById("task"+(i+1)).classList).indexOf("clicked")) {
+          console.log((String(document.getElementById("task"+(i+1)).classList).indexOf("clicked")))
+          console.log("Checked");
+          localStorage.setItem((i+1), [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+true]);
+        } else {
+          console.log("unchecked");
+          localStorage.setItem((i+1), [document.getElementById("task"+(i+1)+"TaskZone")/*.textContent*/+"|"+false]);
+        }
+    }
+}
+
+// console.log((1, [document.getElementById("task"+(1)+"TaskZone").textContent+"|"+true]))
+
 // function hamburgerListener() {
-//   getNodeCount();
 //   const burgers = document.getElementsByClassName("hamburgerMenu");
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("mouseover", hamburgerListenerMouseover);
 //   }
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("mouseout", hamburgerListenerMouseout);
 //   }
-//   for (let i = 0; i < nodeCount; i++) {
+//   for (let i = 0; i < hamburgerMenu.length; i++) {
 //     burgers[i].addEventListener("click", hamburgerListenerClick);
 //   }
 // }
@@ -96,6 +159,7 @@ function checkboxListener() {
         strippedText = strippedText.replace("</h3>", "</s>");
         const newText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid clicked task";
+        localStorage.setItem((i+1), [document.getElementById(`task${i+1}TaskZone`).textContent+"|"+true]);
       } else {
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -104,15 +168,15 @@ function checkboxListener() {
         this.parentElement.style.gridColumnStart = "2";
         const restoredText = this.parentElement.children[1].innerHTML = strippedText;
         this.parentElement.className = "gridContainer cardGrid task";
+        localStorage.setItem((i+1), [document.getElementById(`task${i+1}TaskZone`).textContent+"|"+false]);
       }
     });
   }
 }
 
 function renameTodoListener() {
-  getNodeCount();
   const todoText = document.getElementsByClassName("taskZone");
-  for (let i = 0; i < nodeCount; i++) {
+  for (let i = 0; i < todoText.length; i++) {
     todoText[i].addEventListener("dblclick", renameTodoListenerDblclick);
   }
 };
@@ -143,7 +207,11 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                           </div>
                       </div> -->     
                     </section>`
+
 document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+
+localStorage.setItem(taskCounter, [taskName+"|"+false]);
+
 removeTaskListener();
 //hamburgerListener();
 checkboxListener();
@@ -254,7 +322,6 @@ function display_ct() {
 window.addEventListener('load', getAllopenTasks());
 function getAllopenTasks() {
   let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
-  console.log(allTasks);
   if (allTasks.length == 0) {
     document.getElementById("ot").innerHTML = '';
   } else {
@@ -270,4 +337,3 @@ function resizeLogo() {
     document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
   }
 }
-
