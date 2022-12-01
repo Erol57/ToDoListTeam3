@@ -107,7 +107,7 @@ function removeTaskListenerClick() {
     localStorage.removeItem(index + 1);
   }
   reorderAllTaskID();
-  // getAllopenTasks();
+  getAllopenTasks();
 }
 
 // function hamburgerListener() {
@@ -191,9 +191,6 @@ function checkboxListeners() {
     const checkboxID = "task" + (i + 1) + "checkbox";
     const checkStatus = localstorageArray[1];
     document.getElementById(checkboxID)
-    // if (checkStatus == "true") {
-    //   document.getElementById(checkboxID).checked = true;
-    //   addCheckedFeatures(checkboxID);
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked = true) {
         this.parentElement.style.gridColumnStart = "3";
@@ -270,7 +267,7 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   //hamburgerListener();
   checkboxListener();
   renameTodoListener();
-  // getAllopenTasks();
+  getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -348,46 +345,48 @@ function reorderAllTaskID() {
   //hamburgerListener();
   checkboxListener();
   renameTodoListener();
-  // getAllopenTasks();
+  getAllopenTasks();
 }
 
-//###### Start: Display clock on footer left side#######
-// window.addEventListener('load', display_ct());
-// function display_c() {
-//   var refresh = 1000; // Refresh rate in milli seconds
-//   mytime = setTimeout('display_ct()', refresh)
-// }
-
-// function display_ct() {
-//   var x = new Date()
-//   var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-
-//   var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-//   document.getElementById("clock").innerHTML = x1;
-
-//   var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-//   document.getElementById("clock2").innerHTML = x2;
-//   display_c();
-// }
-//###### End: Display clock on footer left side#######
-
-
-//###### Start: Display open tasks on footer midle #######
-// window.addEventListener('load', getAllopenTasks());
-// function getAllopenTasks() {
-//   let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
-//   if (allTasks.length == 0) {
-//     document.getElementById("ot").innerHTML = '';
-//   } else {
-//     document.getElementById("ot").innerHTML = allTasks.length;
-//   }
-// }
-//###### Ende: Display open tasks on footer midle #######
-
-function resizeLogo() {
-  // if (window.innerWidth >= 530) {
-  //   document.querySelector("#LogoContainer").style.zoom = 0.5;
-  // } else {
-  //   document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
-  // }
-}
+  //###### Start: Display clock on footer left side#######
+  window.addEventListener('load', display_ct());
+  function display_c() {
+    var refresh = 1000; // Refresh rate in milli seconds
+    mytime = setTimeout('display_ct()', refresh)
+  }
+  
+  function display_ct() {
+    var x = new Date()
+    var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+  
+    var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+    document.getElementById("clock").innerHTML = x1;
+  
+    var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+    document.getElementById("clock2").innerHTML = x2;
+    display_c();
+  }
+  //###### End: Display clock on footer left side#######
+  
+  
+  //###### Start: Display open tasks on footer midle #######
+  window.addEventListener('load', getAllopenTasks());
+  function getAllopenTasks() {
+    let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+    console.log(allTasks);
+    if (allTasks.length == 0) {
+      document.getElementById("ot").innerHTML = '';
+    } else {
+      document.getElementById("ot").innerHTML = allTasks.length;
+    }
+  }
+  //###### Ende: Display open tasks on footer midle #######
+  
+  function resizeLogo() {
+    if (window.innerWidth >= 530) {
+      document.querySelector("#LogoContainer").style.zoom = 0.5;
+    } else {
+      document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
+    }
+  }
+  
