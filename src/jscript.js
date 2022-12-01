@@ -12,6 +12,7 @@ function addTaskListener() {
 }
 
 addTaskListener();
+getLocalStorage();
 
 function getNodeCount() {
   const taskNodes = document.getElementsByClassName("task");
@@ -121,6 +122,8 @@ function renameTodoListenerDblclick() {
   this.innerHTML = "<h3>" + newTaskName;
 }
 
+
+
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
   let taskCounter = document.querySelectorAll(".task").length + 1;
   let taskID = "task" + taskCounter;
@@ -142,12 +145,58 @@ function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
                           </div>
                       </div> -->     
                     </section>`
-document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
-removeTaskListener();
-//hamburgerListener();
-checkboxListener();
-renameTodoListener();
-getAllopenTasks();
+  document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+  removeTaskListener();
+  //hamburgerListener();
+  checkboxListener();
+  renameTodoListener();
+  getAllopenTasks();
+  pushLocalStorage(taskID);
+
+}
+
+const taskArray = [];
+function pushLocalStorage(store) {
+  taskArray.push(store);
+  localStorage.setItem('taskArray', JSON.stringify(taskArray));
+}
+
+function getLocalStorage() {
+  let taskArray = localStorage.getItem('taskArray');
+  /*if (!taskArray) {
+    taskArray = [];
+    localStorage.setItem('taskArray', JSON.stringify(taskArray));
+  } else {
+    taskArray = JSON.parse(taskArray);
+  }
+  return taskArray;
+  */
+
+  for (let index = 0; index < taskArray.length; index++) {
+    let taskno = "task" + index;
+    let newToDoHTML = `<section class="gridContainer cardGrid task" id="${taskno}">
+                      <div class="gridContainer checkBoxGrid" id="${taskno}checkBoxGrid">
+                          <input type="CheckBox" name="taskCheckBox" id="${taskno}checkbox"></div>
+                      <div class="gridContainer taskZone" id="${taskno}TaskZone"><h3>${taskno}</h3 ></div >
+                      <div class="gridContainer removeTask signBuffer" id="${taskno}signBuffer">
+                          <div class="gridContainer removeTask plusSign" id="${taskno}removeTask">
+                              <div class="removeTask plusLine vertical" id="${taskno}plusVertical"></div>
+                              <div class="removeTask plusLine horizontal" id="${taskno}plusHorizontal"></div>
+                          </div>
+                      </div>
+                      <!--  <div class="gridContainer hamburgerMenuBuffer" id="${taskno}HamburgerMenuBuffer">
+                          <div class="gridContainer hamburgerMenu" id="${taskno}HamburgerMenu">
+                              <div class="hamburgerStripe hamburgerStripe1" id="${taskno}hamburgerStripe1"></div>
+                              <div class="hamburgerStripe hamburgerStripe2" id="${taskno}hamburgerStripe2"></div>
+                              <div class="hamburgerStripe hamburgerStripe3" id="${taskno}hamburgerStripe3"></div>
+                          </div>
+                      </div> -->     
+                    </section>`
+
+    document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
+  }
+
+
 }
 
 function setPlusColor(plusID, color) {
