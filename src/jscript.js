@@ -80,10 +80,9 @@ function removeTaskListenerClick() {
   localStorage.removeItem(localstorageRemoveItem);
 
   for (let index = (localstorageRemoveItem); index < localStorage.length+1; index++) {
-    const capturedStorage = localStorage.getItem(index+1); //!here
+    const capturedStorage = localStorage.getItem(index+1);
     localStorage.setItem(index, capturedStorage);
     localStorage.removeItem(index+1);
-    console.log(localStorage);
   }
   reorderAllTaskID();
   // getAllopenTasks();
@@ -154,11 +153,11 @@ function checkboxListener() {
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
     const checkboxID = "task"+(i+1)+"checkbox";
     const checkStatus = localstorageArray[1];
-    document.getElementById(checkboxID).checked = false;
-    if (checkStatus == "true") {
-      document.getElementById(checkboxID).checked = true;
-      addCheckedFeatures(checkboxID);
-    }
+    console.log(checkStatus);
+    // document.getElementById(checkboxID).checked = false;
+    // if (checkStatus == "true") {
+    //   document.getElementById(checkboxID).checked = true;
+    //   addCheckedFeatures(checkboxID);
     checkbox[i].addEventListener("change", function () {
       if (this.children[0].checked = true) {
         this.parentElement.style.gridColumnStart = "3";
@@ -179,19 +178,21 @@ function checkboxListener() {
         this.parentElement.className = "gridContainer cardGrid task";
         localStorage.setItem((i+1), [document.getElementById(`task${i+1}TaskZone`).textContent+"|"+false]);
       }
-    });
+    }
+    }
+    );
   }
-}
 
-function addCheckedFeatures(checkboxID) {
-  document.getElementById(checkboxID).parentElement.parentElement.style.gridColumnStart = "3";
-    const taggedText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML;
-    let strippedText = String(taggedText);
-    strippedText = strippedText.replace("<h3>", "<s>");
-    strippedText = strippedText.replace("</h3>", "</s>");
-    const newText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML = strippedText;
-    document.getElementById(checkboxID).parentElement.parentElement.className = "gridContainer cardGrid clicked task";
-}
+
+// function addCheckedFeatures(checkboxID) {
+//   document.getElementById(checkboxID).parentElement.parentElement.style.gridColumnStart = "3";
+//     const taggedText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML;
+//     let strippedText = String(taggedText);
+//     strippedText = strippedText.replace("<h3>", "<s>");
+//     strippedText = strippedText.replace("</h3>", "</s>");
+//     const newText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML = strippedText;
+//     document.getElementById(checkboxID).parentElement.parentElement.className = "gridContainer cardGrid clicked task";
+// }
 
 function renameTodoListener() {
   const todoText = document.getElementsByClassName("taskZone");
