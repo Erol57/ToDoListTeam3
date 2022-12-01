@@ -11,6 +11,8 @@ function addTaskListener() {
   });
 }
 
+// localStorage.clear();
+
 addTaskListener();
 
 function getLocalstorage() {
@@ -38,16 +40,11 @@ function getLocalstorage() {
                     </section>`
 document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);  
 
-//restore checkboxes
-const checkboxID = "task"+(index+1)+"checkbox"; //!busy here
-    const checkStatus = localstorageArray[1]
-
-
 removeTaskListener();
 //hamburgerListener();
 checkboxListener();
 renameTodoListener();
-getAllopenTasks();  
+// getAllopenTasks();  
   }
 }
 
@@ -87,7 +84,7 @@ function removeTaskListenerClick() {
     let localstorageGotItem = localStorage.getItem(index);
   }
   reorderAllTaskID();
-  getAllopenTasks();
+  // getAllopenTasks();
 }
 
 function resetLocalstorage() {
@@ -149,9 +146,19 @@ console.log(document.getElementById("task"+(i+1)).classList);
 function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
+    const localstorageArray = String(localStorage.getItem(i+1)).split("|");
+    const taskName = localstorageArray[0]
+    const checkboxStatus = localstorageArray[1]
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
+    const checkboxID = "task"+(i+1)+"checkbox";
+    const checkStatus = localstorageArray[1];
+    document.getElementById(checkboxID).checked = false;
+    if (checkStatus == "true") {
+      document.getElementById(checkboxID).checked = true;
+      addCheckedFeatures(checkboxID);
+    }
     checkbox[i].addEventListener("change", function () {
-      if (this.children[0].checked) {
+      if (this.children[0].checked = true) {
         this.parentElement.style.gridColumnStart = "3";
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -174,6 +181,16 @@ function checkboxListener() {
   }
 }
 
+function addCheckedFeatures(checkboxID) {
+  document.getElementById(checkboxID).parentElement.parentElement.style.gridColumnStart = "3";
+    const taggedText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML;
+    let strippedText = String(taggedText);
+    strippedText = strippedText.replace("<h3>", "<s>");
+    strippedText = strippedText.replace("</h3>", "</s>");
+    const newText = document.getElementById(checkboxID).parentElement.parentElement.children[1].innerHTML = strippedText;
+    document.getElementById(checkboxID).parentElement.parentElement.className = "gridContainer cardGrid clicked task";
+}
+
 function renameTodoListener() {
   const todoText = document.getElementsByClassName("taskZone");
   for (let i = 0; i < todoText.length; i++) {
@@ -182,8 +199,18 @@ function renameTodoListener() {
 };
 
 function renameTodoListenerDblclick() {
-  newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+  // newTaskName = prompt("Please enter your new ToDo text", this.children[0].innerHTML);
+  const localstorageRenameItemString = String(this.id).slice(4,-8);
+  const localstorageRenameItem = Number(localstorageRenameItemString);
+  const localstorageArray = String(localStorage.getItem(localstorageRenameItem)).split("|");
+  const taskName = localstorageArray[0]
+  const checkboxStatus = localstorageArray[1]
+  const newTaskName = prompt("Please enter your new ToDo text", taskName);
+  localStorage.setItem(localstorageRenameItem, `${newTaskName}|${checkboxStatus}`)
   this.innerHTML = "<h3>" + newTaskName;
+  if (checkboxStatus=="true") {
+      this
+  }
 }
 
 function addMainTask(taskName = prompt("Please enter your ToDo", "My ToDo")) {
@@ -216,7 +243,7 @@ removeTaskListener();
 //hamburgerListener();
 checkboxListener();
 renameTodoListener();
-getAllopenTasks();
+// getAllopenTasks();
 }
 
 function setPlusColor(plusID, color) {
@@ -294,46 +321,46 @@ function reorderAllTaskID() {
   //hamburgerListener();
   checkboxListener();
   renameTodoListener();
-  getAllopenTasks();
+  // getAllopenTasks();
 }
 
 //###### Start: Display clock on footer left side#######
-window.addEventListener('load', display_ct());
-function display_c() {
-  var refresh = 1000; // Refresh rate in milli seconds
-  mytime = setTimeout('display_ct()', refresh)
-}
+// window.addEventListener('load', display_ct());
+// function display_c() {
+//   var refresh = 1000; // Refresh rate in milli seconds
+//   mytime = setTimeout('display_ct()', refresh)
+// }
 
-function display_ct() {
-  var x = new Date()
-  var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+// function display_ct() {
+//   var x = new Date()
+//   var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
 
-  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-  document.getElementById("clock").innerHTML = x1;
+//   var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+//   document.getElementById("clock").innerHTML = x1;
 
-  var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-  document.getElementById("clock2").innerHTML = x2;
-  display_c();
-}
+//   var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+//   document.getElementById("clock2").innerHTML = x2;
+//   display_c();
+// }
 //###### End: Display clock on footer left side#######
 
 
 //###### Start: Display open tasks on footer midle #######
-window.addEventListener('load', getAllopenTasks());
-function getAllopenTasks() {
-  let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
-  if (allTasks.length == 0) {
-    document.getElementById("ot").innerHTML = '';
-  } else {
-    document.getElementById("ot").innerHTML = allTasks.length;
-  }
-}
+// window.addEventListener('load', getAllopenTasks());
+// function getAllopenTasks() {
+//   let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+//   if (allTasks.length == 0) {
+//     document.getElementById("ot").innerHTML = '';
+//   } else {
+//     document.getElementById("ot").innerHTML = allTasks.length;
+//   }
+// }
 //###### Ende: Display open tasks on footer midle #######
 
 function resizeLogo() {
-  if (window.innerWidth >= 530) {
-    document.querySelector("#LogoContainer").style.zoom = 0.5;
-  } else {
-    document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
-  }
+  // if (window.innerWidth >= 530) {
+  //   document.querySelector("#LogoContainer").style.zoom = 0.5;
+  // } else {
+  //   document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
+  // }
 }
