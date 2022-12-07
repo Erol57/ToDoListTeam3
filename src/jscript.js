@@ -15,7 +15,7 @@ addTaskListener();
 
 // localStorage.clear();
 // localStorage.setItem("1", "My ToDo 1|false");
-// localStorage.setItem("2", "My ToDo 2|false");
+// localStorage.setItem("2", "My ToDo 2 (checked)|true");
 // localStorage.setItem("3", "My ToDo 3|false");
 // localStorage.setItem("4", "My ToDo 4 (checked)|true");
 // localStorage.setItem("5", "My ToDo 5|false");
@@ -47,19 +47,18 @@ function getLocalstorage() {
                     </section>`
     document.querySelector("#bodyGrid").insertAdjacentHTML("beforeend", newToDoHTML);
 
-      const checkbox = document.getElementsByClassName("checkBoxGrid");
-      checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
-      let checkboxStatus = localstorageArray[1]
-        if (checkboxStatus=="true") {
-          const taggedText = document.getElementById(taskID+"TaskZone").innerHTML;
-          console.log(taskID);
-          let strippedText = String(taggedText);
-          strippedText = strippedText.replace("<h3>", "<s>");
-          strippedText = strippedText.replace("</h3>", "</s>");
-          document.getElementById(taskID+"TaskZone").innerHTML = strippedText;
-          document.getElementById(taskID).style.gridColumnStart = "3";
-          document.getElementById(taskID).className = "gridContainer cardGrid clicked task";
-        }
+    const checkbox = document.getElementsByClassName("checkBoxGrid");
+    checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
+    let checkboxStatus = localstorageArray[1]
+    if (checkboxStatus == "true") {
+      const taggedText = document.getElementById(taskID + "TaskZone").innerHTML;
+      let strippedText = String(taggedText);
+      strippedText = strippedText.replace("<h3>", "<s>");
+      strippedText = strippedText.replace("</h3>", "</s>");
+      document.getElementById(taskID + "TaskZone").innerHTML = strippedText;
+      document.getElementById(taskID).style.gridColumnStart = "3";
+      document.getElementById(taskID).className = "gridContainer cardGrid clicked task";
+    }
     removeTaskListener();
     //hamburgerListener();
     checkboxListener();
@@ -141,7 +140,7 @@ function removeTaskListenerClick() {
 //   console.log("HamburgerMenu " + this.id + " clicked");;
 // }
 
-function checkboxListener() { 
+function checkboxListener() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
   for (let i = 0; i < checkbox.length; i++) {
     checkbox[i].outerHTML = checkbox[i].outerHTML; //strip stacked listeners
@@ -160,7 +159,7 @@ function checkboxListener() {
         const checkboxID = "task" + (i + 1) + "checkbox";
         const checkStatus = localstorageArray[1];
         checkboxStatus = true;
-        localStorage.setItem(i+1, taskName+'|'+checkboxStatus);
+        localStorage.setItem(i + 1, taskName + '|' + checkboxStatus);
       } else {
         const taggedText = this.parentElement.children[1].innerHTML;
         let strippedText = String(taggedText);
@@ -175,11 +174,11 @@ function checkboxListener() {
         const checkboxID = "task" + (i + 1) + "checkbox";
         const checkStatus = localstorageArray[1];
         checkboxStatus = false;
-        localStorage.setItem(i+1, taskName+'|'+checkboxStatus);
+        localStorage.setItem(i + 1, taskName + '|' + checkboxStatus);
       }
     });
   }
-} 
+}
 
 function checkboxListeners() {
   const checkbox = document.getElementsByClassName("checkBoxGrid");
@@ -348,45 +347,43 @@ function reorderAllTaskID() {
   getAllopenTasks();
 }
 
-  //###### Start: Display clock on footer left side#######
-  window.addEventListener('load', display_ct());
-  function display_c() {
-    var refresh = 1000; // Refresh rate in milli seconds
-    mytime = setTimeout('display_ct()', refresh)
+//###### Start: Display clock on footer left side#######
+window.addEventListener('load', display_ct());
+function display_c() {
+  var refresh = 1000; // Refresh rate in milli seconds
+  mytime = setTimeout('display_ct()', refresh)
+}
+
+function display_ct() {
+  var x = new Date()
+  var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+
+  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+  document.getElementById("clock").innerHTML = x1;
+
+  var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+  document.getElementById("clock2").innerHTML = x2;
+  display_c();
+}
+//###### End: Display clock on footer left side#######
+
+
+//###### Start: Display open tasks on footer midle #######
+window.addEventListener('load', getAllopenTasks());
+function getAllopenTasks() {
+  let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
+  if (allTasks.length == 0) {
+    document.getElementById("ot").innerHTML = '';
+  } else {
+    document.getElementById("ot").innerHTML = allTasks.length;
   }
-  
-  function display_ct() {
-    var x = new Date()
-    var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
-  
-    var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-    document.getElementById("clock").innerHTML = x1;
-  
-    var x2 = x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-    document.getElementById("clock2").innerHTML = x2;
-    display_c();
+}
+//###### Ende: Display open tasks on footer midle #######
+
+function resizeLogo() {
+  if (window.innerWidth >= 530) {
+    document.querySelector("#LogoContainer").style.zoom = 0.5;
+  } else {
+    document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
   }
-  //###### End: Display clock on footer left side#######
-  
-  
-  //###### Start: Display open tasks on footer midle #######
-  window.addEventListener('load', getAllopenTasks());
-  function getAllopenTasks() {
-    let allTasks = document.getElementsByClassName("gridContainer cardGrid task");
-    console.log(allTasks);
-    if (allTasks.length == 0) {
-      document.getElementById("ot").innerHTML = '';
-    } else {
-      document.getElementById("ot").innerHTML = allTasks.length;
-    }
-  }
-  //###### Ende: Display open tasks on footer midle #######
-  
-  function resizeLogo() {
-    if (window.innerWidth >= 530) {
-      document.querySelector("#LogoContainer").style.zoom = 0.5;
-    } else {
-      document.querySelector("#LogoContainer").style.zoom = (window.innerWidth / 1060); //scaling starts at zoom factor 0.5 
-    }
-  }
-  
+}
