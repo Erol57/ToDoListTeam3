@@ -1,10 +1,10 @@
-localStorage.clear();
-localStorage.setItem("1", "My ToDo 1|false");
-localStorage.setItem("2", "My ToDo 2 (checked)|true");
-localStorage.setItem("3", "My ToDo 3|false");
-localStorage.setItem("4", "My ToDo 4 (checked)|true");
-localStorage.setItem("5", "My ToDo 5|false");
-localStorage.setItem("6", "My ToDo 6|false");
+// localStorage.clear();
+// localStorage.setItem("1", "My ToDo 1|false");
+// localStorage.setItem("2", "My ToDo 2 (checked)|true");
+// localStorage.setItem("3", "My ToDo 3|false");
+// localStorage.setItem("4", "My ToDo 4 (checked)|true");
+// localStorage.setItem("5", "My ToDo 5|false");
+// localStorage.setItem("6", "My ToDo 6|false");
 
 function addTaskListener() {
   const taskPlus = document.querySelector(".addTask.plusSign");
